@@ -8,7 +8,12 @@ const Drinks = (props) => {
             {/* <button {...props} className="category-button" data-id="me"></button>
             <div {...props} className="category-button" data-id="you">{props.data}</div> */}
 
-            <CatButton {...props} id={"categories"} />
+            {/* <CatButton {...props} id={"back"} type="drinks" /> */}
+            <CatButton {...props} id={"back"} type={"categories"} />
+            {/* <CatButton {...props} id={"orange juice"} /> */}
+            {props.array.map(item => (
+                <CatButton {...props} key={item} id={item} type={item} />
+            ))}
 
         </div>
     )
