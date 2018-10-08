@@ -8,7 +8,7 @@ const Categories = (props) => {
             {/* <button {...props} className="category-button" data-id="me"></button>
             <div {...props} className="category-button" data-id="you">{props.data}</div> */}
             {props.array.map(item => (
-                <CatButton {...props} key={item} id={item} />
+                <CatButton {...props} key={item.name} type="drinks" id={item.name} />
             ))}
         </div>
     )

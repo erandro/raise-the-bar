@@ -5,10 +5,13 @@ import Drinks from "../Drinks";
 
 class Display extends Component {
     state = {
-        categories: "",
+        categories: { "juices": ["orange juice", "lemonade", "apple juice"], "low proof": ["beer"], "other": ["poison"] },
         left: "categories",
-        right: "",
-        array: ["base liquor", "juices", "low proof", "other"]
+        right: "categories",
+        array: ["base liquor", "juices", "low proof", "other"],
+        array2: [{ "name": "base liquor" }, { "name": "juices" }, { "name": "low proof" }, { "name": "other" }],
+        firstDrink: "",
+        secondDrink: ""
     };
 
     componentDidMount() {
@@ -16,29 +19,35 @@ class Display extends Component {
         console.log(this.firstClickHandler);
         //this.setState({ left: "categories", right: <Categories onClick={this.firstClickHandler} data="squid" id="greenbox" /> });
         //this.setState({ categories: <Categories onClick={this.firstClickHandler} data="squid" array={this.state.array} />, left: "categories", right: <Categories onClick={this.firstClickHandler} data="squid" array={this.state.array} /> });
-        this.setState({ categories: <Categories onClick={this.firstClickHandler} data="squid" array={this.state.array} />, left: "categories", right: "categories" });
+        this.setState({ left: "categories", right: "categories" });
     }
 
     firstClickHandler = event => {
         event.preventDefault();
-        console.log(event.target);
+
+        let type = event.target.getAttribute("type") || this.state.firstDrink;
+        console.log(event.target, type);
+
         const side = event.target.getAttribute("data");
-        this.setState({ [side]: event.target.getAttribute("id") });
+
+        this.setState({ [side]: event.target.getAttribute("id"), firstDrink: type });
     }
 
     fillBoxes = (side) => {
-        if (this.state[side] === "categories") {
-            //return this.state.categories;
-            return <Categories onClick={this.firstClickHandler} data={side} array={this.state.array} />;
-        }
+        //if (this.state[side] === "categories") {
+        //return this.state.categories;
+        //return <Categories onClick={this.firstClickHandler} data={side} array={this.state.array} />;
+        //}
         // else return <h1>{this.state[side]}</h1>
-
-        switch (this.state[side]) {
+        const stateSide = this.state[side];
+        switch (stateSide) {
+            case "back":
             case "categories":
-                return <Categories onClick={this.firstClickHandler} data={side} array={this.state.array} />;
-
+                return <Categories onClick={this.firstClickHandler} data={side} array={this.state.array2} />;
+            case "orange juice":
             default:
-                return <Drinks onClick={this.firstClickHandler} data={side} array={this.state.array} />
+                console.log("stateSide: ", stateSide, " side: ", side)
+                return <Drinks onClick={this.firstClickHandler} data={side} array={this.state.categories[stateSide]} />
 
         }
     }
