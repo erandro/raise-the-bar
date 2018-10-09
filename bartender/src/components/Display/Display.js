@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import "./Display.css";
-// import Categories from "../Categories";
-// import Drinks from "../Drinks";
 import Wrapper from "../Wrapper";
 import CatButton from "../CatButton";
+import BarCopy from "../../BarCopy.json"
 
 class Display extends Component {
     state = {
@@ -16,12 +15,24 @@ class Display extends Component {
         secondDrink: ""
     };
 
+    componentDidUpdate() {
+        // document.getElementById(this.state.firstDrink) ? document.getElementById(this.state.firstDrink).style.backgroundColor = "red" : console.log("uh oh");
+        this.updateColor("green")
+    }
+
+    updateColor = (color) => {
+        let element = this.state.firstDrink;
+        element ? element.style.backgroundColor = color : console.log("uh oh");
+    }
+
     componentDidMount() {
-        //this.setState({ left: this.state.categories, right: <Categories onClick={this.firstClickHandler} data="squid" id="greenbox" /> });
-        console.log(this.firstClickHandler);
-        //this.setState({ left: "categories", right: <Categories onClick={this.firstClickHandler} data="squid" id="greenbox" /> });
-        //this.setState({ categories: <Categories onClick={this.firstClickHandler} data="squid" array={this.state.array} />, left: "categories", right: <Categories onClick={this.firstClickHandler} data="squid" array={this.state.array} /> });
-        this.setState({ left: "back", right: "back" });
+        console.log(BarCopy);
+        let testCatArray = []
+        for (var cat in BarCopy) {
+            testCatArray.push(cat);
+        }
+        console.log(testCatArray);
+        this.setState({ left: "back", right: "back", array: testCatArray });
     }
 
     firstClickHandler = event => {
@@ -31,59 +42,23 @@ class Display extends Component {
         console.log(event.target, type);
 
         const side = event.target.getAttribute("data");
-
-        this.setState({ [side]: event.target.getAttribute("id"), firstDrink: type });
+        if (this.state[side] === "back") {
+            this.setState({ [side]: event.target.getAttribute("id") });
+        }
+        else {
+            //event.target.style.backgroundColor = "red";
+            this.updateColor("blue");
+            this.setState({ firstDrink: event.target });
+        }
     }
 
     fillBoxes = (side) => {
-        //if (this.state[side] === "categories") {
-        //return this.state.categories;
-        //return <Categories onClick={this.firstClickHandler} data={side} array={this.state.array} />;
-        //}
-        // else return <h1>{this.state[side]}</h1>
 
         const stateSide = this.state[side];
 
-        // switch (stateSide) {
-        //     case "back":
-        //     case "categories":
-        //         //return <Categories onClick={this.firstClickHandler} data={side} array={this.state.array2} />;
-        //         return (<Wrapper>
-        //             {this.state.array.map(item => (
-        //                 <CatButton key={item} id={item} type={item} onClick={this.firstClickHandler} data={side} />
-        //             ))}
-        //         </Wrapper>)
-        //     case "orange juice":
-        //     default:
-        //         console.log("stateSide: ", stateSide, " side: ", side)
-        //         // return <Drinks onClick={this.firstClickHandler} data={side} array={this.state.categories[stateSide] || []} />;
-        //         let myArray = this.state.categories[stateSide] || [];
-        //         return (
-        //             <Wrapper>
-        //                 <CatButton onClick={this.firstClickHandler} data={side} id={"back"} type={"categories"} />
-        //                 {myArray.map(item => (
-        //                     <CatButton onClick={this.firstClickHandler} data={side} key={item} id={item} type={item} />
-        //                 ))}
-        //             </Wrapper>
-        //         );
-        // }
-
-        let myArray = [];
-
-        // switch (stateSide) {
-        //     case "back":
-        //         //case "categories":
-        //         myArray = this.state.array;
-        //         break;
-        //     case "orange juice":
-        //     default:
-        //         console.log("stateSide: ", stateSide, " side: ", side)
-        //         myArray = this.state.categories[stateSide] || [];
-        //         break;
-        // }
-
-        let drinkArray = this.state.categories[stateSide] || [];
-        myArray = stateSide === "back" ? this.state.array : drinkArray
+        // let drinkArray2 = this.state.categories[stateSide] || [];
+        let drinkArray = BarCopy[stateSide] ? BarCopy[stateSide].items.map(item => item.name) : [];
+        let myArray = stateSide === "back" ? this.state.array : drinkArray
 
         return (
             <Wrapper>

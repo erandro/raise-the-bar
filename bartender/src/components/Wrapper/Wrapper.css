@@ -1,18 +1,9 @@
 #DrinksBox{
-    width: 300px;
+    width: 400px;
     height: 500px;
     background-color: lightpink;
     display: flex;
     flex-wrap: wrap;
-}
-
-.category-button{
-    width:100px;
-    height: 100px;
-    background-color: blue;
-    margin:20px;
-}
-
-#redbox {
-    background-color: red;
+    justify-content: space-evenly;
+    align-content: flex-start;
 }
