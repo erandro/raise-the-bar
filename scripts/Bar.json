@@ -180,7 +180,7 @@
                         "reveal": "Tequila Screwdriver"
                     },
                     {
-                        "item": "Champaign",
+                        "item": "Champagne",
                         "reveal": "Mimosa"
                     },
                     {
@@ -470,7 +470,7 @@
                         "reveal": "Shandy"
                     },
                     {
-                        "item": "Champaign",
+                        "item": "Champagne",
                         "reveal": "Black Velvet"
                     }
                 ]
@@ -496,7 +496,7 @@
                 ]
             },
             {
-                "name": "Champaign",
+                "name": "Champagne",
                 "img": "",
                 "category": "Low-Proof Liquids",
                 "available": true,
@@ -580,7 +580,7 @@
                 "available": true,
                 "mixed_items": [
                     {
-                        "item": "Champaign",
+                        "item": "Champagne",
                         "reveal": "Bellini"
                     }
                 ]
@@ -592,7 +592,7 @@
                 "available": true,
                 "mixed_items": [
                     {
-                        "item": "Champaign",
+                        "item": "Champagne",
                         "reveal": "Kir Royale"
                     }
                 ]
@@ -624,7 +624,7 @@
                         "reveal": "Aperol Spritz"
                     },
                     {
-                        "item": "Champaign",
+                        "item": "Champagne",
                         "reveal": "Aperol Spritz"
                     }
                 ]
@@ -930,56 +930,56 @@
             }
         ]
     },
-    "Champaign and Wine Cocktails": {
-        "name": "Champaign and Wine Cocktails",
+    "Champagne and Wine Cocktails": {
+        "name": "Champagne and Wine Cocktails",
         "img": "",
         "items": [
             {
                 "name": "Aperol Spritz",
                 "img": "",
-                "category": "Champaign and Wine Cocktails",
+                "category": "Champagne and Wine Cocktails",
                 "available": true,
                 "mixed_items": []
             },
             {
                 "name": "Spritz",
                 "img": "",
-                "category": "Champaign and Wine Cocktails",
+                "category": "Champagne and Wine Cocktails",
                 "available": true,
                 "mixed_items": []
             },
             {
                 "name": "Tinto De Verano",
                 "img": "",
-                "category": "Champaign and Wine Cocktails",
+                "category": "Champagne and Wine Cocktails",
                 "available": true,
                 "mixed_items": []
             },
             {
                 "name": "Kir Royale",
                 "img": "",
-                "category": "Champaign and Wine Cocktails",
+                "category": "Champagne and Wine Cocktails",
                 "available": true,
                 "mixed_items": []
             },
             {
                 "name": "Mimosa",
                 "img": "",
-                "category": "Champaign and Wine Cocktails",
+                "category": "Champagne and Wine Cocktails",
                 "available": true,
                 "mixed_items": []
             },
             {
                 "name": "Bellini",
                 "img": "",
-                "category": "Champaign and Wine Cocktails",
+                "category": "Champagne and Wine Cocktails",
                 "available": true,
                 "mixed_items": []
             },
             {
                 "name": "Black Velvet",
                 "img": "",
-                "category": "Champaign and Wine Cocktails",
+                "category": "Champagne and Wine Cocktails",
                 "available": true,
                 "mixed_items": []
             }
