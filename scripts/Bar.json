@@ -515,7 +515,7 @@
                     },
                     {
                         "item": "Aperol",
-                        "reveal": "Aperol "
+                        "reveal": "Aperol Spritz"
                     },
                     {
                         "item": "Beer",
@@ -677,7 +677,12 @@
                 "img": "",
                 "category": "Rum Cocktails",
                 "available": true,
-                "mixed_items": []
+                "mixed_items": [
+                    {
+                        "item": "Grapefruit Juice",
+                        "reveal": "Hemingway"
+                    }
+                ]
             },
             {
                 "name": "Old Fashioned",
