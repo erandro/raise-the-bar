@@ -2,1078 +2,794 @@
     "Base Spirits": {
         "name": "Base Spirits",
         "img": "",
+        "available": true,
         "items": [
             {
                 "name": "Vodka",
                 "img": "",
                 "category": "Base Spirits",
                 "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Liqueur Coffee",
-                        "reveal": "Black Russian"
-                    },
-                    {
-                        "item": "Tomato Juice",
-                        "reveal": "Bloody Mary"
-                    },
-                    {
-                        "item": "Orange Juice",
-                        "reveal": "Screwdriver"
-                    },
-                    {
-                        "item": "Ginger Beer",
-                        "reveal": "Moscow Mule"
-                    },
-                    {
-                        "item": "Cranberry Juice",
-                        "reveal": "Vodka Cranberry"
-                    }
-                ]
+                "mixed_items": {
+                    "Liqueur Coffee": "Black Russian",
+                    "Tomato Juice": "Bloody Mary",
+                    "Orange Juice": "Screwdriver",
+                    "Ginger Beer": "Moscow Mule",
+                    "Cranberry Juice": "Vodka Cranberry"
+                }
             },
             {
                 "name": "Gin",
                 "img": "",
                 "category": "Base Spirits",
                 "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Dry Vermouth",
-                        "reveal": "Martini"
-                    },
-                    {
-                        "item": "Sour",
-                        "reveal": "South Side"
-                    },
-                    {
-                        "item": "Tonic",
-                        "reveal": "Gin and Tonic"
-                    },
-                    {
-                        "item": "Tomato Juice",
-                        "reveal": "Red Snapper"
-                    },
-                    {
-                        "item": "Bitters",
-                        "reveal": "Pegu Club"
-                    }
-                ]
+                "mixed_items": {
+                    "Dry Vermouth": "Martini",
+                    "Sour": "South Side",
+                    "Tonic": "Gin and Tonic",
+                    "Tomato Juice": "Red Snapper",
+                    "Bitters": "Pegu Club"
+                }
             },
             {
                 "name": "Tequila",
                 "img": "",
                 "category": "Base Spirits",
                 "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Sour",
-                        "reveal": "Tequila Sour"
-                    },
-                    {
-                        "item": "Orange Juice",
-                        "reveal": "Tequila Screwdriver"
-                    },
-                    {
-                        "item": "Grapefruit Juice",
-                        "reveal": "Paloma"
-                    }
-                ]
+                "mixed_items": {
+                    "Sour": "Tequila Sour",
+                    "Orange Juice": "Tequila Screwdriver",
+                    "Grapefruit Juice": "Paloma"
+                }
             },
             {
                 "name": "Rum",
                 "img": "",
                 "category": "Base Spirits",
                 "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Bitters",
-                        "reveal": "Old Fashioned"
-                    },
-                    {
-                        "item": "Coke",
-                        "reveal": "Cuba Libre"
-                    },
-                    {
-                        "item": "Coco Colada",
-                        "reveal": "Piña Colada"
-                    },
-                    {
-                        "item": "Sour",
-                        "reveal": "Daiquiri"
-                    },
-                    {
-                        "item": "Ginger Beer",
-                        "reveal": "Dark and Stormy"
-                    },
-                    {
-                        "item": "Lemon Juice",
-                        "reveal": "Mojito"
-                    }
-                ]
+                "mixed_items": {
+                    "Bitters": "Old Fashioned",
+                    "Coke": "Cuba Libre",
+                    "Coco Colada": "Piña Colada",
+                    "Sour": "Daiquiri",
+                    "Ginger Beer": "Dark and Stormy",
+                    "Lemon Juice": "Mojito"
+                }
             },
             {
                 "name": "Bourbon",
                 "img": "",
                 "category": "Base Spirits",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Sour",
-                        "reveal": "Whiskey Sour"
-                    },
-                    {
-                        "item": "Soda",
-                        "reveal": "Whiskey Soda"
-                    },
-                    {
-                        "item": "Coke",
-                        "reveal": "Whiskey Coke"
-                    },
-                    {
-                        "item": "Sweet Vermouth",
-                        "reveal": "Manhattan"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Sour": "Whiskey Sour",
+                    "Soda": "Whiskey Soda",
+                    "Coke": "Whiskey Coke",
+                    "Sweet Vermouth": "Manhattan"
+                }
             },
             {
                 "name": "Scotch",
                 "img": "",
                 "category": "Base Spirits",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Bitters",
-                        "reveal": "Old Fashioned"
-                    },
-                    {
-                        "item": "Soda",
-                        "reveal": "Whiskey Soda"
-                    },
-                    {
-                        "item": "Coke",
-                        "reveal": "Whiskey Coke"
-                    },
-                    {
-                        "item": "Sweet Vermouth",
-                        "reveal": "Rob Roy"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Bitters": "Old Fashioned",
+                    "Soda": "Whiskey Soda",
+                    "Coke": "Whiskey Coke",
+                    "Sweet Vermouth": "Rob Roy"
+                }
             }
         ]
     },
     "Juice": {
         "name": "Juice",
         "img": "",
+        "available": true,
         "items": [
             {
-                "name": "Orange juice",
+                "name": "Orange Juice",
                 "img": "",
                 "category": "Juice",
                 "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Vodka",
-                        "reveal": "Screwdriver"
-                    },
-                    {
-                        "item": "Tequila",
-                        "reveal": "Tequila Screwdriver"
-                    },
-                    {
-                        "item": "Champagne",
-                        "reveal": "Mimosa"
-                    },
-                    {
-                        "item": "Sweet Martini",
-                        "reveal": "Bronx"
-                    },
-                    {
-                        "item": "Campari",
-                        "reveal": "Garibaldi"
-                    }
-                ]
+                "mixed_items": {
+                    "Vodka": "Screwdriver",
+                    "Tequila": "Tequila Screwdriver",
+                    "Champagne": "Mimosa",
+                    "Sweet Martini": "Bronx",
+                    "Campari": "Garibaldi"
+                }
             },
             {
                 "name": "Tomato Juice",
                 "img": "",
                 "category": "Juice",
                 "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Vodka",
-                        "reveal": "Bloody Mary"
-                    },
-                    {
-                        "item": "Gin",
-                        "reveal": "Red Snapper"
-                    }
-                ]
+                "mixed_items": {
+                    "Vodka": "Bloody Mary",
+                    "Gin": "Red Snapper"
+                }
             },
             {
                 "name": "Lemon Juice",
                 "img": "",
                 "category": "Juice",
                 "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Rum",
-                        "reveal": "Mojito"
-                    }
-                ]
+                "mixed_items": {
+                    "Rum": "Mojito"
+                }
             },
             {
                 "name": "Pineapple Juice",
                 "img": "",
                 "category": "Juice",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Cream of Coconut",
-                        "reveal": "Coco Colada"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Cream of Coconut": "Coco Colada"
+                }
             },
             {
                 "name": "Cream of Coconut",
                 "img": "",
                 "category": "Juice",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Pineapple Juice",
-                        "reveal": "Coco Colada"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Pineapple Juice": "Coco Colada"
+                }
             },
             {
                 "name": "Grapefruit Juice",
                 "img": "",
                 "category": "Juice",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Tequila",
-                        "reveal": "Paloma"
-                    },
-                    {
-                        "item": "Daiquiri",
-                        "reveal": "Hemingway"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Tequila": "Paloma",
+                    "Daiquiri": "Hemingway"
+                }
             },
             {
                 "name": "Cranberry Juice",
                 "img": "",
                 "category": "Juice",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Vodka",
-                        "reveal": "Vodka Cranberry"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Vodka": "Vodka Cranberry"
+                }
             }
         ]
     },
     "Mixers": {
         "name": "Mixers",
         "img": "",
+        "available": true,
         "items": [
             {
                 "name": "Coke",
                 "img": "",
                 "category": "Mixers",
                 "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Rum",
-                        "reveal": "Cuba Libre"
-                    },
-                    {
-                        "item": "Bourbon",
-                        "reveal": "Whiskey Coke"
-                    },
-                    {
-                        "item": "Scotch",
-                        "reveal": "Whiskey Coke"
-                    }
-                ]
+                "mixed_items": {
+                    "Rum": "Cuba Libre",
+                    "Bourbon": "Whiskey Coke",
+                    "Scotch": "Whiskey Coke"
+                }
             },
             {
                 "name": "Sprite",
                 "img": "",
                 "category": "Mixers",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Beer",
-                        "reveal": "Shandy"
-                    },
-                    {
-                        "item": "Grenadine",
-                        "reveal": "Shirley Temple"
-                    },
-                    {
-                        "item": "Wine",
-                        "reveal": "Tinto De Verano"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Beer": "Shandy",
+                    "Grenadine": "Shirley Temple",
+                    "Wine": "Tinto De Verano"
+                }
             },
             {
                 "name": "Soda",
                 "img": "",
                 "category": "Mixers",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "South Side",
-                        "reveal": "Tom Collins"
-                    },
-                    {
-                        "item": "Wine",
-                        "reveal": "Spritz"
-                    },
-                    {
-                        "item": "Bourbon",
-                        "reveal": "Whiskey Soda"
-                    },
-                    {
-                        "item": "Scotch",
-                        "reveal": "Whiskey Soda"
-                    },
-                    {
-                        "item": "Negroni",
-                        "reveal": "Americano"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "South Side": "Tom Collins",
+                    "Wine": "Spritz",
+                    "Bourbon": "Whiskey Soda",
+                    "Scotch": "Whiskey Soda",
+                    "Negroni": "Americano"
+                }
             },
             {
                 "name": "Tonic",
                 "img": "",
                 "category": "Mixers",
                 "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Gin",
-                        "reveal": "Gin and Tonic"
-                    }
-                ]
+                "mixed_items": {
+                    "Gin": "Gin and Tonic"
+                }
             },
             {
                 "name": "Ginger Beer",
                 "img": "",
                 "category": "Mixers",
                 "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Vodka",
-                        "reveal": "Moscow Mule"
-                    },
-                    {
-                        "item": "Rum",
-                        "reveal": "Dark and Stormy"
-                    }
-                ]
+                "mixed_items": {
+                    "Vodka": "Moscow Mule",
+                    "Rum": "Dark and Stormy"
+                }
             }
         ]
     },
     "Flavoring Liquids": {
         "name": "Flavoring Liquids",
         "img": "",
+        "available": true,
         "items": [
             {
                 "name": "Half&Half",
                 "img": "",
                 "category": "Flavoring Liquids",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Black Russian",
-                        "reveal": "White Russian"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Black Russian": "White Russian"
+                }
             },
             {
                 "name": "Bitters",
                 "img": "",
                 "category": "Flavoring Liquids",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Rum",
-                        "reveal": "Old Fashioned"
-                    },
-                    {
-                        "item": "Gin",
-                        "reveal": "Pegu Club"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Rum": "Old Fashioned",
+                    "Gin": "Pegu Club"
+                }
             },
             {
                 "name": "Sour",
                 "img": "",
                 "category": "Flavoring Liquids",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Gin",
-                        "reveal": "South Side"
-                    },
-                    {
-                        "item": "Bourbon",
-                        "reveal": "Whiskey Sour"
-                    },
-                    {
-                        "item": "Rum",
-                        "reveal": "Daiquiri"
-                    },
-                    {
-                        "item": "Tequila",
-                        "reveal": "Tequila Sour"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Gin": "South Side",
+                    "Bourbon": "Whiskey Sour",
+                    "Rum": "Daiquiri",
+                    "Tequila": "Tequila Sour"
+                }
             },
             {
                 "name": "Grenadine",
                 "img": "",
                 "category": "Flavoring Liquids",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Tequila Screwdriver",
-                        "reveal": "Tequila Sunrise"
-                    },
-                    {
-                        "item": "Piña Colada",
-                        "reveal": "Bahama Mama"
-                    },
-                    {
-                        "item": "Sprite",
-                        "reveal": "Shirley Temple"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Tequila Screwdriver": "Tequila Sunrise",
+                    "Piña Colada": "Bahama Mama",
+                    "Sprite": "Shirley Temple"
+                }
             }
         ]
     },
     "Low-Proof Liquids": {
         "name": "Low-Proof Liquids",
         "img": "",
+        "available": true,
         "items": [
             {
                 "name": "Beer",
                 "img": "",
                 "category": "Low-Proof Liquids",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Sprite",
-                        "reveal": "Shandy"
-                    },
-                    {
-                        "item": "Champagne",
-                        "reveal": "Black Velvet"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Sprite": "Shandy",
+                    "Champagne": "Black Velvet"
+                }
             },
             {
                 "name": "Wine",
                 "img": "",
                 "category": "Low-Proof Liquids",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Sprite",
-                        "reveal": "Tinto De Verano"
-                    },
-                    {
-                        "item": "Soda",
-                        "reveal": "Spritz"
-                    },
-                    {
-                        "item": "Whiskey Sour",
-                        "reveal": "New York Sour"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Sprite": "Tinto De Verano",
+                    "Soda": "Spritz",
+                    "Whiskey Sour": "New York Sour"
+                }
             },
             {
                 "name": "Champagne",
                 "img": "",
                 "category": "Low-Proof Liquids",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Peach Liqueur",
-                        "reveal": "Bellini"
-                    },
-                    {
-                        "item": "Crème de cassis",
-                        "reveal": "Kir Royale"
-                    },
-                    {
-                        "item": "Orange juice",
-                        "reveal": "Mimosa"
-                    },
-                    {
-                        "item": "Aperol",
-                        "reveal": "Aperol Spritz"
-                    },
-                    {
-                        "item": "Beer",
-                        "reveal": "Black Velvet"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Peach Liqueur": "Bellini",
+                    "Crème de cassis": "Kir Royale",
+                    "Orange Juice": "Mimosa",
+                    "Aperol": "Aperol Spritz",
+                    "Beer": "Black Velvet"
+                }
             },
             {
                 "name": "Dry Vermouth",
                 "img": "",
                 "category": "Low-Proof Liquids",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Gin",
-                        "reveal": "Martini"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Gin": "Martini"
+                }
             },
             {
                 "name": "Sweet Vermouth",
                 "img": "",
                 "category": "Low-Proof Liquids",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Gin",
-                        "reveal": "Sweet Martini"
-                    },
-                    {
-                        "item": "Bourbon",
-                        "reveal": "Manhattan"
-                    },
-                    {
-                        "item": "Scotch",
-                        "reveal": "Rob Roy"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Gin": "Sweet Martini",
+                    "Bourbon": "Manhattan",
+                    "Scotch": "Rob Roy"
+                }
             }
         ]
     },
     "Liqueurs": {
         "name": "Liqueurs",
         "img": "",
+        "available": true,
         "items": [
             {
                 "name": "Liqueur Coffee",
                 "img": "",
                 "category": "Liqueurs",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Vodka",
-                        "reveal": "Black Russian"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Vodka": "Black Russian"
+                }
             },
             {
                 "name": "Peach Liqueur",
                 "img": "",
                 "category": "Liqueurs",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Champagne",
-                        "reveal": "Bellini"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Champagne": "Bellini"
+                }
             },
             {
                 "name": "Crème de cassis",
                 "img": "",
                 "category": "Liqueurs",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Champagne",
-                        "reveal": "Kir Royale"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Champagne": "Kir Royale"
+                }
             },
             {
                 "name": "Campari",
                 "img": "",
                 "category": "Liqueurs",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Sweet Martini",
-                        "reveal": "Negroni"
-                    },
-                    {
-                        "item": "Orange Juice",
-                        "reveal": "Garibaldi"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Sweet Martini": "Negroni",
+                    "Orange Juice": "Garibaldi"
+                }
             },
             {
                 "name": "Aperol",
                 "img": "",
                 "category": "Liqueurs",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Spritz",
-                        "reveal": "Aperol Spritz"
-                    },
-                    {
-                        "item": "Champagne",
-                        "reveal": "Aperol Spritz"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Spritz": "Aperol Spritz",
+                    "Champagne": "Aperol Spritz"
+                }
             },
             {
                 "name": "Triple Sec",
                 "img": "",
                 "category": "Liqueurs",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Vodka Cranberry",
-                        "reveal": "Cosmopolitan"
-                    },
-                    {
-                        "item": "Tequila Sour",
-                        "reveal": "Margarita"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Vodka Cranberry": "Cosmopolitan",
+                    "Tequila Sour": "Margarita"
+                }
             }
         ]
     },
     "Rum Cocktails": {
         "name": "Rum Cocktails",
         "img": "",
+        "available": true,
         "items": [
             {
                 "name": "Mojito",
                 "img": "",
                 "category": "Rum Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Hemingway",
                 "img": "",
                 "category": "Rum Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Dark and Stormy",
                 "img": "",
                 "category": "Rum Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Daiquiri",
                 "img": "",
                 "category": "Rum Cocktails",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Grapefruit Juice",
-                        "reveal": "Hemingway"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Grapefruit Juice": "Hemingway"
+                }
             },
             {
                 "name": "Old Fashioned",
                 "img": "",
                 "category": "Rum Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Cuba Libre",
                 "img": "",
                 "category": "Rum Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Piña Colada",
                 "img": "",
                 "category": "Rum Cocktails",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Grenadine",
-                        "reveal": "Bahama Mama"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Grenadine": "Bahama Mama"
+                }
             },
             {
                 "name": "Bahama Mama",
                 "img": "",
                 "category": "Rum Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             }
         ]
     },
     "Tequila Cocktails": {
         "name": "Tequila Cocktails",
         "img": "",
+        "available": true,
         "items": [
             {
                 "name": "Tequila Sunrise",
                 "img": "",
                 "category": "Tequila Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Margarita",
                 "img": "",
                 "category": "Tequila Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Paloma",
                 "img": "",
                 "category": "Tequila Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Tequila Sour",
                 "img": "",
                 "category": "Tequila Cocktails",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Triple Sec",
-                        "reveal": "Margarita"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Triple Sec": "Margarita"
+                }
             },
             {
                 "name": "Tequila Screwdriver",
                 "img": "",
                 "category": "Tequila Cocktails",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Grenadine",
-                        "reveal": "Tequila Sunrise"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Grenadine": "Tequila Sunrise"
+                }
             }
         ]
     },
     "Gin Cocktails": {
         "name": "Gin Cocktails",
         "img": "",
+        "available": true,
         "items": [
             {
                 "name": "Pegu Club",
                 "img": "",
                 "category": "Gin Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Red Snapper",
                 "img": "",
                 "category": "Gin Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Tom Collins",
                 "img": "",
                 "category": "Gin Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Bronx",
                 "img": "",
                 "category": "Gin Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Gin and Tonic",
                 "img": "",
                 "category": "Gin Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Martini",
                 "img": "",
                 "category": "Gin Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Americano",
                 "img": "",
                 "category": "Gin Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "South Side",
                 "img": "",
                 "category": "Gin Cocktails",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Soda",
-                        "reveal": "Tom Collins"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Soda": "Tom Collins"
+                }
             },
             {
                 "name": "Sweet Martini",
                 "img": "",
                 "category": "Gin Cocktails",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Campari",
-                        "reveal": "Negroni"
-                    },
-                    {
-                        "item": "Orange Juice",
-                        "reveal": "Bronx"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Campari": "Negroni",
+                    "Orange Juice": "Bronx"
+                }
             },
             {
                 "name": "Negroni",
                 "img": "",
                 "category": "Gin Cocktails",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Soda",
-                        "reveal": "Americano"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Soda": "Americano"
+                }
             }
         ]
     },
     "Vodka Cocktails": {
         "name": "Vodka Cocktails",
         "img": "",
+        "available": true,
         "items": [
             {
                 "name": "White Russian",
                 "img": "",
                 "category": "Vodka Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Bloody Mary",
                 "img": "",
                 "category": "Vodka Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Screwdriver",
                 "img": "",
                 "category": "Vodka Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Moscow Mule",
                 "img": "",
                 "category": "Vodka Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Cosmopolitan",
                 "img": "",
                 "category": "Vodka Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Vodka Cranberry",
                 "img": "",
                 "category": "Vodka Cocktails",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Triple Sec",
-                        "reveal": "Cosmopolitan"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Triple Sec": "Cosmopolitan"
+                }
             },
             {
                 "name": "Black Russian",
                 "img": "",
                 "category": "Vodka Cocktails",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Half&Half",
-                        "reveal": "White Russian"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Half&Half": "White Russian"
+                }
             }
         ]
     },
     "Champagne and Wine Cocktails": {
         "name": "Champagne and Wine Cocktails",
         "img": "",
+        "available": true,
         "items": [
             {
                 "name": "Aperol Spritz",
                 "img": "",
                 "category": "Champagne and Wine Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Spritz",
                 "img": "",
                 "category": "Champagne and Wine Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Tinto De Verano",
                 "img": "",
                 "category": "Champagne and Wine Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Kir Royale",
                 "img": "",
                 "category": "Champagne and Wine Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Mimosa",
                 "img": "",
                 "category": "Champagne and Wine Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Bellini",
                 "img": "",
                 "category": "Champagne and Wine Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Black Velvet",
                 "img": "",
                 "category": "Champagne and Wine Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             }
         ]
     },
     "Whiskey Cocktails": {
         "name": "Whiskey Cocktails",
         "img": "",
+        "available": true,
         "items": [
             {
                 "name": "Whiskey Coke",
                 "img": "",
                 "category": "Whiskey Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Whiskey Soda",
                 "img": "",
                 "category": "Whiskey Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Manhattan",
                 "img": "",
                 "category": "Whiskey Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Rob Roy",
                 "img": "",
                 "category": "Whiskey Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "New York Sour",
                 "img": "",
                 "category": "Whiskey Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Whiskey Sour",
                 "img": "",
                 "category": "Whiskey Cocktails",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Wine",
-                        "reveal": "New York Sour"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Wine": "New York Sour"
+                }
             }
         ]
     },
     "Mocktails and other Cocktails": {
         "name": "Mocktails and other Cocktails",
         "img": "",
+        "available": true,
         "items": [
             {
                 "name": "Shirley Temple",
                 "img": "",
                 "category": "Mocktails and other Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Garibaldi",
                 "img": "",
                 "category": "Mocktails and other Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Shandy",
                 "img": "",
                 "category": "Mocktails and other Cocktails",
-                "available": true,
-                "mixed_items": []
+                "available": false,
+                "mixed_items": {}
             },
             {
                 "name": "Coco Colada",
                 "img": "",
                 "category": "Mocktails and other Cocktails",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Rum",
-                        "reveal": "Piña Colada"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Rum": "Piña Colada"
+                }
             }
         ]
     }

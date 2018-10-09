@@ -9,10 +9,7 @@ const barSchema = new Schema({
         img: { type: String, required: true },
         category: { type: String, required: true },
         available: { type: Boolean, required: true },
-        mixed_items: [{
-            item: { type: String, required: true },
-            reveal: { type: String, required: true }
-        }]
+        mixed_items: {}
     }]
 }, { collection: 'bar' });
 
