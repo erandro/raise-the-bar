@@ -1,18 +1,12 @@
-#Box{
-    width: 300px;
-    height: 500px;
-    background-color: lightskyblue;
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .category-button{
-    width:100px;
-    height: 100px;
+    width:120px;
+    height: 60px;
     background-color: blue;
-    margin:20px;
+    margin-top: 20px;
+    color: white;
 }
 
-#redbox {
-    background-color: red;
+#back{
+    height: 25px;
+    width: 380px;
 }
