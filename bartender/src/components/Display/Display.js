@@ -9,7 +9,7 @@ class Display extends Component {
         categories: { "juices": ["orange juice", "lemonade", "apple juice"], "low proof": ["beer"], "other": ["poison"] },
         left: "categories",
         right: "categories",
-        array: ["base liquor", "juices", "low proof", "other"],
+        array: [],
         array2: [{ "name": "base liquor" }, { "name": "juices" }, { "name": "low proof" }, { "name": "other" }],
         firstDrink: "",
         secondDrink: ""
@@ -35,6 +35,51 @@ class Display extends Component {
         this.setState({ left: "back", right: "back", array: testCatArray });
     }
 
+    testClickHandler = (item1, item2) => {
+        this.checkCombination2(item1, item2)
+    }
+
+    checkCombination = (item1, item2) => {
+        let name = "";
+        for (var category in BarCopy) {
+            BarCopy[category].items.forEach(element => {
+                if (element.name === item1) {
+                    if (element.mixed_items[item2]) name = element.mixed_items[item2];
+                }
+            });
+        }
+        if (name) this.makeAvailable(name);
+    }
+
+    checkCombination2 = (item1, item2) => {
+        let name = "";
+        for (var category in BarCopy) {
+            BarCopy[category].items.forEach(element => {
+                if (element.name === item1) {
+                    let list = element.mixed_items;
+                    for (var i = 0; i > list.length; i++) {
+                        if (list[i].item === item2) {
+                            name = list[i].reveal;
+                        }
+                    }
+                }
+            });
+        }
+        if (name) this.makeAvailable(name);
+    }
+
+    makeAvailable = name => {
+        for (var category in BarCopy) {
+            BarCopy[category].items.forEach(element => {
+                if (element.name === name) {
+                    element.available = true;
+                }
+            });
+        }
+        this.setState({ left: "back", right: "back" });
+    }
+
+
     firstClickHandler = event => {
         event.preventDefault();
 
@@ -57,7 +102,7 @@ class Display extends Component {
         const stateSide = this.state[side];
 
         // let drinkArray2 = this.state.categories[stateSide] || [];
-        let drinkArray = BarCopy[stateSide] ? BarCopy[stateSide].items.map(item => item.name) : [];
+        let drinkArray = BarCopy[stateSide] ? BarCopy[stateSide].items.map(item => item.available ? item.name : "none").filter(element => element !== "none") : [];
         let myArray = stateSide === "back" ? this.state.array : drinkArray
 
         return (
@@ -76,6 +121,9 @@ class Display extends Component {
                 <div id="leftBox" className="box">
                     {this.fillBoxes("left")}
                 </div>
+                <div id="update" onClick={() => this.testClickHandler("Gin", "Tonic")}>
+                    ADD GIN AND TONIC
+               </div>
                 <div id="rightBox" className="box">
                     {this.fillBoxes("right")}
                 </div>

@@ -7,29 +7,14 @@
                 "name": "Vodka",
                 "img": "",
                 "category": "Base Spirits",
-                "available": true,
-                "mixed_items": [
-                    {
-                        "item": "Liqueur Coffee",
-                        "reveal": "Black Russian"
-                    },
-                    {
-                        "item": "Tomato Juice",
-                        "reveal": "Bloody Mary"
-                    },
-                    {
-                        "item": "Orange Juice",
-                        "reveal": "Screwdriver"
-                    },
-                    {
-                        "item": "Ginger Beer",
-                        "reveal": "Moscow Mule"
-                    },
-                    {
-                        "item": "Cranberry Juice",
-                        "reveal": "Vodka Cranberry"
-                    }
-                ]
+                "available": false,
+                "mixed_items": {
+                    "Liqueur Coffee": "Black Russian",
+                    "Tomato Juice": "Bloody Mary",
+                    "Orange Juice": "Screwdriver",
+                    "Ginger Beer": "Moscow Mule",
+                    "Cranberry Juice": "Vodka Cranberry"
+                }
             },
             {
                 "name": "Gin",
@@ -806,7 +791,7 @@
                 "name": "Gin and Tonic",
                 "img": "",
                 "category": "Gin Cocktails",
-                "available": true,
+                "available": false,
                 "mixed_items": []
             },
             {
@@ -887,7 +872,7 @@
                 "name": "Screwdriver",
                 "img": "",
                 "category": "Vodka Cocktails",
-                "available": true,
+                "available": false,
                 "mixed_items": []
             },
             {
