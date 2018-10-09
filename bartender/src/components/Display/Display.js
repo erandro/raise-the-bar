@@ -7,8 +7,8 @@ import BarCopy from "../../BarCopy.json"
 class Display extends Component {
     state = {
         categories: { "juices": ["orange juice", "lemonade", "apple juice"], "low proof": ["beer"], "other": ["poison"] },
-        left: "categories",
-        right: "categories",
+        left: { status: "categories", drink: "" },
+        right: { status: "categories", drink: "" },
         array: [],
         array2: [{ "name": "base liquor" }, { "name": "juices" }, { "name": "low proof" }, { "name": "other" }],
         firstDrink: "",
@@ -17,11 +17,16 @@ class Display extends Component {
 
     componentDidUpdate() {
         // document.getElementById(this.state.firstDrink) ? document.getElementById(this.state.firstDrink).style.backgroundColor = "red" : console.log("uh oh");
-        this.updateColor("green")
+        //this.updateColor("green");
+        this.updateColor("left", "green");
+        this.updateColor("right", "yellow");
+
+
     }
 
-    updateColor = (color) => {
-        let element = this.state.firstDrink;
+    updateColor = (side, color) => {
+        // let element = this.state[thing];
+        let element = this.state[side].drink;
         element ? element.style.backgroundColor = color : console.log("uh oh");
     }
 
@@ -32,11 +37,15 @@ class Display extends Component {
             testCatArray.push(cat);
         }
         console.log(testCatArray);
-        this.setState({ left: "back", right: "back", array: testCatArray });
+        this.setState({ left: { status: "back" }, right: { status: "back" }, array: testCatArray });
     }
 
     testClickHandler = (item1, item2) => {
-        this.checkCombination2(item1, item2)
+        // if (this.state.firstDrink && this.state.secondDrink) {
+        if (this.state.left.drink && this.state.right.drink) {
+            this.checkCombination(this.state.left.drink.getAttribute("id"), this.state.right.drink.getAttribute("id"));
+        }
+        // this.checkCombination(item1, item2)
     }
 
     checkCombination = (item1, item2) => {
@@ -48,24 +57,15 @@ class Display extends Component {
                 }
             });
         }
-        if (name) this.makeAvailable(name);
-    }
-
-    checkCombination2 = (item1, item2) => {
-        let name = "";
-        for (var category in BarCopy) {
-            BarCopy[category].items.forEach(element => {
-                if (element.name === item1) {
-                    let list = element.mixed_items;
-                    for (var i = 0; i > list.length; i++) {
-                        if (list[i].item === item2) {
-                            name = list[i].reveal;
-                        }
-                    }
-                }
-            });
+        if (name) {
+            alert(`You have created ${name}!`);
+            this.makeAvailable(name);
         }
-        if (name) this.makeAvailable(name);
+        else {
+            alert(`Not a Drink!`)
+        }
+        console.log("the checker ran", item1, item2)
+        this.clearBoard();
     }
 
     makeAvailable = name => {
@@ -76,7 +76,11 @@ class Display extends Component {
                 }
             });
         }
-        this.setState({ left: "back", right: "back" });
+        //this.setState({ left: { status: "back" }, right: { status: "back" } });
+    }
+
+    clearBoard = () => {
+        this.setState({ left: { status: "back", drink: "" }, right: { status: "back", drink: "" }, firstDrink: "", secondDrink: "" });
     }
 
 
@@ -87,19 +91,36 @@ class Display extends Component {
         console.log(event.target, type);
 
         const side = event.target.getAttribute("data");
-        if (this.state[side] === "back") {
-            this.setState({ [side]: event.target.getAttribute("id") });
+
+        if (this.state[side].status === "back") {
+            this.setState({ [side]: { drink: this.state[side].drink, status: event.target.getAttribute("id") } });
         }
-        else {
-            //event.target.style.backgroundColor = "red";
-            this.updateColor("blue");
-            this.setState({ firstDrink: event.target });
+        // else if (!this.state.firstDrink && side === "left") {
+        //     //event.target.style.backgroundColor = "red";
+        //     //this.updateColor("firstDrink", "blue");
+        //     this.setState({ firstDrink: event.target });
+        // }
+        // else if (!this.state.secondDrink && side === "right") {
+        //     //event.target.style.backgroundColor = "red";
+        //     //this.updateColor("secondDrink", "yellow");
+        //     this.setState({ secondDrink: event.target });
+        // }
+
+        else if (!this.state[side].drink) {
+            this.setState({ [side]: { drink: event.target, status: this.state[side].status } });
         }
+    }
+
+    backButtonHandler = (event) => {
+        event.preventDefault();
+        const side = event.target.getAttribute("data");
+
+        this.setState({ [side]: { status: "back" } });
     }
 
     fillBoxes = (side) => {
 
-        const stateSide = this.state[side];
+        const stateSide = this.state[side].status;
 
         // let drinkArray2 = this.state.categories[stateSide] || [];
         let drinkArray = BarCopy[stateSide] ? BarCopy[stateSide].items.map(item => item.available ? item.name : "none").filter(element => element !== "none") : [];
@@ -107,7 +128,7 @@ class Display extends Component {
 
         return (
             <Wrapper>
-                <CatButton onClick={this.firstClickHandler} data={side} id={"back"} type={"categories"} />
+                <CatButton onClick={this.backButtonHandler} data={side} id={"back"} type={"categories"} />
                 {myArray.map(item => (
                     <CatButton onClick={this.firstClickHandler} data={side} key={item} id={item} type={item} />
                 ))}
@@ -121,8 +142,8 @@ class Display extends Component {
                 <div id="leftBox" className="box">
                     {this.fillBoxes("left")}
                 </div>
-                <div id="update" onClick={() => this.testClickHandler("Gin", "Tonic")}>
-                    ADD GIN AND TONIC
+                <div id="update" onClick={() => this.testClickHandler("Vodka", "Orange Juice")}>
+                    ADD Screwdriver
                </div>
                 <div id="rightBox" className="box">
                     {this.fillBoxes("right")}
