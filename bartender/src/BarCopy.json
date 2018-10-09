@@ -7,7 +7,7 @@
                 "name": "Vodka",
                 "img": "",
                 "category": "Base Spirits",
-                "available": false,
+                "available": true,
                 "mixed_items": {
                     "Liqueur Coffee": "Black Russian",
                     "Tomato Juice": "Bloody Mary",
@@ -151,7 +151,7 @@
         "img": "",
         "items": [
             {
-                "name": "Orange juice",
+                "name": "Orange Juice",
                 "img": "",
                 "category": "Juice",
                 "available": true,
