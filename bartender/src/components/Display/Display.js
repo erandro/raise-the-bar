@@ -13,7 +13,8 @@ class Display extends Component {
         drinkArray: ["Vodka", "Gin", "Tequila", "Rum", "Orange Juice", "Tomato Juice", "Lemon Juice", "Coke", "Tonic", "Ginger Beer"],
         firstDrink: "",
         secondDrink: "",
-        drinkCount: 10
+        drinkCount: 10,
+        phase: 1
     };
 
     componentDidUpdate() {
@@ -22,7 +23,18 @@ class Display extends Component {
         this.updateColor("left", "green");
         this.updateColor("right", "yellow");
 
+        if (this.state.drinkCount === 15 && this.state.phase === 1) {
+            this.unveilNewPhase();
+            this.setState({ phase: 2 });
+        }
+    }
 
+    unveilNewPhase = () => {
+        let phase2Items = ["Scotch", "Bourbon", "Sour", "Bitters"];
+        alert("you did good, here's some more ingredients haha");
+        phase2Items.forEach(item => {
+            this.makeAvailable(item);
+        });
     }
 
     updateColor = (side, color) => {
