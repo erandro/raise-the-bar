@@ -10,9 +10,10 @@ class Display extends Component {
         left: { status: "categories", drink: "" },
         right: { status: "categories", drink: "" },
         array: [],
-        array2: [{ "name": "base liquor" }, { "name": "juices" }, { "name": "low proof" }, { "name": "other" }],
+        drinkArray: ["Vodka", "Gin", "Tequila", "Rum", "Orange Juice", "Tomato Juice", "Lemon Juice", "Coke", "Tonic", "Ginger Beer"],
         firstDrink: "",
-        secondDrink: ""
+        secondDrink: "",
+        drinkCount: 10
     };
 
     componentDidUpdate() {
@@ -34,13 +35,13 @@ class Display extends Component {
         console.log(BarCopy);
         let testCatArray = []
         for (var cat in BarCopy) {
-            testCatArray.push(cat);
+            if (BarCopy[cat].available) testCatArray.push(cat);
         }
         console.log(testCatArray);
         this.setState({ left: { status: "back" }, right: { status: "back" }, array: testCatArray });
     }
 
-    testClickHandler = (item1, item2) => {
+    testClickHandler = () => {
         // if (this.state.firstDrink && this.state.secondDrink) {
         if (this.state.left.drink && this.state.right.drink) {
             this.checkCombination(this.state.left.drink.getAttribute("id"), this.state.right.drink.getAttribute("id"));
@@ -73,10 +74,25 @@ class Display extends Component {
             BarCopy[category].items.forEach(element => {
                 if (element.name === name) {
                     element.available = true;
+                    this.makeCategoryAvailable(element.category);
+                    this.updateDrinksArray(element);
                 }
             });
         }
         //this.setState({ left: { status: "back" }, right: { status: "back" } });
+    }
+
+    makeCategoryAvailable = category => {
+        BarCopy[category].available = true;
+        if (!this.state.array.includes(category)) {
+            this.setState({ array: [...this.state.array, category] });
+        }
+    }
+
+    updateDrinksArray = drink => {
+        if (!this.state.drinkArray.includes(drink)) {
+            this.setState({ drinkArray: [...this.state.drinkArray, drink], drinkCount: this.state.drinkCount + 1 })
+        }
     }
 
     clearBoard = () => {
@@ -138,15 +154,19 @@ class Display extends Component {
 
     render() {
         return (
-            <div id="mainBox">
-                <div id="leftBox" className="box">
-                    {this.fillBoxes("left")}
-                </div>
-                <div id="update" onClick={() => this.testClickHandler("Vodka", "Orange Juice")}>
-                    ADD Screwdriver
-               </div>
-                <div id="rightBox" className="box">
-                    {this.fillBoxes("right")}
+            <div>
+                <h1>COUNT: {this.state.drinkCount}</h1>
+                <div id="mainBox">
+                    <div id="leftBox" className="box">
+                        {this.fillBoxes("left")}
+                    </div>
+                    <div id="update" onClick={this.testClickHandler}>
+                        COMBINE
+
+                    </div>
+                    <div id="rightBox" className="box">
+                        {this.fillBoxes("right")}
+                    </div>
                 </div>
             </div>
         )
