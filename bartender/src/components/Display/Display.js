@@ -19,17 +19,9 @@ class Display extends Component {
     };
 
     componentDidUpdate() {
-        // document.getElementById(this.state.firstDrink) ? document.getElementById(this.state.firstDrink).style.backgroundColor = "red" : console.log("uh oh");
-        //this.updateColor("green");
         this.updateColor("left", "green");
         this.updateColor("right", "yellow");
 
-        //console.log("LeftDrink: ", this.state.left.drink);
-
-        // if (this.state.drinkCount === 15 && this.state.phase === 1) {
-        //     this.unveilNewPhase();
-        //     this.setState({ phase: 2 });
-        // }
         switch (this.state.drinkCount) {
             case 15:
             case 20:
@@ -59,7 +51,6 @@ class Display extends Component {
     }
 
     updateColor = (side, color) => {
-        // let element = this.state[thing];
         let element = this.state[side].drink;
         element ? element.style.backgroundColor = color : console.log("uh oh");
     }
@@ -74,14 +65,6 @@ class Display extends Component {
         this.setState({ left: { status: "back" }, right: { status: "back" }, array: testCatArray });
     }
 
-    testClickHandler = () => {
-        // if (this.state.firstDrink && this.state.secondDrink) {
-        if (this.state.left.drink && this.state.right.drink) {
-            this.checkCombination(this.state.left.drink.getAttribute("id"), this.state.right.drink.getAttribute("id"));
-        }
-        // this.checkCombination(item1, item2)
-    }
-
     checkCombination = (item1, item2) => {
         let name = "";
         for (var category in BarCopy) {
@@ -94,9 +77,6 @@ class Display extends Component {
         if (name) {
             alert(`You have created ${name}!`);
             this.makeAvailable(name);
-            //this.updateDrinksArray(newDrink);
-            // this.makeAvailable(name).then((newDrink) => this.updateDrinksArray(newDrink));
-
         }
         else {
             alert(`Not a Drink!`)
@@ -116,7 +96,6 @@ class Display extends Component {
                 }
             });
         }
-        //this.setState({ left: { status: "back" }, right: { status: "back" } });
     }
 
     makeCategoryAvailable = category => {
@@ -153,18 +132,6 @@ class Display extends Component {
         if (this.state[side].status === "back") {
             this.setState({ [side]: { drink: this.state[side].drink, status: parent.getAttribute("id") } });
         }
-        // else if (!this.state.firstDrink && side === "left") {
-        //     //parent.style.backgroundColor = "red";
-        //     //this.updateColor("firstDrink", "blue");
-        //     this.setState({ firstDrink: parent });
-        // }
-        // else if (!this.state.secondDrink && side === "right") {
-        //     //parent.style.backgroundColor = "red";
-        //     //this.updateColor("secondDrink", "yellow");
-        //     this.setState({ secondDrink: parent });
-        // }
-
-
 
         else if (!this.state[side].drink && !this.state[oppositeSide].drink) {
             this.setState({ [side]: { drink: parent, status: this.state[side].status } });
@@ -185,7 +152,6 @@ class Display extends Component {
 
         const stateSide = this.state[side].status;
 
-        // let drinkArray2 = this.state.categories[stateSide] || [];
         let drinkArray = BarCopy[stateSide] ? BarCopy[stateSide].items.map(item => item.available ? item.name : "none").filter(element => element !== "none") : [];
         let myArray = stateSide === "back" ? this.state.array : drinkArray;
 
@@ -204,15 +170,11 @@ class Display extends Component {
     render() {
         return (
             <div>
-                <h1>COUNT: {this.state.drinkCount}</h1>
+                <h3 style={{ textAlign: "center" }}>SCORE: {this.state.drinkCount}/80</h3>
                 <div id="mainBox">
                     <div id="leftBox" className="box">
                         {this.fillBoxes("left")}
                     </div>
-                    {/* <div id="update" onClick={this.testClickHandler}>
-                        COMBINE
-
-                    </div> */}
                     <div id="rightBox" className="box">
                         {this.fillBoxes("right")}
                     </div>
