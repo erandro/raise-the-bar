@@ -144,6 +144,8 @@ class Display extends Component {
 
         const side = event.target.getAttribute("data");
 
+        let oppositeSide = side === "left" ? "right" : "left";
+
         if (this.state[side].status === "back") {
             this.setState({ [side]: { drink: this.state[side].drink, status: event.target.getAttribute("id") } });
         }
@@ -158,8 +160,13 @@ class Display extends Component {
         //     this.setState({ secondDrink: event.target });
         // }
 
-        else if (!this.state[side].drink) {
+
+
+        else if (!this.state[side].drink && !this.state[oppositeSide].drink) {
             this.setState({ [side]: { drink: event.target, status: this.state[side].status } });
+        }
+        else if (!this.state[side].drink && this.state[oppositeSide].drink) {
+            this.checkCombination(event.target.getAttribute("id"), this.state[oppositeSide].drink.getAttribute("id"));
         }
     }
 
@@ -198,10 +205,10 @@ class Display extends Component {
                     <div id="leftBox" className="box">
                         {this.fillBoxes("left")}
                     </div>
-                    <div id="update" onClick={this.testClickHandler}>
+                    {/* <div id="update" onClick={this.testClickHandler}>
                         COMBINE
 
-                    </div>
+                    </div> */}
                     <div id="rightBox" className="box">
                         {this.fillBoxes("right")}
                     </div>
