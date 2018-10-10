@@ -3,6 +3,7 @@ import "./Display.css";
 import Wrapper from "../Wrapper";
 import CatButton from "../CatButton";
 import BarCopy from "../../BarCopy.json"
+import Phases from "../../Phases.json"
 
 class Display extends Component {
     state = {
@@ -23,18 +24,36 @@ class Display extends Component {
         this.updateColor("left", "green");
         this.updateColor("right", "yellow");
 
-        if (this.state.drinkCount === 15 && this.state.phase === 1) {
-            this.unveilNewPhase();
-            this.setState({ phase: 2 });
+        // if (this.state.drinkCount === 15 && this.state.phase === 1) {
+        //     this.unveilNewPhase();
+        //     this.setState({ phase: 2 });
+        // }
+        switch (this.state.drinkCount) {
+            case 15:
+            case 20:
+            case 25:
+            case 35:
+            case 45:
+            case 55:
+            case 65:
+            case 80:
+                this.unveilNewPhase();
+                break;
+
+            default:
+                break;
         }
     }
 
     unveilNewPhase = () => {
-        let phase2Items = ["Scotch", "Bourbon", "Sour", "Bitters"];
+        //let phase2Items = ["Scotch", "Bourbon", "Sour", "Bitters"];
+        let phase2Items = Phases[this.state.phase];
         alert("you did good, here's some more ingredients haha");
         phase2Items.forEach(item => {
-            this.makeAvailable(item);
+            this.makeAvailable(item, true);
         });
+
+        this.setState({ drinkArray: [...this.state.drinkArray, ...phase2Items], drinkCount: this.state.drinkCount + phase2Items.length, phase: this.state.phase + 1 })
     }
 
     updateColor = (side, color) => {
@@ -73,6 +92,9 @@ class Display extends Component {
         if (name) {
             alert(`You have created ${name}!`);
             this.makeAvailable(name);
+            //this.updateDrinksArray(newDrink);
+            // this.makeAvailable(name).then((newDrink) => this.updateDrinksArray(newDrink));
+
         }
         else {
             alert(`Not a Drink!`)
@@ -81,13 +103,14 @@ class Display extends Component {
         this.clearBoard();
     }
 
-    makeAvailable = name => {
+    makeAvailable = (name, isPhaseChange) => {
         for (var category in BarCopy) {
             BarCopy[category].items.forEach(element => {
                 if (element.name === name) {
                     element.available = true;
                     this.makeCategoryAvailable(element.category);
-                    this.updateDrinksArray(element);
+                    if (!isPhaseChange) this.updateDrinksArray(element.name);
+                    return element.name;
                 }
             });
         }
@@ -102,6 +125,7 @@ class Display extends Component {
     }
 
     updateDrinksArray = drink => {
+        console.log("drink: ", drink)
         if (!this.state.drinkArray.includes(drink)) {
             this.setState({ drinkArray: [...this.state.drinkArray, drink], drinkCount: this.state.drinkCount + 1 })
         }
