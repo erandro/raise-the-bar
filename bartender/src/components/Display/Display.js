@@ -24,6 +24,8 @@ class Display extends Component {
         this.updateColor("left", "green");
         this.updateColor("right", "yellow");
 
+        //console.log("LeftDrink: ", this.state.left.drink);
+
         // if (this.state.drinkCount === 15 && this.state.phase === 1) {
         //     this.unveilNewPhase();
         //     this.setState({ phase: 2 });
@@ -139,40 +141,42 @@ class Display extends Component {
     firstClickHandler = event => {
         event.preventDefault();
 
-        let type = event.target.getAttribute("type") || this.state.firstDrink;
-        console.log(event.target, type);
+        let parent = event.target.parentElement;
 
-        const side = event.target.getAttribute("data");
+        let type = parent.getAttribute("type") || this.state.firstDrink;
+        console.log(parent, type);
+
+        const side = parent.getAttribute("data");
 
         let oppositeSide = side === "left" ? "right" : "left";
 
         if (this.state[side].status === "back") {
-            this.setState({ [side]: { drink: this.state[side].drink, status: event.target.getAttribute("id") } });
+            this.setState({ [side]: { drink: this.state[side].drink, status: parent.getAttribute("id") } });
         }
         // else if (!this.state.firstDrink && side === "left") {
-        //     //event.target.style.backgroundColor = "red";
+        //     //parent.style.backgroundColor = "red";
         //     //this.updateColor("firstDrink", "blue");
-        //     this.setState({ firstDrink: event.target });
+        //     this.setState({ firstDrink: parent });
         // }
         // else if (!this.state.secondDrink && side === "right") {
-        //     //event.target.style.backgroundColor = "red";
+        //     //parent.style.backgroundColor = "red";
         //     //this.updateColor("secondDrink", "yellow");
-        //     this.setState({ secondDrink: event.target });
+        //     this.setState({ secondDrink: parent });
         // }
 
 
 
         else if (!this.state[side].drink && !this.state[oppositeSide].drink) {
-            this.setState({ [side]: { drink: event.target, status: this.state[side].status } });
+            this.setState({ [side]: { drink: parent, status: this.state[side].status } });
         }
         else if (!this.state[side].drink && this.state[oppositeSide].drink) {
-            this.checkCombination(event.target.getAttribute("id"), this.state[oppositeSide].drink.getAttribute("id"));
+            this.checkCombination(parent.getAttribute("id"), this.state[oppositeSide].drink.getAttribute("id"));
         }
     }
 
     backButtonHandler = (event) => {
         event.preventDefault();
-        const side = event.target.getAttribute("data");
+        const side = event.target.parentElement.getAttribute("data");
 
         this.setState({ [side]: { status: "back" } });
     }
