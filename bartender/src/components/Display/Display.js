@@ -140,11 +140,13 @@ class Display extends Component {
 
         // let drinkArray2 = this.state.categories[stateSide] || [];
         let drinkArray = BarCopy[stateSide] ? BarCopy[stateSide].items.map(item => item.available ? item.name : "none").filter(element => element !== "none") : [];
-        let myArray = stateSide === "back" ? this.state.array : drinkArray
+        let myArray = stateSide === "back" ? this.state.array : drinkArray;
+
+        let backButton = stateSide === "back" ? "" : <CatButton onClick={this.backButtonHandler} data={side} id={"back"} type={"categories"} />;
 
         return (
             <Wrapper>
-                <CatButton onClick={this.backButtonHandler} data={side} id={"back"} type={"categories"} />
+                {backButton}
                 {myArray.map(item => (
                     <CatButton onClick={this.firstClickHandler} data={side} key={item} id={item} type={item} />
                 ))}
