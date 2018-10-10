@@ -649,57 +649,57 @@
             }
         ]
     },
-    "Champagne and Wine Cocktails": {
-        "name": "Champagne and Wine Cocktails",
+    "Wine Cocktails": {
+        "name": "Wine Cocktails",
         "img": "",
         "available": true,
         "items": [
             {
                 "name": "Aperol Spritz",
                 "img": "",
-                "category": "Champagne and Wine Cocktails",
+                "category": "Wine Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Spritz",
                 "img": "",
-                "category": "Champagne and Wine Cocktails",
+                "category": "Wine Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Tinto De Verano",
                 "img": "",
-                "category": "Champagne and Wine Cocktails",
+                "category": "Wine Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Kir Royale",
                 "img": "",
-                "category": "Champagne and Wine Cocktails",
+                "category": "Wine Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Mimosa",
                 "img": "",
-                "category": "Champagne and Wine Cocktails",
+                "category": "Wine Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Bellini",
                 "img": "",
-                "category": "Champagne and Wine Cocktails",
+                "category": "Wine Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Black Velvet",
                 "img": "",
-                "category": "Champagne and Wine Cocktails",
+                "category": "Wine Cocktails",
                 "available": false,
                 "mixed_items": {}
             }
@@ -756,36 +756,36 @@
             }
         ]
     },
-    "Mocktails and other Cocktails": {
-        "name": "Mocktails and other Cocktails",
+    "No Spirit Cocktails": {
+        "name": "No Spirit Cocktails",
         "img": "",
         "available": true,
         "items": [
             {
                 "name": "Shirley Temple",
                 "img": "",
-                "category": "Mocktails and other Cocktails",
+                "category": "No Spirit Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Garibaldi",
                 "img": "",
-                "category": "Mocktails and other Cocktails",
+                "category": "No Spirit Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Shandy",
                 "img": "",
-                "category": "Mocktails and other Cocktails",
+                "category": "No Spirit Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Coco Colada",
                 "img": "",
-                "category": "Mocktails and other Cocktails",
+                "category": "No Spirit Cocktails",
                 "available": false,
                 "mixed_items": {
                     "Rum": "Piña Colada"
