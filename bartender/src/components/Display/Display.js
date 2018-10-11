@@ -5,7 +5,10 @@ import CatButton from "../CatButton";
 //import BarCopy from "../../BarCopy.json"
 import Phases from "../../Phases.json"
 import axios from "axios";
+//import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
+import ModalExample from "../ModalExample";
 let BarCopy = {};
+
 
 
 class Display extends Component {
@@ -18,7 +21,8 @@ class Display extends Component {
         firstDrink: "",
         secondDrink: "",
         drinkCount: 10,
-        phase: 1
+        phase: 1,
+        modal: false
     };
 
     componentDidUpdate() {
@@ -45,7 +49,8 @@ class Display extends Component {
     unveilNewPhase = () => {
         //let phase2Items = ["Scotch", "Bourbon", "Sour", "Bitters"];
         let phase2Items = Phases[this.state.phase];
-        alert("you did good, here's some more ingredients haha");
+        //alert("you did good, here's some more ingredients haha");
+        this.toggle();
         phase2Items.forEach(item => {
             this.makeAvailable(item, true);
         });
@@ -61,6 +66,16 @@ class Display extends Component {
     componentDidMount() {
 
         this.setDB();
+
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     let alert = document.getElementById("alert");
+        //     var m = new Modal('#yo', {
+        //         backdrop: true
+        //     });
+        //     document.getElementById('btn-open').addEventListener('click', function () {
+        //         m.show();
+        //     });
+        // });
 
         // console.log(BarCopy);
         // let testCatArray = []
@@ -110,6 +125,7 @@ class Display extends Component {
         }
         else {
             alert(`Not a Drink!`)
+            //document.getElementById("alert").modal('show');
         }
         console.log("the checker ran", item1, item2)
         this.clearBoard();
@@ -197,6 +213,12 @@ class Display extends Component {
         );
     }
 
+    toggle = () => {
+        this.setState({
+            modal: !this.state.modal
+        });
+    }
+
     render() {
         return (
             <div>
@@ -204,6 +226,9 @@ class Display extends Component {
                 <div id="mainBox">
                     <div id="leftBox" className="box">
                         {this.fillBoxes("left")}
+                    </div>
+                    <div>
+                        <ModalExample dataModal={this.state.modal} toggle={this.toggle} />
                     </div>
                     <div id="rightBox" className="box">
                         {this.fillBoxes("right")}

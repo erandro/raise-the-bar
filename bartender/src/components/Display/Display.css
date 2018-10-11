@@ -6,3 +6,8 @@
     background-color: aliceblue;
     margin: auto;
 }
+
+.modal-content {
+    /* width: 400px; */
+    height: 600px;
+}
