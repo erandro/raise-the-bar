@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import "./Display.css";
 import Wrapper from "../Wrapper";
 import CatButton from "../CatButton";
-import BarCopy from "../../BarCopy.json"
+//import BarCopy from "../../BarCopy.json"
 import Phases from "../../Phases.json"
+import axios from "axios";
+let BarCopy = {};
+
 
 class Display extends Component {
     state = {
@@ -56,6 +59,33 @@ class Display extends Component {
     }
 
     componentDidMount() {
+
+        this.setDB();
+
+        // console.log(BarCopy);
+        // let testCatArray = []
+        // for (var cat in BarCopy) {
+        //     if (BarCopy[cat].available) testCatArray.push(cat);
+        // }
+        // console.log(testCatArray);
+        // this.setState({ left: { status: "back" }, right: { status: "back" }, array: testCatArray });
+    }
+
+    setDB = () => {
+        axios.get("/api/bar/")
+            .then(res =>
+                this.recreateJson(res.data)
+            )
+            .catch(err => console.log(err));;
+    }
+
+    recreateJson = (data) => {
+        let protoBar = {}
+        data.forEach(element => {
+            protoBar[element.name] = element;
+        });
+        console.log("protobar: ", protoBar);
+        BarCopy = protoBar;
         console.log(BarCopy);
         let testCatArray = []
         for (var cat in BarCopy) {
