@@ -230,7 +230,7 @@ const barSeed = [
     {
         "name": "Flavoring Liquids",
         "img": "",
-        "available": true,
+        "available": false,
         "items": [
             {
                 "name": "Half&Half",
@@ -279,7 +279,7 @@ const barSeed = [
     {
         "name": "Low-Proof Liquids",
         "img": "",
-        "available": true,
+        "available": false,
         "items": [
             {
                 "name": "Beer",
@@ -340,7 +340,7 @@ const barSeed = [
     {
         "name": "Liqueurs",
         "img": "",
-        "available": true,
+        "available": false,
         "items": [
             {
                 "name": "Liqueur Coffee",
@@ -404,7 +404,7 @@ const barSeed = [
     {
         "name": "Rum Cocktails",
         "img": "",
-        "available": true,
+        "available": false,
         "items": [
             {
                 "name": "Mojito",
@@ -471,7 +471,7 @@ const barSeed = [
     {
         "name": "Tequila Cocktails",
         "img": "",
-        "available": true,
+        "available": false,
         "items": [
             {
                 "name": "Tequila Sunrise",
@@ -517,7 +517,7 @@ const barSeed = [
     {
         "name": "Gin Cocktails",
         "img": "",
-        "available": true,
+        "available": false,
         "items": [
             {
                 "name": "Pegu Club",
@@ -601,7 +601,7 @@ const barSeed = [
     {
         "name": "Vodka Cocktails",
         "img": "",
-        "available": true,
+        "available": false,
         "items": [
             {
                 "name": "White Russian",
@@ -661,7 +661,7 @@ const barSeed = [
     {
         "name": "Wine Cocktails",
         "img": "",
-        "available": true,
+        "available": false,
         "items": [
             {
                 "name": "Aperol Spritz",
@@ -717,7 +717,7 @@ const barSeed = [
     {
         "name": "Whiskey Cocktails",
         "img": "",
-        "available": true,
+        "available": false,
         "items": [
             {
                 "name": "Whiskey Coke",
@@ -768,7 +768,7 @@ const barSeed = [
     {
         "name": "No Spirit Cocktails",
         "img": "",
-        "available": true,
+        "available": false,
         "items": [
             {
                 "name": "Shirley Temple",
