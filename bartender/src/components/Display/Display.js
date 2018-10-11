@@ -19,8 +19,8 @@ class Display extends Component {
     };
 
     componentDidUpdate() {
-        this.updateColor("left", "green");
-        this.updateColor("right", "yellow");
+        this.updateClass("left", "img-box shake-little");
+        this.updateClass("right", "img-box shake-little");
 
         switch (this.state.drinkCount) {
             case 15:
@@ -50,9 +50,9 @@ class Display extends Component {
         this.setState({ drinkArray: [...this.state.drinkArray, ...phase2Items], drinkCount: this.state.drinkCount + phase2Items.length, phase: this.state.phase + 1 })
     }
 
-    updateColor = (side, color) => {
+    updateClass = (side, newClass) => {
         let element = this.state[side].drink;
-        element ? element.style.backgroundColor = color : console.log("uh oh");
+        element ? element.className = newClass : console.log("uh oh");
     }
 
     componentDidMount() {
