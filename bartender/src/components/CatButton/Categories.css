@@ -21,3 +21,10 @@ img {
     height: 96px;
     width: 80px;
 }
+
+.shake-little {
+    animation-name: shake-little;
+    animation-duration: 100ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
