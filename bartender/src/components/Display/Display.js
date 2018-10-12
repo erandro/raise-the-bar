@@ -8,6 +8,7 @@ import axios from "axios";
 //import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
 import ModalExample from "../ModalExample";
 import BottomBar from "../BottomBar";
+import { Container, Row, Col } from 'reactstrap';
 let BarCopy = {};
 
 
@@ -254,21 +255,30 @@ class Display extends Component {
 
     render() {
         return (
-            <div>
-                <h3 style={{ textAlign: "center" }}>SCORE: {this.state.drinkCount}/80</h3>
-                <div id="mainBox">
-                    <div id="leftBox" className="box">
-                        {this.fillBoxes("left")}
-                    </div>
-                    <div>
-                        <ModalExample dataModal={this.state.modal} toggle={this.toggle} message={this.state.message} newStuff={Phases[this.state.phase]} />
-                    </div>
-                    <div id="rightBox" className="box">
-                        {this.fillBoxes("right")}
-                    </div>
-                </div>
-                <BottomBar onClick={this.toggle} />
-            </div>
+            <Container>
+                <Row>
+                    <Col>
+                        <h3 style={{ textAlign: "center" }}>SCORE: {this.state.drinkCount}/80</h3>
+                        <BottomBar onClick={this.toggle} />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs="5">
+                        <div id="leftBox" className="box">
+                            {this.fillBoxes("left")}
+                        </div>
+                    </Col>
+                    <Col xs="2">
+                        <div>
+                            <ModalExample dataModal={this.state.modal} toggle={this.toggle} message={this.state.message} newStuff={Phases[this.state.phase]} />
+                        </div></Col>
+                    <Col xs="5">
+                        <div id="rightBox" className="box">
+                            {this.fillBoxes("right")}
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 }
