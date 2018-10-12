@@ -190,11 +190,39 @@ class Display extends Component {
         return (
             <Wrapper>
                 {backButton}
-                {myArray.map(item => (
-                    <CatButton onClick={this.firstClickHandler} data={side} key={item} id={item} type={item} />
-                ))}
+                {myArray.map(
+                    (item) => {
+                        let itemImg = this.getImgforItem(item)
+                        return (
+                            //console.log(this.getImgforItem(item)),
+                            //console.log("AAAA"),
+                            <CatButton onClick={this.firstClickHandler} data={side} key={item} id={item} type={item} img={itemImg} />
+                        )
+                    }
+                )}
             </Wrapper>
         );
+    }
+
+    getImgforItem = (name) => {
+        if (BarCopy[name]) {
+            return BarCopy[name].img
+        } else {
+            let itemImg = undefined;
+            for (var category in BarCopy) {
+                BarCopy[category].items.forEach(element => {
+                    if (element.name === name) {
+                        itemImg = element.img;
+                        return;
+                    }
+                })
+
+                if (itemImg) {
+                    return itemImg;
+                }
+
+            }
+        }
     }
 
     render() {
