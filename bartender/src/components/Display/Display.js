@@ -220,6 +220,26 @@ class Display extends Component {
         );
     }
 
+    getImgforItem = (name) => {
+        if (BarCopy[name]) {
+            return BarCopy[name].img
+        } else {
+            let itemImg = undefined;
+            for (var category in BarCopy) {
+                BarCopy[category].items.forEach(element => {
+                    if (element.name === name) {
+                        itemImg = element.img;
+                        return;
+                    }
+                })
+
+                if (itemImg) {
+                    return itemImg;
+                }
+
+            }
+        }
+    }
 
     toggle = (message) => {
         console.log("message: ", message)
