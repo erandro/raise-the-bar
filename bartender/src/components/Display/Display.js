@@ -20,9 +20,10 @@ class Display extends Component {
         drinkArray: ["Vodka", "Gin", "Tequila", "Rum", "Orange Juice", "Tomato Juice", "Lemon Juice", "Coke", "Tonic", "Ginger Beer"],
         firstDrink: "",
         secondDrink: "",
-        drinkCount: 10,
+        drinkCount: 14,
         phase: 1,
-        modal: false
+        modal: false,
+        message: ""
     };
 
     componentDidUpdate() {
@@ -50,7 +51,7 @@ class Display extends Component {
         //let phase2Items = ["Scotch", "Bourbon", "Sour", "Bitters"];
         let phase2Items = Phases[this.state.phase];
         //alert("you did good, here's some more ingredients haha");
-        this.toggle();
+        this.toggle("good job, you've unlocked ");
         phase2Items.forEach(item => {
             this.makeAvailable(item, true);
         });
@@ -124,8 +125,8 @@ class Display extends Component {
             this.makeAvailable(name);
         }
         else {
-            alert(`Not a Drink!`)
-            //document.getElementById("alert").modal('show');
+            //alert(`Not a Drink!`)
+            this.toggle("that's not a drink");
         }
         console.log("the checker ran", item1, item2)
         this.clearBoard();
@@ -213,9 +214,12 @@ class Display extends Component {
         );
     }
 
-    toggle = () => {
+    toggle = (message) => {
+        console.log("message: ", message)
+        let myMessage = typeof message === "string" ? message : this.state.message;
+        console.log("my message: ", myMessage);
         this.setState({
-            modal: !this.state.modal
+            modal: !this.state.modal, message: myMessage
         });
     }
 
@@ -228,7 +232,7 @@ class Display extends Component {
                         {this.fillBoxes("left")}
                     </div>
                     <div>
-                        <ModalExample dataModal={this.state.modal} toggle={this.toggle} />
+                        <ModalExample dataModal={this.state.modal} toggle={this.toggle} message={this.state.message} newStuff={Phases[this.state.phase]} />
                     </div>
                     <div id="rightBox" className="box">
                         {this.fillBoxes("right")}
