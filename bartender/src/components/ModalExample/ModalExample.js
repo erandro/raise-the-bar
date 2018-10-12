@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import "./ModalExample.css";
 
 class ModalExample extends React.Component {
     constructor(props) {
@@ -24,11 +25,13 @@ class ModalExample extends React.Component {
                 <Modal isOpen={this.props.dataModal} toggle={this.props.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.props.toggle}>Modal title</ModalHeader>
                     <ModalBody>
-                        Something
-            </ModalBody>
+                        <img id="friend" src="https://pbs.twimg.com/profile_images/999334416538202112/6Y-babvf_400x400.jpg" alt="your friend" />
+                        <p>You're doing great! Since you've proved yourself capable, I'll now allow you to use {this.props.newStuff.join(", and ")}!</p>
+
+                    </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={this.props.toggle}>Do Something</Button>{' '}
-                        <Button color="secondary" onClick={this.props.toggle}>Cancel</Button>
+                        <Button color="primary" onClick={this.props.toggle}>Okay</Button>{' '}
+                        <Button color="secondary" onClick={this.props.toggle}>Cool</Button>
                     </ModalFooter>
                 </Modal>
             </div>
