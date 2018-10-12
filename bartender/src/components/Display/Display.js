@@ -5,7 +5,11 @@ import CatButton from "../CatButton";
 //import BarCopy from "../../BarCopy.json"
 import Phases from "../../Phases.json"
 import axios from "axios";
+//import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
+import ModalExample from "../ModalExample";
+import BottomBar from "../BottomBar";
 let BarCopy = {};
+
 
 
 class Display extends Component {
@@ -18,7 +22,9 @@ class Display extends Component {
         firstDrink: "",
         secondDrink: "",
         drinkCount: 10,
-        phase: 1
+        phase: 1,
+        modal: false,
+        message: ""
     };
 
     componentDidUpdate() {
@@ -45,7 +51,8 @@ class Display extends Component {
     unveilNewPhase = () => {
         //let phase2Items = ["Scotch", "Bourbon", "Sour", "Bitters"];
         let phase2Items = Phases[this.state.phase];
-        alert("you did good, here's some more ingredients haha");
+        //alert("you did good, here's some more ingredients haha");
+        this.toggle(`You're doing great! Since you've proved yourself capable, I'll now allow you to use ${Phases[this.state.phase].join(" and ")}!`);
         phase2Items.forEach(item => {
             this.makeAvailable(item, true);
         });
@@ -61,6 +68,16 @@ class Display extends Component {
     componentDidMount() {
 
         this.setDB();
+
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     let alert = document.getElementById("alert");
+        //     var m = new Modal('#yo', {
+        //         backdrop: true
+        //     });
+        //     document.getElementById('btn-open').addEventListener('click', function () {
+        //         m.show();
+        //     });
+        // });
 
         // console.log(BarCopy);
         // let testCatArray = []
@@ -109,7 +126,8 @@ class Display extends Component {
             this.makeAvailable(name);
         }
         else {
-            alert(`Not a Drink!`)
+            //alert(`Not a Drink!`)
+            this.toggle("that's not a drink");
         }
         console.log("the checker ran", item1, item2)
         this.clearBoard();
@@ -194,8 +212,6 @@ class Display extends Component {
                     (item) => {
                         let itemImg = this.getImgforItem(item)
                         return (
-                            //console.log(this.getImgforItem(item)),
-                            //console.log("AAAA"),
                             <CatButton onClick={this.firstClickHandler} data={side} key={item} id={item} type={item} img={itemImg} />
                         )
                     }
@@ -204,25 +220,16 @@ class Display extends Component {
         );
     }
 
-    getImgforItem = (name) => {
-        if (BarCopy[name]) {
-            return BarCopy[name].img
-        } else {
-            let itemImg = undefined;
-            for (var category in BarCopy) {
-                BarCopy[category].items.forEach(element => {
-                    if (element.name === name) {
-                        itemImg = element.img;
-                        return;
-                    }
-                })
 
-                if (itemImg) {
-                    return itemImg;
-                }
+    toggle = (message) => {
+        console.log("message: ", message)
+        let myMessage = typeof message === "string" ? message : this.state.message;
+        console.log("my message: ", myMessage);
+        this.setState({
+            message: this.state.modal ? "" : myMessage,
+            modal: !this.state.modal
+        });
 
-            }
-        }
     }
 
     render() {
@@ -233,10 +240,14 @@ class Display extends Component {
                     <div id="leftBox" className="box">
                         {this.fillBoxes("left")}
                     </div>
+                    <div>
+                        <ModalExample dataModal={this.state.modal} toggle={this.toggle} message={this.state.message} newStuff={Phases[this.state.phase]} />
+                    </div>
                     <div id="rightBox" className="box">
                         {this.fillBoxes("right")}
                     </div>
                 </div>
+                <BottomBar onClick={this.toggle} />
             </div>
         )
     }
