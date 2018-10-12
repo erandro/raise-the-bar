@@ -15,7 +15,9 @@ class BottomBar extends React.Component {
     }
 
     clickListener = () => {
-        this.props.onClick("Look within your heart of hearts and you will find the path to greatness.");
+        // this.props.onClick("Look within your heart of hearts and you will find the path to greatness.");
+        let innerHint = this.props.hint();
+        console.log("inner hint: ", innerHint);
         this.startTimer();
     }
 

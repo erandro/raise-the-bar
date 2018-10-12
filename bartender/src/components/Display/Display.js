@@ -3,7 +3,8 @@ import "./Display.css";
 import Wrapper from "../Wrapper";
 import CatButton from "../CatButton";
 //import BarCopy from "../../BarCopy.json"
-import Phases from "../../Phases.json"
+import Phases from "../../Phases.json";
+import Hints from "../../Hints.json";
 import axios from "axios";
 //import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
 import ModalExample from "../ModalExample";
@@ -25,7 +26,8 @@ class Display extends Component {
         drinkCount: 10,
         phase: 1,
         modal: false,
-        message: ""
+        message: "",
+        finished: false
     };
 
     componentDidUpdate() {
@@ -40,13 +42,19 @@ class Display extends Component {
             case 45:
             case 55:
             case 65:
-            case 80:
+
                 this.unveilNewPhase();
                 break;
 
             default:
                 break;
         }
+
+        if (this.state.drinkCount === 80 && !this.state.finished) {
+            this.setState({ finished: true })
+            this.toggle("You have proven that you know your stuff. I am hiring you as my new bartender!");
+        }
+
     }
 
     unveilNewPhase = () => {
@@ -67,6 +75,7 @@ class Display extends Component {
     }
 
     componentDidMount() {
+        this.toggle("So you'd like to be a bartender? Prove that you know your stuff by mixing some drinks!");
 
         this.setDB();
 
@@ -125,13 +134,13 @@ class Display extends Component {
         if (name) {
             alert(`You have created ${name}!`);
             this.makeAvailable(name);
+            this.clearBoard();
         }
         else {
             //alert(`Not a Drink!`)
             this.toggle("that's not a drink");
         }
         console.log("the checker ran", item1, item2)
-        this.clearBoard();
     }
 
     makeAvailable = (name, isPhaseChange) => {
@@ -253,13 +262,24 @@ class Display extends Component {
 
     }
 
+    findHint = () => {
+
+        let hintList = Hints[0];
+
+        for (let i = 0; i < hintList.length; i++) {
+            if (!this.state.drinkArray.includes(hintList[i])) {
+                return this.toggle(`Try making a ${hintList[i]}`);
+            }
+        }
+        console.log("this ideally shouldn't appear");
+    }
     render() {
         return (
             <Container>
                 <Row>
                     <Col>
                         <h3 style={{ textAlign: "center" }}>SCORE: {this.state.drinkCount}/80</h3>
-                        <BottomBar onClick={this.toggle} />
+                        <BottomBar onClick={this.toggle} hint={this.findHint} />
                     </Col>
                 </Row>
                 <Row>
