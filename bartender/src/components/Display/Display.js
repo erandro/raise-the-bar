@@ -7,6 +7,7 @@ import Phases from "../../Phases.json"
 import axios from "axios";
 //import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
 import ModalExample from "../ModalExample";
+import BottomBar from "../BottomBar";
 let BarCopy = {};
 
 
@@ -51,7 +52,7 @@ class Display extends Component {
         //let phase2Items = ["Scotch", "Bourbon", "Sour", "Bitters"];
         let phase2Items = Phases[this.state.phase];
         //alert("you did good, here's some more ingredients haha");
-        this.toggle("good job, you've unlocked ");
+        this.toggle(`You're doing great! Since you've proved yourself capable, I'll now allow you to use ${Phases[this.state.phase].join(" and ")}!`);
         phase2Items.forEach(item => {
             this.makeAvailable(item, true);
         });
@@ -219,7 +220,8 @@ class Display extends Component {
         let myMessage = typeof message === "string" ? message : this.state.message;
         console.log("my message: ", myMessage);
         this.setState({
-            modal: !this.state.modal, message: myMessage
+            message: this.state.modal ? "" : myMessage,
+            modal: !this.state.modal
         });
     }
 
@@ -238,6 +240,7 @@ class Display extends Component {
                         {this.fillBoxes("right")}
                     </div>
                 </div>
+                <BottomBar onClick={this.toggle} />
             </div>
         )
     }
