@@ -208,12 +208,18 @@ class Display extends Component {
         return (
             <Wrapper>
                 {backButton}
-                {myArray.map(item => (
-                    <CatButton onClick={this.firstClickHandler} data={side} key={item} id={item} type={item} />
-                ))}
+                {myArray.map(
+                    (item) => {
+                        let itemImg = this.getImgforItem(item)
+                        return (
+                            <CatButton onClick={this.firstClickHandler} data={side} key={item} id={item} type={item} img={itemImg} />
+                        )
+                    }
+                )}
             </Wrapper>
         );
     }
+
 
     toggle = (message) => {
         console.log("message: ", message)
@@ -223,6 +229,7 @@ class Display extends Component {
             message: this.state.modal ? "" : myMessage,
             modal: !this.state.modal
         });
+
     }
 
     render() {

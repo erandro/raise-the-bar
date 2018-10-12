@@ -10,12 +10,12 @@ mongoose.connect(
 const barSeed = [
     {
         "name": "Base Spirits",
-        "img": "",
+        "img": "https://image.ibb.co/mwQSip/Base-Spirits.png",
         "available": true,
         "items": [
             {
                 "name": "Vodka",
-                "img": "",
+                "img": "https://image.ibb.co/mRMYOp/Vodka.png",
                 "category": "Base Spirits",
                 "available": true,
                 "mixed_items": {
@@ -28,7 +28,7 @@ const barSeed = [
             },
             {
                 "name": "Gin",
-                "img": "",
+                "img": "https://image.ibb.co/cuSjUU/Gin.png",
                 "category": "Base Spirits",
                 "available": true,
                 "mixed_items": {
@@ -41,7 +41,7 @@ const barSeed = [
             },
             {
                 "name": "Tequila",
-                "img": "",
+                "img": "https://image.ibb.co/mb8f3p/Tequila.png",
                 "category": "Base Spirits",
                 "available": true,
                 "mixed_items": {
@@ -52,7 +52,7 @@ const barSeed = [
             },
             {
                 "name": "Rum",
-                "img": "",
+                "img": "https://image.ibb.co/ihkhG9/Rum.png",
                 "category": "Base Spirits",
                 "available": true,
                 "mixed_items": {
@@ -66,7 +66,7 @@ const barSeed = [
             },
             {
                 "name": "Bourbon",
-                "img": "",
+                "img": "https://image.ibb.co/cK4bb9/Bourbon.png",
                 "category": "Base Spirits",
                 "available": false,
                 "mixed_items": {
@@ -78,7 +78,7 @@ const barSeed = [
             },
             {
                 "name": "Scotch",
-                "img": "",
+                "img": "https://image.ibb.co/kdFSip/Scotch.png",
                 "category": "Base Spirits",
                 "available": false,
                 "mixed_items": {
@@ -92,12 +92,12 @@ const barSeed = [
     },
     {
         "name": "Juice",
-        "img": "",
+        "img": "https://image.ibb.co/bSznip/Juice.png",
         "available": true,
         "items": [
             {
                 "name": "Orange Juice",
-                "img": "",
+                "img": "https://image.ibb.co/fht2G9/Orange-Juice.png",
                 "category": "Juice",
                 "available": true,
                 "mixed_items": {
@@ -110,7 +110,7 @@ const barSeed = [
             },
             {
                 "name": "Tomato Juice",
-                "img": "",
+                "img": "https://image.ibb.co/c8dPUU/Tomato-Juice.png",
                 "category": "Juice",
                 "available": true,
                 "mixed_items": {
@@ -120,7 +120,7 @@ const barSeed = [
             },
             {
                 "name": "Lemon Juice",
-                "img": "",
+                "img": "https://image.ibb.co/jAP9w9/Lemon-Juice.png",
                 "category": "Juice",
                 "available": true,
                 "mixed_items": {
@@ -129,7 +129,7 @@ const barSeed = [
             },
             {
                 "name": "Pineapple Juice",
-                "img": "",
+                "img": "https://image.ibb.co/gcW03p/Pineapple-Juice.png",
                 "category": "Juice",
                 "available": false,
                 "mixed_items": {
@@ -138,7 +138,7 @@ const barSeed = [
             },
             {
                 "name": "Cream of Coconut",
-                "img": "",
+                "img": "https://image.ibb.co/e9PypU/Coconut-Cream.png",
                 "category": "Juice",
                 "available": false,
                 "mixed_items": {
@@ -147,7 +147,7 @@ const barSeed = [
             },
             {
                 "name": "Grapefruit Juice",
-                "img": "",
+                "img": "https://image.ibb.co/nyqSip/Grapefruit-Juice.png",
                 "category": "Juice",
                 "available": false,
                 "mixed_items": {
@@ -157,7 +157,7 @@ const barSeed = [
             },
             {
                 "name": "Cranberry Juice",
-                "img": "",
+                "img": "https://image.ibb.co/c0mB9U/Cranberry-Juice.png",
                 "category": "Juice",
                 "available": false,
                 "mixed_items": {
@@ -168,12 +168,12 @@ const barSeed = [
     },
     {
         "name": "Mixers",
-        "img": "",
+        "img": "https://image.ibb.co/d2tDOp/Mixers.png",
         "available": true,
         "items": [
             {
                 "name": "Coke",
-                "img": "",
+                "img": "https://image.ibb.co/d8RYOp/Coke.png",
                 "category": "Mixers",
                 "available": true,
                 "mixed_items": {
@@ -184,7 +184,7 @@ const barSeed = [
             },
             {
                 "name": "Sprite",
-                "img": "",
+                "img": "https://image.ibb.co/bK2jUU/Sprite.png",
                 "category": "Mixers",
                 "available": false,
                 "mixed_items": {
@@ -195,7 +195,7 @@ const barSeed = [
             },
             {
                 "name": "Soda",
-                "img": "",
+                "img": "https://image.ibb.co/bHU9w9/Soda.png",
                 "category": "Mixers",
                 "available": false,
                 "mixed_items": {
@@ -208,7 +208,7 @@ const barSeed = [
             },
             {
                 "name": "Tonic",
-                "img": "",
+                "img": "https://image.ibb.co/fNAhG9/Tonic.png",
                 "category": "Mixers",
                 "available": true,
                 "mixed_items": {
@@ -217,7 +217,7 @@ const barSeed = [
             },
             {
                 "name": "Ginger Beer",
-                "img": "",
+                "img": "https://image.ibb.co/iDJDOp/Ginger-beer.png",
                 "category": "Mixers",
                 "available": true,
                 "mixed_items": {
@@ -229,12 +229,12 @@ const barSeed = [
     },
     {
         "name": "Flavoring Liquids",
-        "img": "",
+        "img": "https://image.ibb.co/npubb9/Flavoring-Liquids.png",
         "available": false,
         "items": [
             {
                 "name": "Half&Half",
-                "img": "",
+                "img": "https://image.ibb.co/dzGdpU/Half-Half.png",
                 "category": "Flavoring Liquids",
                 "available": false,
                 "mixed_items": {
@@ -243,7 +243,7 @@ const barSeed = [
             },
             {
                 "name": "Bitters",
-                "img": "",
+                "img": "https://image.ibb.co/ezbpw9/Bitters.png",
                 "category": "Flavoring Liquids",
                 "available": false,
                 "mixed_items": {
@@ -253,7 +253,7 @@ const barSeed = [
             },
             {
                 "name": "Sour",
-                "img": "",
+                "img": "https://image.ibb.co/e81dpU/Sour.png",
                 "category": "Flavoring Liquids",
                 "available": false,
                 "mixed_items": {
@@ -265,7 +265,7 @@ const barSeed = [
             },
             {
                 "name": "Grenadine",
-                "img": "",
+                "img": "https://image.ibb.co/kBaGb9/Grenadine.png",
                 "category": "Flavoring Liquids",
                 "available": false,
                 "mixed_items": {
@@ -278,12 +278,12 @@ const barSeed = [
     },
     {
         "name": "Low-Proof Liquids",
-        "img": "",
+        "img": "https://image.ibb.co/caT2G9/Low-Proof-Liquids.png",
         "available": false,
         "items": [
             {
                 "name": "Beer",
-                "img": "",
+                "img": "https://image.ibb.co/b0a4UU/Beer.png",
                 "category": "Low-Proof Liquids",
                 "available": false,
                 "mixed_items": {
@@ -293,7 +293,7 @@ const barSeed = [
             },
             {
                 "name": "Wine",
-                "img": "",
+                "img": "https://image.ibb.co/ebS7ip/Wine.png",
                 "category": "Low-Proof Liquids",
                 "available": false,
                 "mixed_items": {
@@ -304,7 +304,7 @@ const barSeed = [
             },
             {
                 "name": "Champagne",
-                "img": "",
+                "img": "https://image.ibb.co/fYVGb9/Champagne.png",
                 "category": "Low-Proof Liquids",
                 "available": false,
                 "mixed_items": {
@@ -317,7 +317,7 @@ const barSeed = [
             },
             {
                 "name": "Dry Vermouth",
-                "img": "",
+                "img": "https://image.ibb.co/jicUw9/Dry-Vermouth.png",
                 "category": "Low-Proof Liquids",
                 "available": false,
                 "mixed_items": {
@@ -326,7 +326,7 @@ const barSeed = [
             },
             {
                 "name": "Sweet Vermouth",
-                "img": "",
+                "img": "https://image.ibb.co/gqsjUU/Sweet-Vermouth.png",
                 "category": "Low-Proof Liquids",
                 "available": false,
                 "mixed_items": {
@@ -339,12 +339,12 @@ const barSeed = [
     },
     {
         "name": "Liqueurs",
-        "img": "",
+        "img": "https://image.ibb.co/k5VtOp/Liqueurs.png",
         "available": false,
         "items": [
             {
                 "name": "Liqueur Coffee",
-                "img": "",
+                "img": "https://image.ibb.co/gqYPUU/Liqueur-Coffee.png",
                 "category": "Liqueurs",
                 "available": false,
                 "mixed_items": {
@@ -353,7 +353,7 @@ const barSeed = [
             },
             {
                 "name": "Peach Liqueur",
-                "img": "",
+                "img": "https://image.ibb.co/deCwb9/Peach-Liqueur.png",
                 "category": "Liqueurs",
                 "available": false,
                 "mixed_items": {
@@ -362,7 +362,7 @@ const barSeed = [
             },
             {
                 "name": "Crème de cassis",
-                "img": "",
+                "img": "https://image.ibb.co/fDRYOp/Cr-me-De-Cassis.png",
                 "category": "Liqueurs",
                 "available": false,
                 "mixed_items": {
@@ -371,7 +371,7 @@ const barSeed = [
             },
             {
                 "name": "Campari",
-                "img": "",
+                "img": "https://image.ibb.co/kfenip/Campari.png",
                 "category": "Liqueurs",
                 "available": false,
                 "mixed_items": {
@@ -381,7 +381,7 @@ const barSeed = [
             },
             {
                 "name": "Aperol",
-                "img": "",
+                "img": "https://image.ibb.co/fOh7ip/Aperol.png",
                 "category": "Liqueurs",
                 "available": false,
                 "mixed_items": {
@@ -391,7 +391,7 @@ const barSeed = [
             },
             {
                 "name": "Triple Sec",
-                "img": "",
+                "img": "https://image.ibb.co/hROPUU/Triple-Sec.png",
                 "category": "Liqueurs",
                 "available": false,
                 "mixed_items": {
@@ -403,33 +403,33 @@ const barSeed = [
     },
     {
         "name": "Rum Cocktails",
-        "img": "",
+        "img": "https://image.ibb.co/i4R03p/Rum-Cocktails.png",
         "available": false,
         "items": [
             {
                 "name": "Mojito",
-                "img": "",
+                "img": "https://image.ibb.co/iOhuUU/Mojito.png",
                 "category": "Rum Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Hemingway",
-                "img": "",
+                "img": "https://image.ibb.co/jSRA3p/Hemingway.png",
                 "category": "Rum Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Dark and Stormy",
-                "img": "",
+                "img": "https://image.ibb.co/g4jxip/Dark-And-Stormy.png",
                 "category": "Rum Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Daiquiri",
-                "img": "",
+                "img": "https://image.ibb.co/iiGA3p/Daiquiri.png",
                 "category": "Rum Cocktails",
                 "available": false,
                 "mixed_items": {
@@ -438,21 +438,21 @@ const barSeed = [
             },
             {
                 "name": "Old Fashioned",
-                "img": "",
+                "img": "https://image.ibb.co/ig6XG9/Old-Fashioned.png",
                 "category": "Rum Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Cuba Libre",
-                "img": "",
+                "img": "https://image.ibb.co/jZEpUU/Cuba-Libre.png",
                 "category": "Rum Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Piña Colada",
-                "img": "",
+                "img": "https://image.ibb.co/e7NTpU/Pi-a-Colada.png",
                 "category": "Rum Cocktails",
                 "available": false,
                 "mixed_items": {
@@ -461,7 +461,7 @@ const barSeed = [
             },
             {
                 "name": "Bahama Mama",
-                "img": "",
+                "img": "https://image.ibb.co/kHWopU/Bahama-Mama.png",
                 "category": "Rum Cocktails",
                 "available": false,
                 "mixed_items": {}
@@ -470,33 +470,33 @@ const barSeed = [
     },
     {
         "name": "Tequila Cocktails",
-        "img": "",
+        "img": "https://image.ibb.co/f8j9w9/Tequila-Cocktails.png",
         "available": false,
         "items": [
             {
                 "name": "Tequila Sunrise",
-                "img": "",
+                "img": "https://image.ibb.co/kDBXG9/Tequila-Sunrise.png",
                 "category": "Tequila Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Margarita",
-                "img": "",
+                "img": "https://image.ibb.co/gXMXG9/Margarita.png",
                 "category": "Tequila Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Paloma",
-                "img": "",
+                "img": "https://image.ibb.co/kXd19U/Paloma.png",
                 "category": "Tequila Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Tequila Sour",
-                "img": "",
+                "img": "https://image.ibb.co/nF6M9U/Tequila-Sour.png",
                 "category": "Tequila Cocktails",
                 "available": false,
                 "mixed_items": {
@@ -505,7 +505,7 @@ const barSeed = [
             },
             {
                 "name": "Tequila Screwdriver",
-                "img": "",
+                "img": "https://image.ibb.co/ePeKw9/Tequila-Screwdriver.png",
                 "category": "Tequila Cocktails",
                 "available": false,
                 "mixed_items": {
@@ -516,61 +516,61 @@ const barSeed = [
     },
     {
         "name": "Gin Cocktails",
-        "img": "",
+        "img": "https://image.ibb.co/cTwB9U/Gin-Cocktails.png",
         "available": false,
         "items": [
             {
                 "name": "Pegu Club",
-                "img": "",
+                "img": "https://image.ibb.co/fG3q3p/PeguClub.png",
                 "category": "Gin Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Red Snapper",
-                "img": "",
+                "img": "https://image.ibb.co/c5gM9U/Red-Snapper.png",
                 "category": "Gin Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Tom Collins",
-                "img": "",
+                "img": "https://image.ibb.co/gWyCG9/Tom-Collins.png",
                 "category": "Gin Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Bronx",
-                "img": "",
+                "img": "https://image.ibb.co/hdbM9U/Bronx.png",
                 "category": "Gin Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Gin and Tonic",
-                "img": "",
+                "img": "https://image.ibb.co/gaBzw9/Gin-And-Tonic.png",
                 "category": "Gin Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Martini",
-                "img": "",
+                "img": "https://image.ibb.co/ezoZUU/Martini.png",
                 "category": "Gin Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Americano",
-                "img": "",
+                "img": "https://image.ibb.co/gQGcip/Americano.png",
                 "category": "Gin Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "South Side",
-                "img": "",
+                "img": "https://image.ibb.co/nwpxip/Southside.png",
                 "category": "Gin Cocktails",
                 "available": false,
                 "mixed_items": {
@@ -579,7 +579,7 @@ const barSeed = [
             },
             {
                 "name": "Sweet Martini",
-                "img": "",
+                "img": "https://image.ibb.co/jcWopU/Sweet-Martini.png",
                 "category": "Gin Cocktails",
                 "available": false,
                 "mixed_items": {
@@ -589,7 +589,7 @@ const barSeed = [
             },
             {
                 "name": "Negroni",
-                "img": "",
+                "img": "https://image.ibb.co/du0g9U/Negroni.png",
                 "category": "Gin Cocktails",
                 "available": false,
                 "mixed_items": {
@@ -600,47 +600,47 @@ const barSeed = [
     },
     {
         "name": "Vodka Cocktails",
-        "img": "",
+        "img": "https://image.ibb.co/b9Kbb9/Vodka-Cocktails.png",
         "available": false,
         "items": [
             {
                 "name": "White Russian",
-                "img": "",
+                "img": "https://image.ibb.co/mzoew9/White-Russian.png",
                 "category": "Vodka Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Bloody Mary",
-                "img": "",
+                "img": "https://image.ibb.co/iXZV3p/Bloody-Mary.png",
                 "category": "Vodka Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Screwdriver",
-                "img": "",
+                "img": "https://image.ibb.co/jwxHip/Screwdriver.png",
                 "category": "Vodka Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Moscow Mule",
-                "img": "",
+                "img": "https://image.ibb.co/bSoCG9/Moscow-Mule.png",
                 "category": "Vodka Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Cosmopolitan",
-                "img": "",
+                "img": "https://image.ibb.co/ehkRb9/Cosmopolitan.png",
                 "category": "Vodka Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Vodka Cranberry",
-                "img": "",
+                "img": "https://image.ibb.co/dppV3p/Vodka-Cranberry.png",
                 "category": "Vodka Cocktails",
                 "available": false,
                 "mixed_items": {
@@ -649,7 +649,7 @@ const barSeed = [
             },
             {
                 "name": "Black Russian",
-                "img": "",
+                "img": "https://image.ibb.co/eXq3Op/Black-Russian.png",
                 "category": "Vodka Cocktails",
                 "available": false,
                 "mixed_items": {
@@ -660,54 +660,54 @@ const barSeed = [
     },
     {
         "name": "Wine Cocktails",
-        "img": "",
+        "img": "https://image.ibb.co/j9FtOp/Wine-Cocktails.png",
         "available": false,
         "items": [
             {
                 "name": "Aperol Spritz",
-                "img": "",
+                "img": "https://image.ibb.co/dS1A3p/Aperol-Spritz.png",
                 "category": "Wine Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Spritz",
-                "img": "",
+                "img": "https://image.ibb.co/iDpKw9/Spritz.png",
                 "category": "Wine Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Tinto De Verano",
-                "img": "",
+                "img": "https://image.ibb.co/ckhHip/Tinto-De-Verano.png",
                 "category": "Wine Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Kir Royale",
-                "img": "",
+                "img": "https://image.ibb.co/fy9mb9/Kir-Royale.png",
                 "category": "Wine Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Mimosa",
-                "img": "",
+                "img": "https://image.ibb.co/buPmb9/Mimosa.png",
                 "category": "Wine Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Bellini",
-                "img": "",
+                "img": "https://image.ibb.co/iNYew9/Bellini.png",
                 "category": "Wine Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Black Velvet",
-                "img": "",
+                "img": "https://image.ibb.co/hjniOp/Black-Velvet.png",
                 "category": "Wine Cocktails",
                 "available": false,
                 "mixed_items": {}
@@ -716,47 +716,47 @@ const barSeed = [
     },
     {
         "name": "Whiskey Cocktails",
-        "img": "",
+        "img": "https://image.ibb.co/daxUw9/Whiskey-Cocktails.png",
         "available": false,
         "items": [
             {
                 "name": "Whiskey Coke",
-                "img": "",
+                "img": "https://image.ibb.co/mwhTpU/Whiskey-Coke.png",
                 "category": "Whiskey Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Whiskey Soda",
-                "img": "",
+                "img": "https://image.ibb.co/ek98pU/Whiskey-Soda.png",
                 "category": "Whiskey Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Manhattan",
-                "img": "",
+                "img": "https://image.ibb.co/kFMA3p/Manhattan.png",
                 "category": "Whiskey Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Rob Roy",
-                "img": "",
+                "img": "https://image.ibb.co/c6Exip/RobRoy.png",
                 "category": "Whiskey Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "New York Sour",
-                "img": "",
+                "img": "https://image.ibb.co/d2Uxip/New-York-Sour.png",
                 "category": "Whiskey Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Whiskey Sour",
-                "img": "",
+                "img": "https://image.ibb.co/f353Op/Whiskey-Sour.png",
                 "category": "Whiskey Cocktails",
                 "available": false,
                 "mixed_items": {
@@ -767,33 +767,33 @@ const barSeed = [
     },
     {
         "name": "No Spirit Cocktails",
-        "img": "",
+        "img": "https://image.ibb.co/eLp9w9/No-Spirit-Cocktails.png",
         "available": false,
         "items": [
             {
                 "name": "Shirley Temple",
-                "img": "",
+                "img": "https://image.ibb.co/bNF3Op/Shirley-Temple.png",
                 "category": "No Spirit Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Garibaldi",
-                "img": "",
+                "img": "https://image.ibb.co/cremb9/Garibaldi.png",
                 "category": "No Spirit Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Shandy",
-                "img": "",
+                "img": "https://image.ibb.co/dHDCG9/Shandy.png",
                 "category": "No Spirit Cocktails",
                 "available": false,
                 "mixed_items": {}
             },
             {
                 "name": "Coco Colada",
-                "img": "",
+                "img": "https://image.ibb.co/kVrXG9/Coco-Colada.png",
                 "category": "No Spirit Cocktails",
                 "available": false,
                 "mixed_items": {
