@@ -8,14 +8,14 @@ class BottomBar extends React.Component {
         this.state = {
             time: 10,
             intervalID: "",
-            hint: " seconds"
+            hint: "s until hint"
         };
 
 
     }
 
     clickListener = () => {
-        this.props.onClick("Look within your heart of hearts and you will find the way to greatness.");
+        this.props.onClick("Look within your heart of hearts and you will find the path to greatness.");
         this.startTimer();
     }
 
@@ -26,7 +26,7 @@ class BottomBar extends React.Component {
                 time: this.state.time - 1
             });
         }
-        else if (this.state.hint === " seconds") {
+        else if (this.state.hint === "s until hint") {
             clearInterval(this.state.intervalID);
             this.setState({ time: "", hint: <Button id="hintButton" onClick={this.clickListener}>CLICK FOR HINT</Button> })
         }
@@ -37,7 +37,7 @@ class BottomBar extends React.Component {
     }
 
     reset = () => {
-        this.setState({ hint: " seconds", time: 60 });
+        this.setState({ hint: "s until hint", time: 60 });
     }
 
     componentDidMount() {

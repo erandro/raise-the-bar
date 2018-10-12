@@ -25,8 +25,13 @@ class ModalExample extends React.Component {
                 <Modal isOpen={this.props.dataModal} toggle={this.props.toggle} className={this.props.className}>
                     {/* <ModalHeader toggle={this.props.toggle}>It's your boss!</ModalHeader> */}
                     <ModalBody>
-                        <img id="friend" src="https://pbs.twimg.com/profile_images/999334416538202112/6Y-babvf_400x400.jpg" alt="your friend" />
-                        <p>{this.props.message}</p>
+                        <div class="modalIMG">
+                            <img id="friend" src="https://pbs.twimg.com/profile_images/999334416538202112/6Y-babvf_400x400.jpg" alt="your friend" />
+                        </div>
+                        <div class="modalTextbox">
+                            <p>Edward says:</p>
+                            <p>"{this.props.message}"</p>
+                        </div>
 
                     </ModalBody>
                     <ModalFooter>

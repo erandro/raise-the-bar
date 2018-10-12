@@ -21,7 +21,7 @@ class Display extends Component {
         drinkArray: ["Vodka", "Gin", "Tequila", "Rum", "Orange Juice", "Tomato Juice", "Lemon Juice", "Coke", "Tonic", "Ginger Beer"],
         firstDrink: "",
         secondDrink: "",
-        drinkCount: 14,
+        drinkCount: 10,
         phase: 1,
         modal: false,
         message: ""
