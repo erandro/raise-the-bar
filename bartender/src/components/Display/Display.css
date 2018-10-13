@@ -1,3 +1,13 @@
+body {
+        background-image: url(https://preview.ibb.co/fWrbDp/bar-996-b.png);
+        background-repeat: no-repeat;
+    background-size: 100% 700px;  
+}
+
+#ItemCounter {
+    color: white;
+}
+
 #mainBox{
     display: flex;
     justify-content: space-between;
@@ -10,4 +20,18 @@
 .modal-content {
     /* width: 400px; */
     height: 600px;
+}
+
+@media (max-width: 768px) {
+
+    body {
+        background-image: url(https://preview.ibb.co/eGkxKU/bar-1200-b.png); 
+    }
+}
+
+@media (max-width: 640px) {
+
+    body {
+        background-image: url(https://preview.ibb.co/gHpPzU/bar-640-b.png);
+    }
 }

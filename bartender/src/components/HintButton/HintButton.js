@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import "./BottomBar.css";
+import "./HintButton.css";
 
-class BottomBar extends React.Component {
+class HintButton extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -60,4 +60,4 @@ class BottomBar extends React.Component {
     }
 }
 
-export default BottomBar;
+export default HintButton;

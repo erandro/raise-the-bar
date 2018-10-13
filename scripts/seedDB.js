@@ -33,6 +33,7 @@ const barSeed = [
                 "available": true,
                 "mixed_items": {
                     "Dry Vermouth": "Martini",
+                    "Sweet Vermouth": "Sweet Martini",
                     "Sour": "South Side",
                     "Tonic": "Gin and Tonic",
                     "Tomato Juice": "Red Snapper",

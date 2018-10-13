@@ -1,6 +1,6 @@
 #DrinksBox{
-    min-height: 500px;
-    background-color: lightpink;
+    /* min-height: 500px; */
+    margin: 0 0 20px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;

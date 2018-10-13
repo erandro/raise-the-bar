@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import "./Display.css";
 import Wrapper from "../Wrapper";
 import CatButton from "../CatButton";
+import HintButton from "../HintButton";
+import BackButton from "../BackButton";
+import CategoryTitle from "../CategoryTitle";
 //import BarCopy from "../../BarCopy.json"
 import Phases from "../../Phases.json";
 import Hints from "../../Hints.json";
 import axios from "axios";
 //import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
 import ModalExample from "../ModalExample";
-import BottomBar from "../BottomBar";
 import { Container, Row, Col } from 'reactstrap';
 let BarCopy = {};
 
@@ -213,7 +215,7 @@ class Display extends Component {
         let drinkArray = BarCopy[stateSide] ? BarCopy[stateSide].items.map(item => item.available ? item.name : "none").filter(element => element !== "none") : [];
         let myArray = stateSide === "back" ? this.state.array : drinkArray;
 
-        let backButton = stateSide === "back" ? "" : <CatButton onClick={this.backButtonHandler} data={side} id={"back"} type={"categories"} />;
+        let backButton = stateSide === "back" ? <CategoryTitle onClick={this.backButtonHandler} data={side} id={"back"} type={"Categories"} name={"categories"} /> : <BackButton onClick={this.backButtonHandler} data={side} id={"back"} type={"categories"} name={this.state[side].status} />;
 
         return (
             <Wrapper>
@@ -275,11 +277,10 @@ class Display extends Component {
     }
     render() {
         return (
-            <Container>
+            <Container id="background">
                 <Row>
                     <Col>
-                        <h3 style={{ textAlign: "center" }}>SCORE: {this.state.drinkCount}/80</h3>
-                        <BottomBar onClick={this.toggle} hint={this.findHint} />
+                        <h3 id="ItemCounter" style={{ textAlign: "center" }}>SCORE: {this.state.drinkCount}/80</h3>
                     </Col>
                 </Row>
                 <Row>
@@ -290,6 +291,7 @@ class Display extends Component {
                     </Col>
                     <Col xs="2">
                         <div>
+                            <HintButton onClick={this.toggle} hint={this.findHint} />
                             <ModalExample dataModal={this.state.modal} toggle={this.toggle} message={this.state.message} newStuff={Phases[this.state.phase]} />
                         </div>
                     </Col>
