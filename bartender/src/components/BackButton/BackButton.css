@@ -1,0 +1,53 @@
+.back-box{
+    height: 30px;
+    width: 445px;
+    margin: 5px 0 0 0;
+}
+.fas {
+color: rgb(172, 172, 172);
+}
+.back-text {
+    font-family: 'Courgette', cursive;
+    background-color: white;
+    position: relative;
+    text-align: center;
+    padding: 5px 0;
+    color: black;
+    font-size: 1em;
+}
+
+@media (max-width: 1200px) {
+
+    .back-box{
+        height: 30px;
+        width: 370px;
+        margin: 5px 0 0 0;
+    }
+}
+
+@media (max-width: 994px) {
+
+    .back-box{
+        height: 30px;
+        width: 270px;
+        margin: 5px 0 0 0;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .back-box{
+        height: 30px;
+        width: 270px;
+        margin: 5px 0 0 0;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .back-box{
+        height: 30px;
+        width: 270px;
+        margin: 5px 0 0 0;
+    }
+}

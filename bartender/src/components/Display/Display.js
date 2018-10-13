@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import "./Display.css";
 import Wrapper from "../Wrapper";
 import CatButton from "../CatButton";
+import BottomBar from "../BottomBar";
+import BackButton from "../BackButton";
 //import BarCopy from "../../BarCopy.json"
 import Phases from "../../Phases.json";
 import Hints from "../../Hints.json";
 import axios from "axios";
 //import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
 import ModalExample from "../ModalExample";
-import BottomBar from "../BottomBar";
 import { Container, Row, Col } from 'reactstrap';
 let BarCopy = {};
 
@@ -213,7 +214,7 @@ class Display extends Component {
         let drinkArray = BarCopy[stateSide] ? BarCopy[stateSide].items.map(item => item.available ? item.name : "none").filter(element => element !== "none") : [];
         let myArray = stateSide === "back" ? this.state.array : drinkArray;
 
-        let backButton = stateSide === "back" ? "" : <CatButton onClick={this.backButtonHandler} data={side} id={"back"} type={"categories"} />;
+        let backButton = stateSide === "back" ? "" : <BackButton onClick={this.backButtonHandler} data={side} id={"back"} type={"categories"} name={this.state[side].status} />;
 
         return (
             <Wrapper>
