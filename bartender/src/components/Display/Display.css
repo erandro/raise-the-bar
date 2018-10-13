@@ -22,6 +22,10 @@ body {
     height: 600px;
 }
 
+.col-2 {
+    padding: 0;
+}
+
 @media (max-width: 768px) {
 
     body {

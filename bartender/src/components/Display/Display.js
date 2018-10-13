@@ -3,6 +3,7 @@ import "./Display.css";
 import Wrapper from "../Wrapper";
 import CatButton from "../CatButton";
 import HintButton from "../HintButton";
+import MusicButton from "../MusicButton";
 import BackButton from "../BackButton";
 import CategoryTitle from "../CategoryTitle";
 //import BarCopy from "../../BarCopy.json"
@@ -29,7 +30,8 @@ class Display extends Component {
         phase: 1,
         modal: false,
         message: "",
-        finished: false
+        finished: false,
+        music: "STOPPED"
     };
 
     componentDidUpdate() {
@@ -73,7 +75,7 @@ class Display extends Component {
 
     updateClass = (side, newClass) => {
         let element = this.state[side].drink;
-        element ? element.className = newClass : console.log("uh oh");
+        element ? element.className = newClass : console.log("Run updateClass function");
     }
 
     componentDidMount() {
@@ -244,14 +246,14 @@ class Display extends Component {
                         return;
                     }
                 })
-
                 if (itemImg) {
                     return itemImg;
                 }
-
             }
         }
     }
+
+
 
     toggle = (message) => {
         console.log("message: ", message)
@@ -275,12 +277,24 @@ class Display extends Component {
         }
         console.log("this ideally shouldn't appear");
     }
+
+
+    // changeMusicState = () => {
+    //     console.log("Boom!")
+    //     if (this.state.music === "STOPPED") {
+    //         this.setState({ music: "PLAYING" });
+    //     } else {
+    //         this.setState({ music: "STOPPED" });
+    //     }
+    // }
+
     render() {
         return (
             <Container id="background">
                 <Row>
                     <Col>
                         <h3 id="ItemCounter" style={{ textAlign: "center" }}>SCORE: {this.state.drinkCount}/80</h3>
+                        <MusicButton onClick={this.changeMusicState} playmusic={this.state.music} />
                     </Col>
                 </Row>
                 <Row>
