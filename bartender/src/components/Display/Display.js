@@ -291,7 +291,8 @@ class Display extends Component {
                     <Col xs="2">
                         <div>
                             <ModalExample dataModal={this.state.modal} toggle={this.toggle} message={this.state.message} newStuff={Phases[this.state.phase]} />
-                        </div></Col>
+                        </div>
+                    </Col>
                     <Col xs="5">
                         <div id="rightBox" className="box">
                             {this.fillBoxes("right")}

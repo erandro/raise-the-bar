@@ -21,7 +21,6 @@ class ModalExample extends React.Component {
     render() {
         return (
             <div>
-                <Button color="danger" onClick={this.props.toggle}>{this.props.buttonLabel}</Button>
                 <Modal isOpen={this.props.dataModal} toggle={this.props.toggle} className={this.props.className}>
                     {/* <ModalHeader toggle={this.props.toggle}>It's your boss!</ModalHeader> */}
                     <ModalBody>
