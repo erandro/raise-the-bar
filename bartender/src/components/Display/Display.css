@@ -1,8 +1,17 @@
-body {
-        background-image: url(https://preview.ibb.co/fWrbDp/bar-996-b.png);
-        background-repeat: no-repeat;
-    background-size: 100% 700px;  
+#background {
+    background-image: url(https://preview.ibb.co/fWrbDp/bar-996-b.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* background-position: center top;
+    background-size: contain; */
+    height: 700px;
 }
+
+/* body {
+    background-image: url(https://preview.ibb.co/fWrbDp/bar-996-b.png);
+    background-repeat: no-repeat;
+background-size: 100% 700px;  
+} */
 
 #ItemCounter {
     color: white;
@@ -22,11 +31,12 @@ body {
     height: 600px;
 }
 
+
 .col-2 {
     padding: 0;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 
     body {
         background-image: url(https://preview.ibb.co/eGkxKU/bar-1200-b.png); 
@@ -36,6 +46,20 @@ body {
 @media (max-width: 640px) {
 
     body {
+        background-image: url(https://preview.ibb.co/gHpPzU/bar-640-b.png);
+    }
+} */
+
+@media (max-width: 768px) {
+
+    #background {
+        background-image: url(https://preview.ibb.co/eGkxKU/bar-1200-b.png); 
+    }
+}
+
+@media (max-width: 640px) {
+
+    #background {
         background-image: url(https://preview.ibb.co/gHpPzU/bar-640-b.png);
     }
 }
