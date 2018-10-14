@@ -6,6 +6,77 @@ body {
 
 #ItemCounter {
     color: white;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+#titleBox {
+    /* background-color: rgb(140,104,72); */
+    height: 35px;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    margin-bottom: 2px;
+    margin-top: 5px;
+    border-radius: 3px;
+}
+#neonTitle {
+    text-shadow: 0 0 20px #ff005b;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#neonTitle:after {
+    content: attr(data-text);
+    color: #ff005b; 
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(15px);
+}
+#neonTitle:before {
+    content: '';
+    color: #ff005b;
+    background: #fe3a80;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.5;
+    filter: blur(40px);
+}
+#neonTitle:hover {
+    color: #3f061d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#neonTitle:hover:after {
+    content: attr(data-text);
+    color: rgb(0, 0, 0); 
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(15px);
+}
+#neonTitle:hover:before {
+    content: '';
+    color: #000000;
+    background: #000000;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.5;
+    filter: blur(40px);
 }
 
 #mainBox{
