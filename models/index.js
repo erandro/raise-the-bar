@@ -1,3 +1,4 @@
 module.exports = {
-    Bar: require("./bar")
+    Bar: require("./bar"),
+    Score: require("./score")
 };
