@@ -8,6 +8,7 @@ color: rgb(172, 172, 172);
 }
 .back-text {
     font-family: 'Courgette', cursive;
+    border-radius: 10px;
     background-color: white;
     position: relative;
     text-align: center;

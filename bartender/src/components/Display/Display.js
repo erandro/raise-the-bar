@@ -270,10 +270,7 @@ class Display extends Component {
         console.log("this ideally shouldn't appear");
     }
 
-    // music ***************************************************
-
     changeMusicState = () => {
-        console.log("Boom!")
         if (this.state.music === "STOPPED") {
             this.setState({ music: "PLAYING" });
         } else {
@@ -321,8 +318,9 @@ class Display extends Component {
             <Container id="background">
                 <Row>
                     <Col>
-                        <h3 id="ItemCounter" style={{ textAlign: "center" }}>SCORE: {this.state.drinkCount}/80</h3>
-                        <MusicButton className="music" changMusicState={this.changeMusicState} playmusic={this.state.music} />
+                        <div id="titleBox">
+                            <h3 id="neonTitle" data-text="[Raise_the_Bar]">[Raise_the_Bar]</h3>
+                        </div>
                     </Col>
                 </Row>
                 <Row>
@@ -333,6 +331,8 @@ class Display extends Component {
                     </Col>
                     <Col xs="2">
                         <div>
+                            <h5 id="ItemCounter" style={{ textAlign: "center" }}>SCORE: {this.state.drinkCount}/80</h5>
+                            <MusicButton className="music" changMusicState={this.changeMusicState} playmusic={this.state.music} />
                             <HintButton onClick={this.toggle} hint={this.findHint} />
                             <ModalExample dataModal={this.state.modal} toggle={this.toggle} message={this.state.message} form={this.state.form}/>
                             <FormModal dataModal={this.state.formModal} toggle={this.formToggle} points={this.state.drinkCount}/>

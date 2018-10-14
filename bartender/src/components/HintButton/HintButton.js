@@ -54,7 +54,7 @@ class HintButton extends React.Component {
     render() {
         return (
             <div id="bar">
-                <h3>{this.state.time}{this.state.hint}</h3>
+                <h6>{this.state.time}{this.state.hint}</h6>
             </div>
         );
     }
