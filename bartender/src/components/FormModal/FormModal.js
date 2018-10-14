@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label} from 'reactstrap';
-import "./ModalExample.css";
+import "./FormModal.css";
 
-class ModalExample extends React.Component {
+class FormModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,6 +11,16 @@ class ModalExample extends React.Component {
         };
 
         this.toggle = this.toggle.bind(this);
+    }
+
+    componentWillReceiveProps(){
+        if(!this.props.form){
+            this.setState({form:  <Form>
+                <FormGroup>
+                  <Label for="nameInput">Name</Label>
+                  <Input type="text" name="nameInput" id="name" />
+                </FormGroup></Form>})
+        }
     }
 
     toggle() {
@@ -25,13 +35,13 @@ class ModalExample extends React.Component {
                 <Modal isOpen={this.props.dataModal} toggle={this.props.toggle} className={this.props.className}>
                     {/* <ModalHeader toggle={this.props.toggle}>It's your boss!</ModalHeader> */}
                     <ModalBody>
-                        <div class="modalIMG">
-                            <img id="friend" src="https://pbs.twimg.com/profile_images/999334416538202112/6Y-babvf_400x400.jpg" alt="your friend" />
-                        </div>
-                        <div class="modalTextbox">
-                            <p>Edward says:</p>
-                            <p>"{this.props.message}"</p>
-                        </div>
+                        <h1>You scored {this.props.points} points!</h1>
+                        <Form>
+                            <FormGroup>
+                                <Label for="nameInput">Name</Label>
+                                <Input type="text" name="nameInput" id="name" />
+                            </FormGroup>
+                        </Form>
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary" onClick={this.props.toggle}>Okay</Button>{' '}
@@ -43,4 +53,4 @@ class ModalExample extends React.Component {
     }
 }
 
-export default ModalExample;
+export default FormModal;

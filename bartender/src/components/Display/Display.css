@@ -1,8 +1,18 @@
-body {
-        background-image: url(https://preview.ibb.co/fWrbDp/bar-996-b.png);
-        background-repeat: no-repeat;
-    background-size: 100% 700px;  
+#background {
+    background-image: url(https://preview.ibb.co/fWrbDp/bar-996-b.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* background-position: center top;
+    background-size: contain; */
+    height: 700px;
+    box-shadow:0px 0px 70px 20px rgb(0, 0, 0);
 }
+
+/* body {
+    background-image: url(https://preview.ibb.co/fWrbDp/bar-996-b.png);
+    background-repeat: no-repeat;
+background-size: 100% 700px;  
+} */
 
 #ItemCounter {
     color: white;
@@ -93,11 +103,12 @@ body {
     height: 600px;
 }
 
+
 .col-2 {
     padding: 0;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 
     body {
         background-image: url(https://preview.ibb.co/eGkxKU/bar-1200-b.png); 
@@ -109,4 +120,24 @@ body {
     body {
         background-image: url(https://preview.ibb.co/gHpPzU/bar-640-b.png);
     }
+} */
+
+@media (max-width: 768px) {
+
+    #background {
+        background-image: url(https://preview.ibb.co/eGkxKU/bar-1200-b.png); 
+    }
+}
+
+@media (max-width: 640px) {
+
+    #background {
+        background-image: url(https://preview.ibb.co/gHpPzU/bar-640-b.png);
+    }
+}
+
+body {
+    /* background-image: url("http://dalewoodumc.org/wp-content/uploads/2017/06/cropped-inspiration-ideas-black-wood-floor-texture-with-dark-brown-wood-floor-texture-oakspqxp.jpg");
+    background-color: black; */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://dalewoodumc.org/wp-content/uploads/2017/06/cropped-inspiration-ideas-black-wood-floor-texture-with-dark-brown-wood-floor-texture-oakspqxp.jpg');
 }

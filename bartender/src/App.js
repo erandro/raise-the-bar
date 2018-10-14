@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
 import Display from "./components/Display";
+import CatButton from "./components/CatButton";
+import Splash from "./pages/Splash";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-class App extends Component {
-  render() {
-    return (
-      <Display />
-    );
-  }
-}
+const App = () =>(
+  <Router>
+    <div>
+      <Switch>
+        <Route exact path="/" component={Display} />
+        <Route exact path="/button" component={Splash} />
+      </Switch>
+    </div>
+  </Router>
+);
 
 export default App;
