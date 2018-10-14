@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Splash.css";
 import axios from "axios";
+import { Container, Row, Col, Jumbotron } from 'reactstrap';
 
 class Splash extends Component {
     state = {
@@ -23,11 +24,11 @@ class Splash extends Component {
 
     render(){
        return (
-            <div>
+            <Jumbotron>
                 <h1>SPLASH</h1>
                 <a href="/">MAIN GAME</a>
                 <h1>{this.state.scores}</h1>
-            </div>
+            </Jumbotron>
        )
     }
 }
