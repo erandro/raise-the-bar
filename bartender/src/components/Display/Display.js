@@ -278,14 +278,31 @@ class Display extends Component {
         console.log("this ideally shouldn't appear");
     }
 
+    // music ***************************************************
 
-    // changeMusicState = () => {
-    //     console.log("Boom!")
-    //     if (this.state.music === "STOPPED") {
-    //         this.setState({ music: "PLAYING" });
-    //     } else {
-    //         this.setState({ music: "STOPPED" });
-    //     }
+    changeMusicState = () => {
+        console.log("Boom!")
+        if (this.state.music === "STOPPED") {
+            this.setState({ music: "PLAYING" });
+        } else {
+            this.setState({ music: "STOPPED" });
+        }
+    }
+
+    // drag ****************************************************
+
+    // allowDrop = (ev) => {
+    //     ev.preventDefault();
+    // }
+
+    // drag = (ev) => {
+    //     ev.dataTransfer.setData("text", ev.target.id);
+    // }
+
+    // drop = (ev) => {
+    //     ev.preventDefault();
+    //     var data = ev.dataTransfer.getData("text");
+    //     ev.target.appendChild(document.getElementById(data));
     // }
 
     render() {
@@ -294,7 +311,7 @@ class Display extends Component {
                 <Row>
                     <Col>
                         <h3 id="ItemCounter" style={{ textAlign: "center" }}>SCORE: {this.state.drinkCount}/80</h3>
-                        <MusicButton onClick={this.changeMusicState} playmusic={this.state.music} />
+                        <MusicButton className="music" changMusicState={this.changeMusicState} playmusic={this.state.music} />
                     </Col>
                 </Row>
                 <Row>

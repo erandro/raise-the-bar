@@ -5,7 +5,7 @@ import Sound from 'react-sound';
 
 const MusicButton = (props) => {
     return (
-        <div className="">
+        <div className="music-box">
             <Sound
                 url={Music}
                 playStatus={Sound.status[props.playmusic]}
