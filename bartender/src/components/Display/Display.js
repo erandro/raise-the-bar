@@ -12,6 +12,7 @@ import Hints from "../../Hints.json";
 import axios from "axios";
 //import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
 import ModalExample from "../ModalExample";
+import FormModal from "../FormModal";
 import { Container, Row, Col } from 'reactstrap';
 let BarCopy = {};
 
@@ -29,9 +30,10 @@ class Display extends Component {
         drinkCount: 10,
         phase: 1,
         modal: false,
+        formModal: false,
         message: "",
         finished: false,
-        music: "STOPPED"
+        music: "STOPPED",
     };
 
     componentDidUpdate() {
@@ -255,17 +257,7 @@ class Display extends Component {
 
 
 
-    toggle = (message) => {
-        console.log("message: ", message)
-        let myMessage = typeof message === "string" ? message : this.state.message;
-        console.log("my message: ", myMessage);
-        this.setState({
-            message: this.state.modal ? "" : myMessage,
-            modal: !this.state.modal
-        });
-
-    }
-
+    
     findHint = () => {
 
         let hintList = Hints[0];
@@ -305,6 +297,25 @@ class Display extends Component {
     //     ev.target.appendChild(document.getElementById(data));
     // }
 
+    toggle = (message, form) => {
+        console.log("message: ", message)
+        let myMessage = typeof message === "string" ? message : this.state.message;
+        console.log("my message: ", myMessage);
+        this.setState({
+            message: this.state.modal ? "" : myMessage,
+            modal: !this.state.modal
+        });
+
+    }
+
+    formToggle = ()=>{
+        if(!this.state.modal){
+            this.setState({
+                formModal: !this.state.formModal
+            });
+        }
+    }
+
     render() {
         return (
             <Container id="background">
@@ -323,7 +334,8 @@ class Display extends Component {
                     <Col xs="2">
                         <div>
                             <HintButton onClick={this.toggle} hint={this.findHint} />
-                            <ModalExample dataModal={this.state.modal} toggle={this.toggle} message={this.state.message} newStuff={Phases[this.state.phase]} />
+                            <ModalExample dataModal={this.state.modal} toggle={this.toggle} message={this.state.message} form={this.state.form}/>
+                            <FormModal dataModal={this.state.formModal} toggle={this.formToggle} points={this.state.drinkCount}/>
                         </div>
                     </Col>
                     <Col xs="5">
@@ -331,6 +343,11 @@ class Display extends Component {
                             {this.fillBoxes("right")}
                         </div>
                     </Col>
+                </Row>
+                <Row>
+                    <button onClick={()=>this.formToggle("form", true)}>
+                        form
+                    </button>
                 </Row>
             </Container>
         )
