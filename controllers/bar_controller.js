@@ -13,5 +13,12 @@ module.exports = {
                 res.json(dbModel)
             })
             .catch(err => res.status(422).json(err));
+    },
+    getScore: function (req, res) {
+        db.Score.find({})
+            .then(dbModel => {
+                res.json(dbModel)
+            })
+            .catch(err => res.status(422).json(err));
     }
 };
