@@ -8,11 +8,29 @@
     box-shadow:0px 0px 70px 20px rgb(0, 0, 0);
 }
 
-/* body {
-    background-image: url(https://preview.ibb.co/fWrbDp/bar-996-b.png);
-    background-repeat: no-repeat;
-background-size: 100% 700px;  
-} */
+#leaderboardBox {
+    margin: auto;
+    text-align: left;
+    color:#fff;
+    font-size: 1rem;
+    white-space: normal;
+    width: 100%;
+    margin-top: 15px;
+    padding-left: 20px;
+}
+#leaderboard {
+    margin: auto;
+    text-align: right;
+    color:#fff;
+    font-size: 1rem;
+    white-space: normal;
+    width: 100%;
+    margin-top: 15px;
+    padding-right: 20px;
+}
+#trophy {
+    color:#fff;
+}
 
 #ItemCounter {
     color: white;
