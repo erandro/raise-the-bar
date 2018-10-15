@@ -74,7 +74,7 @@ class FormModal extends React.Component {
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary" onClick={this.handleFormSubmit}>Submit</Button>{' '}
-                        <Button color="secondary" onClick={this.props.toggle}>Quit</Button>
+                        {/* <Button color="secondary" onClick={this.props.toggle}>Quit</Button> */}
                     </ModalFooter>
                 </Modal>
             </div>
