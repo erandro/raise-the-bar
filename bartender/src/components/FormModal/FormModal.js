@@ -51,7 +51,6 @@ class FormModal extends React.Component {
     render() {
         return (
             <div>
-                <Timer id="invisTimer"/>
                 <Modal size="md" isOpen={this.props.dataModal} toggle={this.props.toggle} className={this.props.className}>
                     {/* <ModalHeader toggle={this.props.toggle}>It's your boss!</ModalHeader> */}
                     <ModalBody>
