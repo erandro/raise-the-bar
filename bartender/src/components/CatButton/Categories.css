@@ -22,7 +22,7 @@ img {
 
 .shake-little {
     animation-name: shake-little;
-    animation-duration: 100ms;
+    animation-duration: 1000ms;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }

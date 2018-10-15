@@ -41,8 +41,8 @@ class Display extends Component {
     };
 
     componentDidUpdate() {
-        this.updateClass("left", "img-box shake-little");
-        this.updateClass("right", "img-box shake-little");
+        // this.updateClass("left", "shake-little");
+        // this.updateClass("right", "shake-little");
 
         console.log("this happened immediately while the modal was still open", this.state.drinkArray.length)
 
@@ -98,7 +98,7 @@ class Display extends Component {
 
     updateClass = (side, newClass) => {
         let element = this.state[side].drink;
-        element ? element.className = newClass : console.log("Run updateClass function");
+        element ? element.classList.toggle(newClass) : console.log("Run updateClass function");
     }
 
     componentDidMount() {
@@ -220,10 +220,19 @@ class Display extends Component {
             this.setState({ [side]: { drink: this.state[side].drink, status: parent.getAttribute("id") } });
         }
 
-        else if (!this.state[side].drink && !this.state[oppositeSide].drink) {
+        // else if (!this.state[side].drink && !this.state[oppositeSide].drink) {
+        //     this.setState({ [side]: { drink: parent, status: this.state[side].status } });
+        // }
+        else if (!this.state[oppositeSide].drink) {
+            this.updateClass(side, "shake-little");
+            parent.classList.toggle("shake-little");
+            //if(this.state[side].drink) this.state[side].drink.toggle("shake-little");
             this.setState({ [side]: { drink: parent, status: this.state[side].status } });
         }
         else if (!this.state[side].drink && this.state[oppositeSide].drink) {
+            //this.updateClass(side, "shake-little");
+            //parent.classList.toggle("shake-little");
+            //if(this.state[side].drink) this.state[side].drink.toggle("shake-little");
             this.checkCombination(parent.getAttribute("id"), this.state[oppositeSide].drink.getAttribute("id"));
         }
     }
