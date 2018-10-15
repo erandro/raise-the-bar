@@ -1,21 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
-#highScoreTitleBox {
+#homeTitleBox {
     /* background-color: rgb(140,104,72); */
     height: 35px;
     font-family: 'Quicksand', sans-serif;
     color: white;
-    margin-bottom: 2px;
-    margin-top: 5px;
+    margin-bottom: 100px;
+    margin-top: 100px;
     border-radius: 3px;
 }
-#highScoreTitle {
+#homeTitle {
     text-shadow: 0 0 20px #ff005b;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: 48px;
 }
-#highScoreTitle:after {
+#homeTitle:after {
     content: attr(data-text);
     color: #ff005b; 
     position: absolute;
@@ -24,7 +25,7 @@
     z-index: -1;
     filter: blur(15px);
 }
-#highScoreTitle:before {
+#homeTitle:before {
     content: '';
     color: #ff005b;
     background: #fe3a80;
@@ -37,14 +38,14 @@
     opacity: 0.5;
     filter: blur(40px);
 }
-#highScoreTitle:hover {
+#homeTitle:hover {
     color: #3f061d;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-#highScoreTitle:hover:after {
+#homeTitle:hover:after {
     content: attr(data-text);
     color: rgb(0, 0, 0); 
     position: absolute;
@@ -53,7 +54,7 @@
     z-index: -1;
     filter: blur(15px);
 }
-#highScoreTitle:hover:before {
+#homeTitle:hover:before {
     content: '';
     color: #000000;
     background: #000000;
@@ -67,12 +68,12 @@
     filter: blur(40px);
 }
 
-#gameLinkBox {
+.theLinkBox {
     font-size: 1em;
     white-space: normal;
     margin-top: 15px;
 }
-#gameLink {
+.theLink {
     color: #fff;
     font-size: 1em;
     white-space: normal;
@@ -81,15 +82,33 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-decoration: none;
 }
 
-#highScoreNamesBox{
+a {
+    color: white;
+}
+
+.lbl {
+    text-align: right;
+}
+
+.lbr {
+    text-align: left;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#homeNamesBox{
     position: absolute;
     margin-top: 50px;
     margin-left: 20px;
-    text-align: center;
 }
-.highScoreNames {
+.homeNames {
     font-family: 'Courgette', cursive;
     color: #fff;
     font-size: 1.5em;

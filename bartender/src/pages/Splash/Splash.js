@@ -48,7 +48,7 @@ class Splash extends Component {
                 <Row>
                     <Col>
                         <div id="gameLinkBox">
-                            <a id="gameLink" href="/">BACK_TO_GAME</a>
+                            <a id="gameLink" href="/">HOME</a>
                         </div>
                     </Col>
                 </Row>
