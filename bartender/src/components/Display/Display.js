@@ -19,8 +19,6 @@ import { Container, Row, Col } from 'reactstrap';
 let BarCopy = {};
 let CompletionTime = 0;
 
-
-
 class Display extends Component {
     state = {
         categories: { "juices": ["orange juice", "lemonade", "apple juice"], "low proof": ["beer"], "other": ["poison"] },
@@ -30,7 +28,7 @@ class Display extends Component {
         drinkArray: ["Vodka", "Gin", "Tequila", "Rum", "Orange Juice", "Tomato Juice", "Lemon Juice", "Coke", "Tonic", "Ginger Beer"],
         firstDrink: "",
         secondDrink: "",
-        drinkCount: 10,
+        drinkCount: 79,
         phase: 1,
         modal: false,
         modalIMG: "https://pbs.twimg.com/profile_images/999334416538202112/6Y-babvf_400x400.jpg",
@@ -48,7 +46,7 @@ class Display extends Component {
 
         console.log("this happened immediately while the modal was still open", this.state.drinkArray.length)
 
-        if(this.state.modal === false) {
+        if (this.state.modal === false) {
             this.checkForNewPhase();
         }
 
@@ -56,7 +54,7 @@ class Display extends Component {
         //         this.setState({
         //             formModal: !this.state.formModal
         //         });
-            
+
         // }
 
     }
@@ -83,7 +81,7 @@ class Display extends Component {
             this.toggle("You have proven that you know your stuff. I am hiring you as my new bartender!", "", true);
         }
 
-        
+
     }
 
     unveilNewPhase = () => {
@@ -163,7 +161,7 @@ class Display extends Component {
         if (name) {
             //alert(`You have created ${name}!`);
             this.toggle(`You made a ${name}!`, this.getImgforItem(name));
-            
+
             this.makeAvailable(name);
             this.clearBoard();
         }
@@ -300,22 +298,6 @@ class Display extends Component {
         }
     }
 
-    // drag ****************************************************
-
-    // allowDrop = (ev) => {
-    //     ev.preventDefault();
-    // }
-
-    // drag = (ev) => {
-    //     ev.dataTransfer.setData("text", ev.target.id);
-    // }
-
-    // drop = (ev) => {
-    //     ev.preventDefault();
-    //     var data = ev.dataTransfer.getData("text");
-    //     ev.target.appendChild(document.getElementById(data));
-    // }
-
     toggle = (message, img, finished) => {
 
         console.log("message: ", message)
@@ -327,25 +309,25 @@ class Display extends Component {
             form: finished ? true : this.state.form,
             finished: finished ? true : this.state.finished,
             modalIMG: img ? img : "https://pbs.twimg.com/profile_images/999334416538202112/6Y-babvf_400x400.jpg",
-            modal: !this.state.modal, 
+            modal: !this.state.modal,
         });
     }
 
-    formToggle = ()=>{
+    formToggle = () => {
         // if(!this.state.modal){
         //     this.setState({
         //         formModal: !this.state.formModal
         //     });
         // }
-        
-            this.setState({
-                modal: false,
-                formModal: !this.state.formModal
-            });
-        
+
+        this.setState({
+            modal: false,
+            formModal: !this.state.formModal
+        });
+
     }
 
-    getTime = (time) =>{
+    getTime = (time) => {
         console.log("HOG", time);
         CompletionTime = time;
     }
@@ -361,7 +343,7 @@ class Display extends Component {
                         </div>
                     </Col>
                     <Col>
-                        <Timer finished={this.state.finished} getTime={this.getTime}/>
+                        <Timer finished={this.state.finished} getTime={this.getTime} />
                     </Col>
                 </Row>
                 <Row>
@@ -375,8 +357,8 @@ class Display extends Component {
                             <h5 id="ItemCounter" style={{ textAlign: "center" }}>SCORE: {this.state.drinkCount}/80</h5>
                             <MusicButton className="music" changMusicState={this.changeMusicState} playmusic={this.state.music} />
                             <HintButton onClick={this.toggle} hint={this.findHint} />
-                            <ModalExample dataModal={this.state.modal} toggle={this.toggle} altToggle={this.formToggle} message={this.state.message} img={this.state.modalIMG} form={this.state.form}/>
-                            <FormModal dataModal={this.state.formModal} toggle={this.formToggle} points={this.state.drinkCount} time={CompletionTime}/>
+                            <ModalExample dataModal={this.state.modal} toggle={this.toggle} altToggle={this.formToggle} message={this.state.message} img={this.state.modalIMG} form={this.state.form} />
+                            <FormModal dataModal={this.state.formModal} toggle={this.formToggle} points={this.state.drinkCount} time={CompletionTime} />
                         </div>
                     </Col>
                     <Col xs="5">

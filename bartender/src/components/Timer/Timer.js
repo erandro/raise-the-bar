@@ -8,11 +8,9 @@ class Timer extends React.Component {
         this.state = {
             seconds: 0,
             minutes: 0,
-            realSeconds : 0,
+            realSeconds: 0,
             intervalID: ""
         };
-
-
     }
 
     countUp = () => {
@@ -23,11 +21,10 @@ class Timer extends React.Component {
             minutes: seconds === 59 ? minutes + 1 : minutes,
             realSeconds: this.state.realSeconds + 1
         });
-        
     }
 
-    componentDidUpdate(){
-        if(this.props.finished) {
+    componentDidUpdate() {
+        if (this.props.finished) {
             clearInterval(this.state.intervalID);
             this.props.getTime(this.state.realSeconds);
         }
@@ -44,7 +41,7 @@ class Timer extends React.Component {
 
     render() {
         return (
-            <div id="bar">
+            <div id="timerId">
                 <h6>
                     {this.state.minutes < 10 ? 0 : ""}{this.state.minutes}
                     :{this.state.seconds < 10 ? 0 : ""}{this.state.seconds}

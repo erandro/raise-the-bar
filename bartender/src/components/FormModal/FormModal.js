@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label} from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label } from 'reactstrap';
 import "./FormModal.css";
 import API from "../../utils/API"
 import Timer from "../Timer";
@@ -24,7 +24,7 @@ class FormModal extends React.Component {
     handleInputChange = event => {
         event.preventDefault();
         const { name, value } = event.target;
-        if(value.length <= 3){
+        if (value.length <= 3) {
             this.setState({
                 [name]: value.toUpperCase()
             });
@@ -38,11 +38,11 @@ class FormModal extends React.Component {
                 name: this.state.nameInput,
                 points: this.props.time
             })
-            .then(res =>
-                window.location.pathname = '/button'
-            )
+                .then(res =>
+                    window.location.pathname = '/highscores'
+                )
         }
-    
+
         this.setState({
             nameInput: ""
         });
@@ -61,9 +61,9 @@ class FormModal extends React.Component {
                         </h5>
                         <Form>
                             <FormGroup>
-                                
-                                <Input 
-                                    type="text" 
+
+                                <Input
+                                    type="text"
                                     name="nameInput"
                                     id="nameInput"
                                     value={this.state.nameInput}
