@@ -1,0 +1,15 @@
+#bar {
+    margin: auto;
+    text-align: center;
+    color:#fff;
+    font-size: .6em;
+    white-space: normal;
+    width: 100%;
+}
+
+#hintButton {
+    background-color: #6c757d;
+    color:#fff;
+    font-size: .6em;
+    white-space: normal;
+}

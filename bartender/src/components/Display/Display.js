@@ -3,6 +3,7 @@ import "./Display.css";
 import Wrapper from "../Wrapper";
 import CatButton from "../CatButton";
 import HintButton from "../HintButton";
+import Timer from "../Timer";
 import MusicButton from "../MusicButton";
 import BackButton from "../BackButton";
 import CategoryTitle from "../CategoryTitle";
@@ -16,6 +17,7 @@ import FormModal from "../FormModal";
 import API from "../../utils/API"
 import { Container, Row, Col } from 'reactstrap';
 let BarCopy = {};
+let CompletionTime = 0;
 
 
 
@@ -36,6 +38,8 @@ class Display extends Component {
         message: "",
         finished: false,
         music: "STOPPED",
+        form: false,
+        time: 0
     };
 
     componentDidUpdate() {
@@ -48,10 +52,16 @@ class Display extends Component {
             this.checkForNewPhase();
         }
 
+        // if(this.state.finished && !this.state.modal) {
+        //         this.setState({
+        //             formModal: !this.state.formModal
+        //         });
+            
+        // }
+
     }
 
     checkForNewPhase = () => {
-        console.log("ass hole this ran")
         switch (this.state.drinkCount) {
             case 15:
             case 20:
@@ -69,9 +79,11 @@ class Display extends Component {
         }
 
         if (this.state.drinkCount === 80 && !this.state.finished) {
-            this.setState({ finished: true })
-            this.toggle("You have proven that you know your stuff. I am hiring you as my new bartender!");
+            //this.setState({ finished: true })
+            this.toggle("You have proven that you know your stuff. I am hiring you as my new bartender!", "", true);
         }
+
+        
     }
 
     unveilNewPhase = () => {
@@ -268,9 +280,6 @@ class Display extends Component {
         }
     }
 
-
-
-    
     findHint = () => {
 
         let hintList = Hints[0];
@@ -307,9 +316,7 @@ class Display extends Component {
     //     ev.target.appendChild(document.getElementById(data));
     // }
 
-    toggle = (message, img) => {
-
-        //if(message === "check") this.checkForNewPhase();
+    toggle = (message, img, finished) => {
 
         console.log("message: ", message)
         let myMessage = typeof message === "string" ? message : this.state.message;
@@ -317,28 +324,44 @@ class Display extends Component {
         console.log("my image: ", img)
         this.setState({
             message: this.state.modal ? "" : myMessage,
+            form: finished ? true : this.state.form,
+            finished: finished ? true : this.state.finished,
             modalIMG: img ? img : "https://pbs.twimg.com/profile_images/999334416538202112/6Y-babvf_400x400.jpg",
-            modal: !this.state.modal
+            modal: !this.state.modal, 
         });
-        console.log("butt hole this ran, modal = ", this.state.modal)
     }
 
     formToggle = ()=>{
-        if(!this.state.modal){
+        // if(!this.state.modal){
+        //     this.setState({
+        //         formModal: !this.state.formModal
+        //     });
+        // }
+        
             this.setState({
+                modal: false,
                 formModal: !this.state.formModal
             });
-        }
+        
+    }
+
+    getTime = (time) =>{
+        console.log("HOG", time);
+        CompletionTime = time;
     }
 
     render() {
         return (
             <Container id="background">
                 <Row>
+                    <Col></Col>
                     <Col>
                         <div id="titleBox">
                             <h3 id="neonTitle" data-text="[Raise_the_Bar]">[Raise_the_Bar]</h3>
                         </div>
+                    </Col>
+                    <Col>
+                        <Timer finished={this.state.finished} getTime={this.getTime}/>
                     </Col>
                 </Row>
                 <Row>
@@ -352,8 +375,8 @@ class Display extends Component {
                             <h5 id="ItemCounter" style={{ textAlign: "center" }}>SCORE: {this.state.drinkCount}/80</h5>
                             <MusicButton className="music" changMusicState={this.changeMusicState} playmusic={this.state.music} />
                             <HintButton onClick={this.toggle} hint={this.findHint} />
-                            <ModalExample dataModal={this.state.modal} toggle={this.toggle} message={this.state.message} img={this.state.modalIMG}/>
-                            <FormModal dataModal={this.state.formModal} toggle={this.formToggle} points={this.state.drinkCount}/>
+                            <ModalExample dataModal={this.state.modal} toggle={this.toggle} altToggle={this.formToggle} message={this.state.message} img={this.state.modalIMG} form={this.state.form}/>
+                            <FormModal dataModal={this.state.formModal} toggle={this.formToggle} points={this.state.drinkCount} time={CompletionTime}/>
                         </div>
                     </Col>
                     <Col xs="5">
@@ -362,11 +385,11 @@ class Display extends Component {
                         </div>
                     </Col>
                 </Row>
-                <Row>
-                    <button onClick={()=>this.formToggle("form", true)}>
+                {/* <Row>
+                    <button onClick={()=>this.formToggle()}>
                         form
                     </button>
-                </Row>
+                </Row> */}
             </Container>
         )
     }
