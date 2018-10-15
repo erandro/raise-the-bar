@@ -13,6 +13,7 @@ import axios from "axios";
 //import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
 import ModalExample from "../ModalExample";
 import FormModal from "../FormModal";
+import API from "../../utils/API"
 import { Container, Row, Col } from 'reactstrap';
 let BarCopy = {};
 
@@ -105,7 +106,7 @@ class Display extends Component {
     }
 
     setDB = () => {
-        axios.get("/api/bar/")
+        API.getBar()
             .then(res =>
                 this.recreateJson(res.data)
             )
