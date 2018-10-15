@@ -7,15 +7,20 @@ class ModalExample extends React.Component {
         super(props);
         this.state = {
             modal: false,
-            img: this.props.img
+            img: this.props.img,
+            form: this.props.form
         };
 
         this.toggle = this.toggle.bind(this);
     }
 
     componentDidMount(){
-        console.log("PUSSY", this.state)
+        console.log("PUSSY", this.state);
     }
+
+    // componentDidUpdate(){
+    //     this.setState({form : this.props.form})
+    // }
 
     toggle() {
         this.setState({
@@ -38,8 +43,8 @@ class ModalExample extends React.Component {
                         </div>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={this.props.toggle}>Okay</Button>{' '}
-                        <Button color="secondary" onClick={this.props.toggle}>Cool</Button>
+                        <Button color="primary" onClick={this.props.form ? this.props.altToggle : this.props.toggle}>Okay</Button>{' '}
+                        {/* <Button color="secondary" onClick={this.props.altToggle}>Cool</Button> */}
                     </ModalFooter>
                 </Modal>
             </div>
