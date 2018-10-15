@@ -16,7 +16,22 @@ class Splash extends Component {
         axios.get("/api/bar/score/")
             .then(res => {
                 console.log(res.data);
-                this.setState({ scores: res.data.map(element => <div>{element.name}: {element.points} points</div>) })
+                let allScores = res.data;
+                function swap(A, i, j) {
+                    let temp = A[i];
+                    A[i] = A[j];
+                    A[j] = temp;
+                }
+                for (let i = 0; i < allScores.length; i++) {
+                    let bestscore = allScores[0].points;
+                    for (let j = i + 1; j < allScores.length; j++) {
+                        if (allScores[i].points > allScores[j].points) {
+                            bestscore = allScores[j];
+                            swap(allScores, i, j)
+                        }
+                    }
+                }
+                this.setState({ scores: res.data.map(element => <div>{element.name}: {element.points} seconds</div>) })
             }
             )
             .catch(err => console.log(err));;

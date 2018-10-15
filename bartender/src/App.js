@@ -5,12 +5,12 @@ import CatButton from "./components/CatButton";
 import Splash from "./pages/Splash";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-const App = () =>(
+const App = () => (
   <Router>
     <div>
       <Switch>
         <Route exact path="/" component={Display} />
-        <Route exact path="/button" component={Splash} />
+        <Route exact path="/highscores" component={Splash} />
       </Switch>
     </div>
   </Router>
