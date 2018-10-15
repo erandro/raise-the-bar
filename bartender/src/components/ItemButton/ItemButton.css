@@ -1,0 +1,69 @@
+.img-box{
+    height: 96px;
+    width: 80px;
+    margin: 15px 5px 0 5px;
+}
+
+.bottom-center-text {
+    font-family: 'Courgette', cursive;
+    background-color: white;
+    position: relative;
+    text-align: center;
+    bottom: 23px;
+    color: black;
+    line-height: 1.2;
+    font-size: .9em;
+}
+
+img {
+    height: 96px;
+    width: 80px;
+}
+
+.shake-little {
+    animation-name: shake-little;
+    animation-duration: 100ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+    .img-box{
+        height: 72px;
+        width: 60px;
+        margin: 15px 2px 0 2px;
+    }
+    img {
+        height: 72px;
+        width: 60px;
+    }
+    .bottom-center-text {
+        position: relative;
+        text-align: center;
+        bottom: 16px;
+        font-size: .8em;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .img-box{
+        height: 72px;
+        width: 60px;
+        margin: 16px 2px 0 2px;
+    }
+    img {
+        height: 72px;
+        width: 60px;
+    }
+    .bottom-center-text {
+        position: relative;
+        text-align: center;
+        bottom: 16px;
+        font-size: .8em;
+    }
+}
