@@ -345,7 +345,11 @@ class Display extends Component {
         return (
             <Container id="background">
                 <Row>
-                    <Col></Col>
+                    <Col>
+                        <div id="leaderboardBox">
+                            <a id="leaderboard" href="/highscores"><i id="trophy" class="fas fa-trophy"></i></a>
+                        </div>
+                    </Col>
                     <Col>
                         <div id="titleBox">
                             <h3 id="neonTitle" data-text="[Raise_the_Bar]">[Raise_the_Bar]</h3>
