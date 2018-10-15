@@ -31,6 +31,7 @@ class Display extends Component {
         drinkCount: 10,
         phase: 1,
         modal: false,
+        modalIMG: "https://pbs.twimg.com/profile_images/999334416538202112/6Y-babvf_400x400.jpg",
         formModal: false,
         message: "",
         finished: false,
@@ -41,6 +42,16 @@ class Display extends Component {
         this.updateClass("left", "img-box shake-little");
         this.updateClass("right", "img-box shake-little");
 
+        console.log("this happened immediately while the modal was still open", this.state.drinkArray.length)
+
+        if(this.state.modal === false) {
+            this.checkForNewPhase();
+        }
+
+    }
+
+    checkForNewPhase = () => {
+        console.log("ass hole this ran")
         switch (this.state.drinkCount) {
             case 15:
             case 20:
@@ -61,7 +72,6 @@ class Display extends Component {
             this.setState({ finished: true })
             this.toggle("You have proven that you know your stuff. I am hiring you as my new bartender!");
         }
-
     }
 
     unveilNewPhase = () => {
@@ -139,7 +149,9 @@ class Display extends Component {
             });
         }
         if (name) {
-            alert(`You have created ${name}!`);
+            //alert(`You have created ${name}!`);
+            this.toggle(`You made a ${name}!`, this.getImgforItem(name));
+            
             this.makeAvailable(name);
             this.clearBoard();
         }
@@ -295,15 +307,20 @@ class Display extends Component {
     //     ev.target.appendChild(document.getElementById(data));
     // }
 
-    toggle = (message, form) => {
+    toggle = (message, img) => {
+
+        //if(message === "check") this.checkForNewPhase();
+
         console.log("message: ", message)
         let myMessage = typeof message === "string" ? message : this.state.message;
         console.log("my message: ", myMessage);
+        console.log("my image: ", img)
         this.setState({
             message: this.state.modal ? "" : myMessage,
+            modalIMG: img ? img : "https://pbs.twimg.com/profile_images/999334416538202112/6Y-babvf_400x400.jpg",
             modal: !this.state.modal
         });
-
+        console.log("butt hole this ran, modal = ", this.state.modal)
     }
 
     formToggle = ()=>{
@@ -335,7 +352,7 @@ class Display extends Component {
                             <h5 id="ItemCounter" style={{ textAlign: "center" }}>SCORE: {this.state.drinkCount}/80</h5>
                             <MusicButton className="music" changMusicState={this.changeMusicState} playmusic={this.state.music} />
                             <HintButton onClick={this.toggle} hint={this.findHint} />
-                            <ModalExample dataModal={this.state.modal} toggle={this.toggle} message={this.state.message} form={this.state.form}/>
+                            <ModalExample dataModal={this.state.modal} toggle={this.toggle} message={this.state.message} img={this.state.modalIMG}/>
                             <FormModal dataModal={this.state.formModal} toggle={this.formToggle} points={this.state.drinkCount}/>
                         </div>
                     </Col>
