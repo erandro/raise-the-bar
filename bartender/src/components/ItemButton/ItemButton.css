@@ -15,7 +15,7 @@
     font-size: .9em;
 }
 
-img {
+.ItemImg {
     height: 96px;
     width: 80px;
 }
@@ -37,7 +37,7 @@ img {
         width: 60px;
         margin: 15px 2px 0 2px;
     }
-    img {
+    .ItemImg {
         height: 72px;
         width: 60px;
     }
@@ -56,7 +56,7 @@ img {
         width: 60px;
         margin: 16px 2px 0 2px;
     }
-    img {
+    .ItemImg {
         height: 72px;
         width: 60px;
     }
