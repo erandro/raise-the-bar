@@ -9,6 +9,7 @@
         "start:dev": "concurrently \"nodemon --ignore 'bartender/*'\" \"npm run bartender\"",
         "bartender": "cd bartender && npm run start",
         "seed": "node scripts/seedDB.js",
+        "seedScore": "node scripts/seedScore.js",
         "install": "cd bartender && yarn install",
         "build": "cd bartender && npm run build",
         "heroku-postbuild": "npm run build"
