@@ -9,16 +9,16 @@ mongoose.connect(
 
 const scoreSeed = [
     {
-        "name": "ABC",
-        "points": 55
+        "name": "DJT",
+        "points": 1695
     },
     {
-        "name": "GFH",
-        "points": 14
+        "name": "NCS",
+        "points": 1908
     },
     {
-        "name": "BFG",
-        "points": 70
+        "name": "AAM",
+        "points": 2040
     },
 
 ];

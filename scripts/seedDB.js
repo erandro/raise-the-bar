@@ -57,7 +57,6 @@ const barSeed = [
                 "category": "Base Spirits",
                 "available": true,
                 "mixed_items": {
-                    "Bitters": "Old Fashioned",
                     "Coke": "Cuba Libre",
                     "Coco Colada": "Piña Colada",
                     "Sour": "Daiquiri",
@@ -74,6 +73,7 @@ const barSeed = [
                     "Sour": "Whiskey Sour",
                     "Soda": "Whiskey Soda",
                     "Coke": "Whiskey Coke",
+                    "Bitters": "Old Fashioned",
                     "Sweet Vermouth": "Manhattan"
                 }
             },
@@ -83,7 +83,6 @@ const barSeed = [
                 "category": "Base Spirits",
                 "available": false,
                 "mixed_items": {
-                    "Bitters": "Old Fashioned",
                     "Soda": "Whiskey Soda",
                     "Coke": "Whiskey Coke",
                     "Sweet Vermouth": "Rob Roy"
@@ -248,7 +247,7 @@ const barSeed = [
                 "category": "Flavoring Liquids",
                 "available": false,
                 "mixed_items": {
-                    "Rum": "Old Fashioned",
+                    "Bourbon": "Old Fashioned",
                     "Gin": "Pegu Club"
                 }
             },
