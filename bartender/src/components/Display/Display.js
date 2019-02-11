@@ -20,25 +20,28 @@ let BarCopy = {};
 let CompletionTime = 0;
 
 class Display extends Component {
-    state = {
-        categories: { "juices": ["orange juice", "lemonade", "apple juice"], "low proof": ["beer"], "other": ["poison"] },
-        left: { status: "categories", drink: "" },
-        right: { status: "categories", drink: "" },
-        array: [],
-        drinkArray: ["Vodka", "Gin", "Tequila", "Rum", "Orange Juice", "Tomato Juice", "Lemon Juice", "Coke", "Tonic", "Ginger Beer"],
-        firstDrink: "",
-        secondDrink: "",
-        drinkCount: 10,
-        phase: 1,
-        modal: false,
-        modalIMG: "https://pbs.twimg.com/profile_images/999334416538202112/6Y-babvf_400x400.jpg",
-        formModal: false,
-        message: "",
-        finished: false,
-        music: "STOPPED",
-        form: false,
-        time: 0
-    };
+    constructor() {
+        super();
+        this.state = {
+            categories: { "juices": ["orange juice", "lemonade", "apple juice"], "low proof": ["beer"], "other": ["poison"] },
+            left: { status: "back", drink: "" },
+            right: { status: "back", drink: "" },
+            array: [],
+            drinkArray: ["Vodka", "Gin", "Tequila", "Rum", "Orange Juice", "Tomato Juice", "Lemon Juice", "Coke", "Tonic", "Ginger Beer"],
+            firstDrink: "",
+            secondDrink: "",
+            drinkCount: 10,
+            phase: 1,
+            modal: false,
+            modalIMG: "https://pbs.twimg.com/profile_images/999334416538202112/6Y-babvf_400x400.jpg",
+            formModal: false,
+            message: "",
+            finished: false,
+            music: "STOPPED",
+            form: false,
+            time: 0
+        };
+    }
 
     componentDidUpdate() {
         // this.updateClass("left", "shake-little");
@@ -98,31 +101,13 @@ class Display extends Component {
 
     updateClass = (side, newClass) => {
         let element = this.state[side].drink;
-        element ? element.classList.toggle(newClass) : console.log("Run updateClass function");
+        //console.log(element.classList.toggle(newClass))
+        element ? element.lastChild.classList.toggle(newClass) : console.log("Run updateClass function");
     }
 
     componentDidMount() {
         this.toggle("So you'd like to be a bartender? Prove that you know your stuff by mixing some drinks!");
-
         this.setDB();
-
-        // document.addEventListener('DOMContentLoaded', function () {
-        //     let alert = document.getElementById("alert");
-        //     var m = new Modal('#yo', {
-        //         backdrop: true
-        //     });
-        //     document.getElementById('btn-open').addEventListener('click', function () {
-        //         m.show();
-        //     });
-        // });
-
-        // console.log(BarCopy);
-        // let testCatArray = []
-        // for (var cat in BarCopy) {
-        //     if (BarCopy[cat].available) testCatArray.push(cat);
-        // }
-        // console.log(testCatArray);
-        // this.setState({ left: { status: "back" }, right: { status: "back" }, array: testCatArray });
     }
 
     setDB = () => {
@@ -206,33 +191,32 @@ class Display extends Component {
 
     firstClickHandler = event => {
         event.preventDefault();
-
         let parent = event.target.parentElement;
-
         let type = parent.getAttribute("type") || this.state.firstDrink;
-        console.log(parent, type);
-
         const side = parent.getAttribute("data");
-
         let oppositeSide = side === "left" ? "right" : "left";
+        console.log("firstClickHandler function:");
+        console.log("parent", parent, "type", type, "side", side, "oppositeSide", oppositeSide);
 
+        // when catagory is clicked - it's set the catagory name to "status" on "side" (left or right)
+        // it doesn't set "drink" (undefined) 
         if (this.state[side].status === "back") {
-            this.setState({ [side]: { drink: this.state[side].drink, status: parent.getAttribute("id") } });
-        }
-
-        // else if (!this.state[side].drink && !this.state[oppositeSide].drink) {
-        //     this.setState({ [side]: { drink: parent, status: this.state[side].status } });
-        // }
-        else if (!this.state[oppositeSide].drink) {
+            this.setState({
+                [side]: { drink: this.state[side].drink, status: parent.getAttribute("id") }
+            }, () => console.log("new state for", side, "side", this.state[side])
+            );
+            // when the opposite side wasn't clicked - it's set the "drink" to clicked item on "side"
+            // and add a "shake" effect
+        } else if (!this.state[oppositeSide].drink) {
             this.updateClass(side, "shake-little");
-            parent.classList.toggle("shake-little");
-            //if(this.state[side].drink) this.state[side].drink.toggle("shake-little");
-            this.setState({ [side]: { drink: parent, status: this.state[side].status } });
-        }
-        else if (!this.state[side].drink && this.state[oppositeSide].drink) {
-            //this.updateClass(side, "shake-little");
-            //parent.classList.toggle("shake-little");
-            //if(this.state[side].drink) this.state[side].drink.toggle("shake-little");
+            parent.lastChild.classList.toggle("shake-little");
+            this.setState({
+                [side]: { drink: parent, status: this.state[side].status }
+            }, () => console.log("new state for", side, "side", this.state[side])
+            );
+            // when the opposite side was clicked before, and now this side is clicked
+            // ren "checkCombination" function
+        } else if (!this.state[side].drink && this.state[oppositeSide].drink) {
             this.checkCombination(parent.getAttribute("id"), this.state[oppositeSide].drink.getAttribute("id"));
         }
     }
@@ -347,7 +331,7 @@ class Display extends Component {
                 <Row>
                     <Col>
                         <div id="leaderboardBox">
-                            <a id="leaderboard" href="/highscores"><i id="trophy" class="fas fa-trophy"></i></a>
+                            <a id="leaderboard" href="/highscores"><i id="trophy" className="fas fa-trophy"></i></a>
                         </div>
                     </Col>
                     <Col>
@@ -380,11 +364,6 @@ class Display extends Component {
                         </div>
                     </Col>
                 </Row>
-                {/* <Row>
-                    <button onClick={()=>this.formToggle()}>
-                        form
-                    </button>
-                </Row> */}
             </Container>
         )
     }
