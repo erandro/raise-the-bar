@@ -99,12 +99,6 @@ class Display extends Component {
         this.setState({ drinkArray: [...this.state.drinkArray, ...phase2Items], drinkCount: this.state.drinkCount + phase2Items.length, phase: this.state.phase + 1 })
     }
 
-    updateClass = (side, newClass) => {
-        let element = this.state[side].drink;
-        //console.log(element.classList.toggle(newClass))
-        element ? element.lastChild.classList.toggle(newClass) : console.log("Run updateClass function");
-    }
-
     componentDidMount() {
         this.toggle("So you'd like to be a bartender? Prove that you know your stuff by mixing some drinks!");
         this.setDB();
@@ -188,34 +182,52 @@ class Display extends Component {
         this.setState({ left: { status: "back", drink: "" }, right: { status: "back", drink: "" }, firstDrink: "", secondDrink: "" });
     }
 
+    // updateClass = (side, newClass, newDrink) => {
+    //     if (this.state[side].drink) {
+    //         let stateDrink = this.state[side].drink.getAttribute("type")
+    //         if (newDrink !== stateDrink) {
+    //             let element = this.state[side].drink;
+    //             element ? element.lastChild.classList.toggle(newClass) : console.log("Run updateClass function");
+    //         }
+    //     }
+    // }
 
-    firstClickHandler = event => {
+    gameClickHandler = event => {
         event.preventDefault();
         let parent = event.target.parentElement;
-        let type = parent.getAttribute("type") || this.state.firstDrink;
+        let newDrink = parent.getAttribute("type") || this.state.firstDrink;
         const side = parent.getAttribute("data");
         let oppositeSide = side === "left" ? "right" : "left";
-        console.log("firstClickHandler function:");
-        console.log("parent", parent, "type", type, "side", side, "oppositeSide", oppositeSide);
 
-        // when catagory is clicked - it's set the catagory name to "status" on "side" (left or right)
-        // it doesn't set "drink" (undefined) 
+        // Catagory click 
         if (this.state[side].status === "back") {
             this.setState({
                 [side]: { drink: this.state[side].drink, status: parent.getAttribute("id") }
             }, () => console.log("new state for", side, "side", this.state[side])
             );
-            // when the opposite side wasn't clicked - it's set the "drink" to clicked item on "side"
-            // and add a "shake" effect
+
+            // First drink click
         } else if (!this.state[oppositeSide].drink) {
-            this.updateClass(side, "shake-little");
             parent.lastChild.classList.toggle("shake-little");
-            this.setState({
-                [side]: { drink: parent, status: this.state[side].status }
-            }, () => console.log("new state for", side, "side", this.state[side])
-            );
-            // when the opposite side was clicked before, and now this side is clicked
-            // ren "checkCombination" function
+            if (this.state[side].drink) {
+                let stateDrink = this.state[side].drink.getAttribute("type")
+                if (newDrink === stateDrink) {
+                    this.setState({
+                        [side]: { drink: "", status: this.state[side].status }
+                    });
+                } else {
+                    this.state[side].drink.lastChild.classList.toggle("shake-little");
+                    this.setState({
+                        [side]: { drink: parent, status: this.state[side].status }
+                    });
+                }
+            } else {
+                this.setState({
+                    [side]: { drink: parent, status: this.state[side].status }
+                });
+            }
+
+            // Second drink click
         } else if (!this.state[side].drink && this.state[oppositeSide].drink) {
             this.checkCombination(parent.getAttribute("id"), this.state[oppositeSide].drink.getAttribute("id"));
         }
@@ -244,7 +256,7 @@ class Display extends Component {
                     (item) => {
                         let itemImg = this.getImgforItem(item)
                         return (
-                            <CatButton onClick={this.firstClickHandler} data={side} key={item} id={item} type={item} img={itemImg} />
+                            <CatButton onClick={this.gameClickHandler} data={side} key={item} id={item} type={item} img={itemImg} />
                         )
                     }
                 )}
