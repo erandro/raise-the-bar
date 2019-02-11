@@ -307,12 +307,6 @@ class Display extends Component {
     }
 
     formToggle = () => {
-        // if(!this.state.modal){
-        //     this.setState({
-        //         formModal: !this.state.formModal
-        //     });
-        // }
-
         this.setState({
             modal: false,
             formModal: !this.state.formModal
