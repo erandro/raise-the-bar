@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Modal, ModalBody, ModalFooter, Form, FormGroup, Input } from 'reactstrap';
 import "./FormModal.css";
 import API from "../../utils/API"
-import Timer from "../Timer";
+// import Timer from "../Timer";
 
 class FormModal extends React.Component {
     constructor(props) {

@@ -7,15 +7,17 @@ import Timer from "../Timer";
 import MusicButton from "../MusicButton";
 import BackButton from "../BackButton";
 import CategoryTitle from "../CategoryTitle";
-//import BarCopy from "../../BarCopy.json"
 import Phases from "../../Phases.json";
 import Hints from "../../Hints.json";
-import axios from "axios";
-//import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
+//import axios from "axios";
 import ModalExample from "../ModalExample";
 import FormModal from "../FormModal";
-import API from "../../utils/API"
-import { Container, Row, Col } from 'reactstrap';
+//import API from "../../utils/API"
+import { Container, Row, Col } from "reactstrap";
+import { fetchBar } from "../../actions/game.js";
+//import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
+import { connect } from "react-redux";
+//import BarCopy from "../../BarCopy.json"
 let BarCopy = {};
 let CompletionTime = 0;
 
@@ -23,13 +25,10 @@ class Display extends Component {
     constructor() {
         super();
         this.state = {
-            categories: { "juices": ["orange juice", "lemonade", "apple juice"], "low proof": ["beer"], "other": ["poison"] },
             left: { status: "back", drink: "" },
             right: { status: "back", drink: "" },
             array: [],
             drinkArray: ["Vodka", "Gin", "Tequila", "Rum", "Orange Juice", "Tomato Juice", "Lemon Juice", "Coke", "Tonic", "Ginger Beer"],
-            firstDrink: "",
-            secondDrink: "",
             drinkCount: 10,
             phase: 1,
             modal: false,
@@ -44,22 +43,15 @@ class Display extends Component {
     }
 
     componentDidUpdate() {
-        // this.updateClass("left", "shake-little");
-        // this.updateClass("right", "shake-little");
-
-        console.log("this happened immediately while the modal was still open", this.state.drinkArray.length)
-
+        console.log("##Display## componentDidUpdate drinkArray length:", this.state.drinkArray.length)
         if (this.state.modal === false) {
             this.checkForNewPhase();
         }
-
         // if(this.state.finished && !this.state.modal) {
         //         this.setState({
         //             formModal: !this.state.formModal
         //         });
-
         // }
-
     }
 
     checkForNewPhase = () => {
@@ -71,32 +63,25 @@ class Display extends Component {
             case 45:
             case 55:
             case 65:
-
                 this.unveilNewPhase();
                 break;
-
             default:
                 break;
         }
 
         if (this.state.drinkCount === 80 && !this.state.finished) {
-            //this.setState({ finished: true })
             this.toggle("You have proven that you know your stuff. I am hiring you as my new bartender!", "", true);
         }
-
-
     }
 
     unveilNewPhase = () => {
-        //let phase2Items = ["Scotch", "Bourbon", "Sour", "Bitters"];
-        let phase2Items = Phases[this.state.phase];
-        //alert("you did good, here's some more ingredients haha");
+        let phaseItems = Phases[this.state.phase];
         this.toggle(`You're doing great! Since you've proved yourself capable, I'll now allow you to use ${Phases[this.state.phase].join(" and ")}!`);
-        phase2Items.forEach(item => {
+        phaseItems.forEach(item => {
             this.makeAvailable(item, true);
         });
 
-        this.setState({ drinkArray: [...this.state.drinkArray, ...phase2Items], drinkCount: this.state.drinkCount + phase2Items.length, phase: this.state.phase + 1 })
+        this.setState({ drinkArray: [...this.state.drinkArray, ...phaseItems], drinkCount: this.state.drinkCount + phaseItems.length, phase: this.state.phase + 1 })
     }
 
     componentDidMount() {
@@ -105,28 +90,26 @@ class Display extends Component {
     }
 
     setDB = () => {
-        API.getBar()
-            .then(res =>
-                this.recreateJson(res.data)
-            )
-            .catch(err => console.log(err));;
+        this.props.dispatchFetchBar();
+        console.log("##Display## work god dammit")
+        //this.setState(data);
     }
 
-    recreateJson = (data) => {
-        let protoBar = {}
-        data.forEach(element => {
-            protoBar[element.name] = element;
-        });
-        console.log("protobar: ", protoBar);
-        BarCopy = protoBar;
-        console.log(BarCopy);
-        let testCatArray = []
-        for (var cat in BarCopy) {
-            if (BarCopy[cat].available) testCatArray.push(cat);
-        }
-        console.log(testCatArray);
-        this.setState({ left: { status: "back" }, right: { status: "back" }, array: testCatArray });
-    }
+    // recreateJson = (data) => {
+    //     let protoBar = {}
+    //     data.forEach(element => {
+    //         protoBar[element.name] = element;
+    //     });
+    //     console.log("protobar: ", protoBar);
+    //     BarCopy = protoBar;
+    //     console.log(BarCopy);
+    //     let testCatArray = []
+    //     for (var cat in BarCopy) {
+    //         if (BarCopy[cat].available) testCatArray.push(cat);
+    //     }
+    //     console.log(testCatArray);
+    //     this.setState({ left: { status: "back" }, right: { status: "back" }, array: testCatArray });
+    // }
 
     checkCombination = (item1, item2) => {
         let name = "";
@@ -148,7 +131,7 @@ class Display extends Component {
             //alert(`Not a Drink!`)
             this.toggle("that's not a drink");
         }
-        console.log("the checker ran", item1, item2)
+        console.log("##Display## checker ran", item1, item2)
     }
 
     makeAvailable = (name, isPhaseChange) => {
@@ -172,30 +155,23 @@ class Display extends Component {
     }
 
     updateDrinksArray = drink => {
-        console.log("drink: ", drink)
+        console.log("##Display## drink: ", drink)
         if (!this.state.drinkArray.includes(drink)) {
             this.setState({ drinkArray: [...this.state.drinkArray, drink], drinkCount: this.state.drinkCount + 1 })
         }
     }
 
     clearBoard = () => {
-        this.setState({ left: { status: "back", drink: "" }, right: { status: "back", drink: "" }, firstDrink: "", secondDrink: "" });
+        this.setState({
+            left: { status: "back", drink: "" },
+            right: { status: "back", drink: "" },
+        });
     }
-
-    // updateClass = (side, newClass, newDrink) => {
-    //     if (this.state[side].drink) {
-    //         let stateDrink = this.state[side].drink.getAttribute("type")
-    //         if (newDrink !== stateDrink) {
-    //             let element = this.state[side].drink;
-    //             element ? element.lastChild.classList.toggle(newClass) : console.log("Run updateClass function");
-    //         }
-    //     }
-    // }
 
     gameClickHandler = event => {
         event.preventDefault();
         let parent = event.target.parentElement;
-        let newDrink = parent.getAttribute("type") || this.state.firstDrink;
+        let newDrink = parent.getAttribute("type"); // || this.state.firstDrink;
         const side = parent.getAttribute("data");
         let oppositeSide = side === "left" ? "right" : "left";
 
@@ -203,7 +179,7 @@ class Display extends Component {
         if (this.state[side].status === "back") {
             this.setState({
                 [side]: { drink: this.state[side].drink, status: parent.getAttribute("id") }
-            }, () => console.log("new state for", side, "side", this.state[side])
+            }, () => console.log("##Display## new state for", side, "side", this.state[side])
             );
 
             // First drink click
@@ -292,7 +268,7 @@ class Display extends Component {
                 return this.toggle(`Try making a ${hintList[i]}`);
             }
         }
-        console.log("this ideally shouldn't appear");
+        console.log("##Display## this ideally shouldn't appear");
     }
 
     changeMusicState = () => {
@@ -305,10 +281,10 @@ class Display extends Component {
 
     toggle = (message, img, finished) => {
 
-        console.log("message: ", message)
+        console.log("##Display## message: ", message)
         let myMessage = typeof message === "string" ? message : this.state.message;
-        console.log("my message: ", myMessage);
-        console.log("my image: ", img)
+        console.log("##Display## my message: ", myMessage);
+        console.log("##Display## my image: ", img)
         this.setState({
             message: this.state.modal ? "" : myMessage,
             form: finished ? true : this.state.form,
@@ -327,7 +303,7 @@ class Display extends Component {
     }
 
     getTime = (time) => {
-        console.log("HOG", time);
+        console.log("##Display## HOG", time);
         CompletionTime = time;
     }
 
@@ -375,4 +351,15 @@ class Display extends Component {
     }
 }
 
-export default Display;
+const mapStateToProps = (state, ownProps) => {
+    return state
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        dispatchFetchBar: () => {
+            dispatch(fetchBar());
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Display);

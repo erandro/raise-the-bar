@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button } from 'reactstrap';
 import "./HintButton.css";
 
 class HintButton extends React.Component {
@@ -17,7 +17,7 @@ class HintButton extends React.Component {
     clickListener = () => {
         // this.props.onClick("Look within your heart of hearts and you will find the path to greatness.");
         let innerHint = this.props.hint();
-        console.log("inner hint: ", innerHint);
+        console.log("##HintButton## inner hint: ", innerHint);
         this.startTimer();
     }
 

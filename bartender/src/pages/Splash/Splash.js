@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Splash.css";
 import axios from "axios";
-import { Container, Row, Col, Jumbotron } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
 class Splash extends Component {
     state = {
@@ -15,7 +15,7 @@ class Splash extends Component {
     setDB = () => {
         axios.get("/api/bar/score/")
             .then(res => {
-                console.log(res.data);
+                console.log("##Splash##", res.data);
                 let allScores = res.data;
                 function swap(A, i, j) {
                     let temp = A[i];

@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Home.css";
-import axios from "axios";
-import { Container, Row, Col, Jumbotron } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import yes_drink from "./yes_drink.gif";
 import no_drink from "./no_drink.gif";
 import more_drink from "./more_drink.gif";

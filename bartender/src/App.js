@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import Display from "./components/Display";
-import CatButton from "./components/CatButton";
 import Splash from "./pages/Splash";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";

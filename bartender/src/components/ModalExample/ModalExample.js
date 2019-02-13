@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label} from 'reactstrap';
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import "./ModalExample.css";
 
 class ModalExample extends React.Component {
@@ -14,8 +14,8 @@ class ModalExample extends React.Component {
         this.toggle = this.toggle.bind(this);
     }
 
-    componentDidMount(){
-        console.log("PUSSY", this.state);
+    componentDidMount() {
+        console.log("##ModalExample##", this.state);
     }
 
     // componentDidUpdate(){
