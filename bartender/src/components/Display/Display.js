@@ -93,6 +93,7 @@ class Display extends Component {
         this.props.dispatchFetchBar();
         console.log("##Display## work god dammit");
 
+        // this API call is here till Redux is fixed
         API.getBar()
             .then(res =>
                 this.recreateJson(res.data)
@@ -176,7 +177,7 @@ class Display extends Component {
     gameClickHandler = event => {
         event.preventDefault();
         let parent = event.target.parentElement;
-        let newDrink = parent.getAttribute("type"); // || this.state.firstDrink;
+        let newDrink = parent.getAttribute("id"); // || this.state.firstDrink;
         const side = parent.getAttribute("data");
         let oppositeSide = side === "left" ? "right" : "left";
 
@@ -191,7 +192,7 @@ class Display extends Component {
         } else if (!this.state[oppositeSide].drink) {
             parent.lastChild.classList.toggle("shake-little");
             if (this.state[side].drink) {
-                let stateDrink = this.state[side].drink.getAttribute("type")
+                let stateDrink = this.state[side].drink.getAttribute("id")
                 if (newDrink === stateDrink) {
                     this.setState({
                         [side]: { drink: "", status: this.state[side].status }
@@ -228,7 +229,21 @@ class Display extends Component {
         let drinkArray = BarCopy[stateSide] ? BarCopy[stateSide].items.map(item => item.available ? item.name : "none").filter(element => element !== "none") : [];
         let myArray = stateSide === "back" ? this.state.array : drinkArray;
 
-        let backButton = stateSide === "back" ? <CategoryTitle onClick={this.backButtonHandler} data={side} id={"back"} type={"Categories"} name={"categories"} /> : <BackButton onClick={this.backButtonHandler} data={side} id={"back"} type={"categories"} name={this.state[side].status} />;
+        let backButton = stateSide === "back" ?
+            <CategoryTitle
+                onClick={this.backButtonHandler}
+                data={side}
+                id={"back"}
+                //type={"Categories"}
+                name={"categories"}
+            /> :
+            <BackButton
+                onClick={this.backButtonHandler}
+                data={side}
+                id={"back"}
+                //type={"categories"}
+                name={this.state[side].status}
+            />;
 
         return (
             <Wrapper>
@@ -237,7 +252,13 @@ class Display extends Component {
                     (item) => {
                         let itemImg = this.getImgforItem(item)
                         return (
-                            <CatButton onClick={this.gameClickHandler} data={side} key={item} id={item} type={item} img={itemImg} />
+                            <CatButton
+                                onClick={this.gameClickHandler}
+                                data={side}
+                                key={item}
+                                id={item}
+                                img={itemImg}
+                            />
                         )
                     }
                 )}
