@@ -118,35 +118,25 @@ class Display extends Component {
         this.setState({ left: { status: "back" }, right: { status: "back" }, array: testCatArray });
     }
 
-    // compareDrinks = (drinksArray, drinkOne, drinkTwo, name) => {
-    //     drinksArray.forEach(element => {
-    //         if (element.name === drinkOne) {
-    //             if (element.mixed_items[drinkTwo]) return element.mixed_items[drinkTwo];
-    //         }
-    //     });
-    // }
-
-    checkCombination = (item1, item2) => {
+    checkCombination = (item1Catagory, item1, item2) => {
+        let categoryDrinks = BarCopy[item1Catagory].items;
         let name = "";
-        for (var category in BarCopy) {
-            //name = this.compareDrinks(BarCopy[category].items, item1, item2, name)
-            BarCopy[category].items.forEach(element => {
-                if (element.name === item1) {
-                    if (element.mixed_items[item2]) name = element.mixed_items[item2];
+        for (let item in categoryDrinks) {
+            if (categoryDrinks[item].name === item1) {
+                if (categoryDrinks[item].mixed_items[item2]) {
+                    name = categoryDrinks[item].mixed_items[item2];
                 }
-            });
+                break;
+            }
         }
         if (name) {
             this.toggle(`You made a ${name}!`, this.getImgforItem(name));
-
             this.makeAvailable(name);
             this.clearBoard();
         }
         else {
-            //alert(`Not a Drink!`)
             this.toggle("that's not a drink");
         }
-        console.log("##Display## checker ran", item1, item2)
     }
 
     makeAvailable = (name, isPhaseChange) => {
@@ -220,7 +210,7 @@ class Display extends Component {
 
             // Second drink click
         } else if (!this.state[side].drink && this.state[oppositeSide].drink) {
-            this.checkCombination(parent.getAttribute("id"), this.state[oppositeSide].drink.getAttribute("id"));
+            this.checkCombination(this.state[side].status, parent.getAttribute("id"), this.state[oppositeSide].drink.getAttribute("id"));
         }
     }
 
