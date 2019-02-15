@@ -12,7 +12,7 @@ import Hints from "../../Hints.json";
 //import axios from "axios";
 import ModalExample from "../ModalExample";
 import FormModal from "../FormModal";
-//import API from "../../utils/API"
+import API from "../../utils/API"
 import { Container, Row, Col } from "reactstrap";
 import { fetchBar } from "../../actions/game.js";
 //import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
@@ -91,29 +91,45 @@ class Display extends Component {
 
     setDB = () => {
         this.props.dispatchFetchBar();
-        console.log("##Display## work god dammit")
+        console.log("##Display## work god dammit");
+
+        API.getBar()
+            .then(res =>
+                this.recreateJson(res.data)
+            )
+            .catch(err => console.log(err));;
+
         //this.setState(data);
     }
 
-    // recreateJson = (data) => {
-    //     let protoBar = {}
-    //     data.forEach(element => {
-    //         protoBar[element.name] = element;
+    recreateJson = (data) => {
+        let protoBar = {}
+        data.forEach(element => {
+            protoBar[element.name] = element;
+        });
+        console.log("protobar: ", protoBar);
+        BarCopy = protoBar;
+        console.log(BarCopy);
+        let testCatArray = []
+        for (var cat in BarCopy) {
+            if (BarCopy[cat].available) testCatArray.push(cat);
+        }
+        console.log(testCatArray);
+        this.setState({ left: { status: "back" }, right: { status: "back" }, array: testCatArray });
+    }
+
+    // compareDrinks = (drinksArray, drinkOne, drinkTwo, name) => {
+    //     drinksArray.forEach(element => {
+    //         if (element.name === drinkOne) {
+    //             if (element.mixed_items[drinkTwo]) return element.mixed_items[drinkTwo];
+    //         }
     //     });
-    //     console.log("protobar: ", protoBar);
-    //     BarCopy = protoBar;
-    //     console.log(BarCopy);
-    //     let testCatArray = []
-    //     for (var cat in BarCopy) {
-    //         if (BarCopy[cat].available) testCatArray.push(cat);
-    //     }
-    //     console.log(testCatArray);
-    //     this.setState({ left: { status: "back" }, right: { status: "back" }, array: testCatArray });
     // }
 
     checkCombination = (item1, item2) => {
         let name = "";
         for (var category in BarCopy) {
+            //name = this.compareDrinks(BarCopy[category].items, item1, item2, name)
             BarCopy[category].items.forEach(element => {
                 if (element.name === item1) {
                     if (element.mixed_items[item2]) name = element.mixed_items[item2];
@@ -121,7 +137,6 @@ class Display extends Component {
             });
         }
         if (name) {
-            //alert(`You have created ${name}!`);
             this.toggle(`You made a ${name}!`, this.getImgforItem(name));
 
             this.makeAvailable(name);
@@ -240,12 +255,25 @@ class Display extends Component {
         );
     }
 
+    // findNewImg = (drinksArray, drinkName, drinkImage) => {
+    //     drinksArray.forEach(element => {
+    //         if (element.name === drinkName) {
+    //             drinkImage = element.img;
+    //             return;
+    //         }
+    //     })
+    //     if (drinkImage) {
+    //         return drinkImage;
+    //     }
+    // }
+
     getImgforItem = (name) => {
         if (BarCopy[name]) {
             return BarCopy[name].img
         } else {
             let itemImg = undefined;
             for (var category in BarCopy) {
+                //this.findNewImg(BarCopy[category].items, name, itemImg);
                 BarCopy[category].items.forEach(element => {
                     if (element.name === name) {
                         itemImg = element.img;

@@ -18,7 +18,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case "GAME_RECIVE_BAR":
-            return { ...state, ...recreateJson(action.payload) };
+            return { ...state, array: recreateJson(action.payload) };
         default:
             return state;
     }
