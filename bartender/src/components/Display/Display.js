@@ -131,8 +131,8 @@ class Display extends Component {
             }
         }
         if (name) {
-            this.toggle(`You made a ${name}!`, this.getImgforItem(name));
             this.makeAvailable(name);
+            this.toggle(`You made a ${name}!`, this.getImgforItem(name));
             this.clearBoard();
         }
         else {
@@ -147,8 +147,9 @@ class Display extends Component {
                     element.available = true;
                     this.makeCategoryAvailable(element.category);
                     if (!isPhaseChange) this.updateDrinksArray(element.name);
-                    return element.name;
+                    return element.category;
                 }
+
             });
         }
     }
@@ -265,36 +266,32 @@ class Display extends Component {
             </Wrapper>
         );
     }
-
-    // findNewImg = (drinksArray, drinkName, drinkImage) => {
-    //     drinksArray.forEach(element => {
-    //         if (element.name === drinkName) {
-    //             drinkImage = element.img;
-    //             return;
-    //         }
-    //     })
-    //     if (drinkImage) {
-    //         return drinkImage;
-    //     }
-    // }
+    findImg = (itemArray, drinkName) => {
+        itemArray.forEach(drink => {
+            if (drink.name === drinkName) {
+                return drink.img;
+            }
+        })
+    }
 
     getImgforItem = (name) => {
         if (BarCopy[name]) {
             return BarCopy[name].img
         } else {
-            let itemImg = undefined;
-            for (var category in BarCopy) {
-                //this.findNewImg(BarCopy[category].items, name, itemImg);
-                BarCopy[category].items.forEach(element => {
-                    if (element.name === name) {
-                        itemImg = element.img;
-                        return;
-                    }
-                })
-                if (itemImg) {
-                    return itemImg;
-                }
+            let itemImg;
+            for (let category in BarCopy) {
+                itemImg = this.findImg(BarCopy[category].items, name);
             }
+            // let categories = this.state.array;
+            // categories.forEach(category => {
+            //     BarCopy[category].items.forEach(drink => {
+            //         if (drink.name === name) {
+            //             itemImg = drink.img;
+            //             return;
+            //         }
+            //     })
+            // })
+            return itemImg;
         }
     }
 
