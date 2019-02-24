@@ -90,8 +90,8 @@ class Display extends Component {
     }
 
     setDB = () => {
-        this.props.dispatchFetchBar();
-        console.log("##Display## work god dammit");
+        //this.props.dispatchFetchBar();
+        //console.log("##Display## work god dammit");
 
         // this API call is here till Redux is fixed
         API.getBar()

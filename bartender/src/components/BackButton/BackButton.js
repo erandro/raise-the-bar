@@ -5,7 +5,7 @@ const BackButton = (props) => {
     return (
         <div {...props} className="back-box">
             <div id={props.id} className="back-text">
-                <i class="fas fa-step-backward"></i> {props.name}
+                <i className="fas fa-step-backward"></i> {props.name}
             </div>
         </div>
     )

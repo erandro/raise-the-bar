@@ -16,13 +16,13 @@ const Home = () => {
             <Row>
                 <Col xs="3">
                     <div className="theLinkBox lbl">
-                        <a className="theLink lbl" href="/game">[ <i id="whiteGlass" class="fas fa-glass-martini-alt"></i> ]</a>
+                        <a className="theLink lbl" href="/game">[ <i id="whiteGlass" className="fas fa-glass-martini-alt"></i> ]</a>
                     </div>
                 </Col>
                 <Col xs="6" id="homeMiddleText">Click the Martini to PLAY or Trophy to see Leaderboard</Col >
                 <Col xs="3">
                     <div className="theLinkBox lbr">
-                        <a className="theLink lbr" href="/highscores">[ <i id="whiteTrophy" class="fas fa-trophy"></i> ]</a>
+                        <a className="theLink lbr" href="/highscores">[ <i id="whiteTrophy" className="fas fa-trophy"></i> ]</a>
                     </div>
                 </Col>
             </Row>
