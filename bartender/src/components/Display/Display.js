@@ -17,13 +17,14 @@ import { Container, Row, Col } from "reactstrap";
 import { fetchBar } from "../../actions/game.js";
 //import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
 import { connect } from "react-redux";
+import { set } from "mongoose";
 //import BarCopy from "../../BarCopy.json"
 let BarCopy = {};
 let CompletionTime = 0;
 
 class Display extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             left: { status: "back", drink: "" },
             right: { status: "back", drink: "" },
@@ -90,15 +91,15 @@ class Display extends Component {
     }
 
     setDB = () => {
-        //this.props.dispatchFetchBar();
-        //console.log("##Display## work god dammit");
+        this.props.dispatchFetchBar();
 
         // this API call is here till Redux is fixed
-        API.getBar()
-            .then(res =>
-                this.recreateJson(res.data)
-            )
-            .catch(err => console.log(err));;
+        // API.getBar()
+        //     .then(res =>
+        //         this.recreateJson(res.data)
+        //     )
+        //     .catch(err => console.log(err));;
+        // the err should be showen to the user (module)
 
         //this.setState(data);
     }
@@ -344,6 +345,7 @@ class Display extends Component {
     }
 
     render() {
+        //console.log("+++++++++++++", this.props)
         return (
             <Container id="background">
                 <Row>
@@ -388,7 +390,7 @@ class Display extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return state
+    return { array: state.array }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

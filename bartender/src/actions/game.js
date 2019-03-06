@@ -1,8 +1,9 @@
 import API from "../utils/API.js";
 
-export const requestBar = () => {
+export const requestBar = (json) => {
     return {
         type: "GAME_REQUEST_BAR",
+        payload: json
     }
 }
 
@@ -15,7 +16,7 @@ export const reciveBar = (json) => {
 
 export const fetchBar = () => {
     return function (dispatch) {
-        dispatch(requestBar());
+        // dispatch(requestBar());
         API.getBar()
             .then(
                 response => {
