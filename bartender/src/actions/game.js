@@ -14,18 +14,23 @@ export const reciveBar = (json) => {
     }
 }
 
+
+export let barDataCache = {};
 export const fetchBar = () => {
     return function (dispatch) {
-        // dispatch(requestBar());
-        API.getBar()
-            .then(
-                response => {
-                    console.log("###game action###", response)
-                    dispatch(reciveBar(response.data))
-                }
-            ).catch(function (error) {
-                console.log("error", error)
-            })
-
+        if (Object.keys(barDataCache).length !== 0) {
+            dispatch(barDataCache);
+        } else {
+            API.getBar()
+                .then(
+                    response => {
+                        barDataCache = response.data;
+                        console.log("game.js (action) response:", response)
+                        dispatch(reciveBar(response.data))
+                    }
+                ).catch(function (error) {
+                    console.log("game.js (action) error:", error)
+                })
+        }
     }
 }

@@ -34,7 +34,7 @@ const recreateJson = (data) => {
     for (var cat in BarCopy) {
         if (BarCopy[cat].available) testCatArray.push(cat);
     }
-    console.log("###game reducer###", testCatArray);
+    console.log("game.js (reducer) reduced array:", testCatArray);
     return testCatArray;
 }
 

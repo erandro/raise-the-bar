@@ -14,7 +14,7 @@ import ModalExample from "../ModalExample";
 import FormModal from "../FormModal";
 import API from "../../utils/API"
 import { Container, Row, Col } from "reactstrap";
-import { fetchBar } from "../../actions/game.js";
+import { fetchBar, barDataCache } from "../../actions/game.js";
 //import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
 import { connect } from "react-redux";
 import { set } from "mongoose";
@@ -44,7 +44,7 @@ class Display extends Component {
     }
 
     componentDidUpdate() {
-        console.log("##Display## componentDidUpdate drinkArray length:", this.state.drinkArray.length)
+        console.log("Display.js componentDidUpdate drinkArray length:", this.state.drinkArray.length)
         if (this.state.modal === false) {
             this.checkForNewPhase();
         }
@@ -101,69 +101,71 @@ class Display extends Component {
         //     .catch(err => console.log(err));;
         // the err should be showen to the user (module)
 
-        //this.setState(data);
+        //this.setState({ array: this.props.array });;
     }
 
-    recreateJson = (data) => {
-        let protoBar = {}
-        data.forEach(element => {
-            protoBar[element.name] = element;
-        });
-        console.log("protobar: ", protoBar);
-        BarCopy = protoBar;
-        console.log(BarCopy);
-        let testCatArray = []
-        for (var cat in BarCopy) {
-            if (BarCopy[cat].available) testCatArray.push(cat);
-        }
-        console.log(testCatArray);
-        this.setState({ left: { status: "back" }, right: { status: "back" }, array: testCatArray });
-    }
+    // recreateJson = (data) => {
+    //     let protoBar = {}
+    //     data.forEach(element => {
+    //         protoBar[element.name] = element;
+    //     });
+    //     console.log("protobar: ", protoBar);
+    //     BarCopy = protoBar;
+    //     console.log(BarCopy);
+    //     let testCatArray = []
+    //     for (var cat in BarCopy) {
+    //         if (BarCopy[cat].available) testCatArray.push(cat);
+    //     }
+    //     console.log(testCatArray);
+    //     this.setState({ left: { status: "back" }, right: { status: "back" }, array: testCatArray });
+    // }
 
     checkCombination = (item1Catagory, item1, item2) => {
-        let categoryDrinks = BarCopy[item1Catagory].items;
-        let name = "";
-        for (let item in categoryDrinks) {
-            if (categoryDrinks[item].name === item1) {
-                if (categoryDrinks[item].mixed_items[item2]) {
-                    name = categoryDrinks[item].mixed_items[item2];
+        (fetchBar())((barData) => {
+            let categoryDrinks = barData[item1Catagory].items;
+            let name = "";
+            for (let item in categoryDrinks) {
+                if (categoryDrinks[item].name === item1) {
+                    if (categoryDrinks[item].mixed_items[item2]) {
+                        name = categoryDrinks[item].mixed_items[item2];
+                    }
+                    break;
                 }
-                break;
             }
-        }
-        if (name) {
-            this.makeAvailable(name);
-            this.toggle(`You made a ${name}!`, this.getImgforItem(name));
-            this.clearBoard();
-        }
-        else {
-            this.toggle("that's not a drink");
-        }
+            if (name) {
+                this.makeAvailable(name);
+                this.toggle(`You made a ${name}!`, this.getImgforItem(name));
+                this.clearBoard();
+            }
+            else {
+                this.toggle("that's not a drink");
+            }
+        });
     }
 
     makeAvailable = (name, isPhaseChange) => {
-        for (var category in BarCopy) {
-            BarCopy[category].items.forEach(element => {
-                if (element.name === name) {
-                    element.available = true;
-                    this.makeCategoryAvailable(element.category);
-                    if (!isPhaseChange) this.updateDrinksArray(element.name);
-                    return element.category;
-                }
-
-            });
-        }
+        (fetchBar())((barData) => {
+            for (var category in barData) {
+                barData[category].items.forEach(element => {
+                    if (element.name === name) {
+                        element.available = true;
+                        this.makeCategoryAvailable(element.category);
+                        if (!isPhaseChange) this.updateDrinksArray(element.name);
+                    }
+                });
+            }
+        });
     }
 
     makeCategoryAvailable = category => {
-        BarCopy[category].available = true;
-        if (!this.state.array.includes(category)) {
-            this.setState({ array: [...this.state.array, category] });
+        barDataCache[category].available = true;
+        if (!this.props.storeState.array.includes(category)) {
+            this.setState({ array: [...this.props.storeState.array, category] });
         }
     }
 
     updateDrinksArray = drink => {
-        console.log("##Display## drink: ", drink)
+        console.log("Display.js updateDrinksArray drink: ", drink)
         if (!this.state.drinkArray.includes(drink)) {
             this.setState({ drinkArray: [...this.state.drinkArray, drink], drinkCount: this.state.drinkCount + 1 })
         }
@@ -187,7 +189,7 @@ class Display extends Component {
         if (this.state[side].status === "back") {
             this.setState({
                 [side]: { drink: this.state[side].drink, status: parent.getAttribute("id") }
-            }, () => console.log("##Display## new state for", side, "side", this.state[side])
+            }, () => console.log("Display.js new state for", side, "side:", this.state[side])
             );
 
             // First drink click
@@ -225,25 +227,33 @@ class Display extends Component {
     }
 
     fillBoxes = (side) => {
-
+        if (barDataCache == null) {
+            return null;
+        }
         const stateSide = this.state[side].status;
 
-        let drinkArray = BarCopy[stateSide] ? BarCopy[stateSide].items.map(item => item.available ? item.name : "none").filter(element => element !== "none") : [];
-        let myArray = stateSide === "back" ? this.state.array : drinkArray;
+        let drinkArray = [];
+        for (var cat in barDataCache) {
+            if (barDataCache[cat].name === stateSide) {
+                drinkArray = barDataCache[cat].items.map(item => item.available ? item.name : "none").filter(element => element !== "none")
+            }
+        }
+
+        let myArray = stateSide === "back" ?
+            this.props.storeState.array :
+            drinkArray;
 
         let backButton = stateSide === "back" ?
             <CategoryTitle
                 onClick={this.backButtonHandler}
                 data={side}
                 id={"back"}
-                //type={"Categories"}
                 name={"categories"}
             /> :
             <BackButton
                 onClick={this.backButtonHandler}
                 data={side}
                 id={"back"}
-                //type={"categories"}
                 name={this.state[side].status}
             />;
 
@@ -255,7 +265,7 @@ class Display extends Component {
                         let itemImg = this.getImgforItem(item)
                         return (
                             <CatButton
-                                onClick={this.gameClickHandler}
+                                onClick={this.gameClickHandler.bind(this)}
                                 data={side}
                                 key={item}
                                 id={item}
@@ -267,32 +277,19 @@ class Display extends Component {
             </Wrapper>
         );
     }
+
     findImg = (itemArray, drinkName) => {
-        itemArray.forEach(drink => {
-            if (drink.name === drinkName) {
-                return drink.img;
-            }
-        })
+        for (let drink in itemArray) {
+            if (itemArray[drink].name === drinkName) return itemArray[drink].img;
+        }
+        return "drink is not in category";
     }
 
     getImgforItem = (name) => {
-        if (BarCopy[name]) {
-            return BarCopy[name].img
-        } else {
-            let itemImg;
-            for (let category in BarCopy) {
-                itemImg = this.findImg(BarCopy[category].items, name);
-            }
-            // let categories = this.state.array;
-            // categories.forEach(category => {
-            //     BarCopy[category].items.forEach(drink => {
-            //         if (drink.name === name) {
-            //             itemImg = drink.img;
-            //             return;
-            //         }
-            //     })
-            // })
-            return itemImg;
+        for (let category in barDataCache) {
+            if (barDataCache[category].name === name) return barDataCache[category].img;
+            let itemImg = this.findImg(barDataCache[category].items, name);
+            if (itemImg != "drink is not in category") return itemImg;
         }
     }
 
@@ -305,7 +302,6 @@ class Display extends Component {
                 return this.toggle(`Try making a ${hintList[i]}`);
             }
         }
-        console.log("##Display## this ideally shouldn't appear");
     }
 
     changeMusicState = () => {
@@ -318,10 +314,7 @@ class Display extends Component {
 
     toggle = (message, img, finished) => {
 
-        console.log("##Display## message: ", message)
         let myMessage = typeof message === "string" ? message : this.state.message;
-        console.log("##Display## my message: ", myMessage);
-        console.log("##Display## my image: ", img)
         this.setState({
             message: this.state.modal ? "" : myMessage,
             form: finished ? true : this.state.form,
@@ -340,12 +333,11 @@ class Display extends Component {
     }
 
     getTime = (time) => {
-        console.log("##Display## HOG", time);
         CompletionTime = time;
     }
 
     render() {
-        //console.log("+++++++++++++", this.props)
+        console.log("Display.js render() this.props:", this.props.storeState)
         return (
             <Container id="background">
                 <Row>
@@ -390,7 +382,8 @@ class Display extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return { array: state.array }
+    console.log("Display.js mapStateToProps:", state.game.array)
+    return { storeState: state.game }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -401,3 +394,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Display);
+
+// const connector = connect(mapStateToProps, mapDispatchToProps);
+// const YouFirstComponent = connector(Display);
+// const OtherConnectedComponent = connector(OtherComponent);
