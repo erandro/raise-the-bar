@@ -121,26 +121,27 @@ class Display extends Component {
     // }
 
     checkCombination = (item1Catagory, item1, item2) => {
-        (fetchBar())((barData) => {
-            let categoryDrinks = barData[item1Catagory].items;
-            let name = "";
-            for (let item in categoryDrinks) {
-                if (categoryDrinks[item].name === item1) {
-                    if (categoryDrinks[item].mixed_items[item2]) {
-                        name = categoryDrinks[item].mixed_items[item2];
-                    }
-                    break;
-                }
+        let categoryDrinks;
+        for (let catagory in barDataCache) {
+            if (barDataCache[catagory].name === item1Catagory) categoryDrinks = barDataCache[catagory].items;
+        }
+
+        let name = "";
+        for (let item in categoryDrinks) {
+            if (categoryDrinks[item].name === item1 && categoryDrinks[item].mixed_items[item2]) {
+                name = categoryDrinks[item].mixed_items[item2];
+                break;
             }
-            if (name) {
-                this.makeAvailable(name);
-                this.toggle(`You made a ${name}!`, this.getImgforItem(name));
-                this.clearBoard();
-            }
-            else {
-                this.toggle("that's not a drink");
-            }
-        });
+        }
+        console.log("name", name)
+        if (name) {
+            this.makeAvailable(name);
+            this.toggle(`You made a ${name}!`, this.getImgforItem(name));
+            this.clearBoard();
+        }
+        else {
+            this.toggle("that's not a drink");
+        };
     }
 
     makeAvailable = (name, isPhaseChange) => {
