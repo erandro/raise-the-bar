@@ -12,12 +12,13 @@ import Hints from "../../Hints.json";
 //import axios from "axios";
 import ModalExample from "../ModalExample";
 import FormModal from "../FormModal";
-import API from "../../utils/API"
+//import API from "../../utils/API"
 import { Container, Row, Col } from "reactstrap";
 import { fetchBar, barDataCache } from "../../actions/game.js";
+//import { categoryAdd } from "../../actions/categoryAdd.js";
 //import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
 import { connect } from "react-redux";
-import { set } from "mongoose";
+//import { set } from "mongoose";
 //import BarCopy from "../../BarCopy.json"
 let BarCopy = {};
 let CompletionTime = 0;
@@ -133,7 +134,6 @@ class Display extends Component {
                 break;
             }
         }
-        console.log("name", name)
         if (name) {
             this.makeAvailable(name);
             this.toggle(`You made a ${name}!`, this.getImgforItem(name));
@@ -158,10 +158,16 @@ class Display extends Component {
         });
     }
 
-    makeCategoryAvailable = category => {
-        barDataCache[category].available = true;
-        if (!this.props.storeState.array.includes(category)) {
-            this.setState({ array: [...this.props.storeState.array, category] });
+    makeCategoryAvailable = categoryName => {
+        for (let category in barDataCache) {
+            if (barDataCache[category] === categoryName) {
+                barDataCache[category].available = true;
+                break;
+            }
+        }
+        if (!this.props.storeState.array.includes(categoryName)) {
+            this.props.categoryAdd(categoryName);
+            //this.setState({ array: [...this.props.storeState.array, categoryName] });
         }
     }
 
