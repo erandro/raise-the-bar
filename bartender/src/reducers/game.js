@@ -15,7 +15,7 @@ const initialState = {
     form: false,
 }
 
-const reducer = (state = initialState, action) => {
+const gameReducer = (state = initialState, action) => {
     switch (action.type) {
         case "GAME_RECIVE_BAR":
             return { ...state, array: recreateJson(action.payload) };
@@ -23,7 +23,6 @@ const reducer = (state = initialState, action) => {
             return state;
     }
 }
-
 const recreateJson = (data) => {
     let protoBar = {}
     data.forEach(element => {
@@ -34,8 +33,18 @@ const recreateJson = (data) => {
     for (var cat in BarCopy) {
         if (BarCopy[cat].available) testCatArray.push(cat);
     }
-    console.log("game.js (reducer) reduced array:", testCatArray);
+    console.log("game.js (gameReducer) reduced array:", testCatArray);
     return testCatArray;
 }
 
-export default reducer;
+export const addCategoryReducer = (state = initialState, action) => {
+    debugger;
+    switch (action.type) {
+        case "CATEGORY_ADD":
+            return { ...state, array: [...state.array, action.payload] };
+        default:
+            return state;
+    }
+}
+
+export default gameReducer;

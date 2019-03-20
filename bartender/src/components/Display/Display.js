@@ -15,12 +15,12 @@ import FormModal from "../FormModal";
 //import API from "../../utils/API"
 import { Container, Row, Col } from "reactstrap";
 import { fetchBar, barDataCache } from "../../actions/game.js";
-//import { categoryAdd } from "../../actions/categoryAdd.js";
+import { addCategory } from "../../actions/addCategory.js";
 //import { Modal, ModalHeader, ModalFooter, Button, ModalBody } from 'reactstrap';
 import { connect } from "react-redux";
 //import { set } from "mongoose";
 //import BarCopy from "../../BarCopy.json"
-let BarCopy = {};
+//let BarCopy = {};
 let CompletionTime = 0;
 
 class Display extends Component {
@@ -166,7 +166,7 @@ class Display extends Component {
             }
         }
         if (!this.props.storeState.array.includes(categoryName)) {
-            this.props.categoryAdd(categoryName);
+            this.props.dispatchAddCatagory(categoryName);
             //this.setState({ array: [...this.props.storeState.array, categoryName] });
         }
     }
@@ -390,14 +390,16 @@ class Display extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     console.log("Display.js mapStateToProps:", state.game.array)
-    return { storeState: state.game }
+    return {
+        storeState: state.game,
+        //storeCategory
+    }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        dispatchFetchBar: () => {
-            dispatch(fetchBar());
-        }
+        dispatchFetchBar: () => { dispatch(fetchBar()) },
+        dispatchAddCatagory: (categoryName) => { dispatch(addCategory(categoryName)) },
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Display);

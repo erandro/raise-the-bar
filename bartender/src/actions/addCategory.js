@@ -1,4 +1,4 @@
-export const categoryAdd = (category) => {
+export const addCategory = (category) => {
     return {
         type: "CATEGORY_ADD",
         payload: category
